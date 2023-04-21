@@ -134,14 +134,18 @@ export default function Home() {
 
       {loading ? <></> : json.length ? "listo!" : "cargando excel..."}
 
-      <select
-        onChange={(e) => handleSelectChangeYear(e)}
-        style={{ marginLeft: 15 }}
-      >
-        <option value={""}>year</option>
-        <option value={"2022"}>2022</option>
-        <option value={"2023"}>2023</option>
-      </select>
+      {json.length ? (
+        <select
+          onChange={(e) => handleSelectChangeYear(e)}
+          style={{ marginLeft: 15 }}
+        >
+          <option value={""}>year</option>
+          <option value={"2022"}>2022</option>
+          <option value={"2023"}>2023</option>
+        </select>
+      ) : (
+        <></>
+      )}
       {year && (
         <select onChange={(e) => handleSelectChangeMonth(e)}>
           <option value={""}>month</option>
@@ -162,9 +166,11 @@ export default function Home() {
           ))}
         </select>
       )}
-      <section style={{ width: 1000, height: 800 }}>
-        <Line data={myData} />
-      </section>
+      {day && (
+        <section style={{ width: 1000, height: 800 }}>
+          <Line data={myData} />
+        </section>
+      )}
     </div>
   );
 }
