@@ -1,4 +1,3 @@
-import React from "react";
 import RegisterDisplay from "./RegisterDisplay";
 
 export default function Register() {
