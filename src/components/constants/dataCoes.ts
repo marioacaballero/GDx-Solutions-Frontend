@@ -1,1 +1,3 @@
-export const DataCoes = "http://localhost:3000/data";
+export const DataCoes = (routes: string) => {
+  return `https://gdxbackend.onrender.com/${routes}`;
+};

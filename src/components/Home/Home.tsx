@@ -3,10 +3,11 @@ import { days, months } from "../constants/schedule";
 import { LineGraph } from "../LineGraph/LineGraph";
 import { Diario, Ejecutado, Semanal } from "../constants/initialStates";
 import { DataCoes } from "../constants/dataCoes";
+// import DataTable from "../Table/Table";
 
 export default function Home() {
   useEffect(() => {
-    fetch(DataCoes)
+    fetch(DataCoes("data"))
       .then((res) => res.json())
       .then((data) => setJson(data));
   }, []);
@@ -75,6 +76,20 @@ export default function Home() {
     ],
   };
 
+  const data = json
+    .filter((f) => f[0].includes(date))
+    .map((f, i) => {
+      return {
+        key: i,
+        fecha: f[0],
+        ejecutado: f[1],
+        diario: f[2],
+        semanal: f[3],
+      };
+    });
+
+  console.log(data);
+
   return (
     <div>
       <h2>Demanda ejecutada por COES cada media hora</h2>
@@ -109,6 +124,7 @@ export default function Home() {
             Buscar
           </button>
           <h3>Mostrando resultado del dia {date2}</h3>
+          {/* <DataTable data={data} /> */}
           <section style={{ width: 1000, height: 800 }}>
             <LineGraph myData={myData} />
           </section>
