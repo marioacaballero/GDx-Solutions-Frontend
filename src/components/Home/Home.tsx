@@ -3,7 +3,7 @@ import { days, months } from "../constants/schedule";
 import { LineGraph } from "../LineGraph/LineGraph";
 import { Diario, Ejecutado, Semanal } from "../constants/initialStates";
 import { DataCoes } from "../constants/dataCoes";
-// import DataTable from "../Table/Table";
+import DataTable from "../Table/Table";
 
 export default function Home() {
   useEffect(() => {
@@ -77,18 +77,16 @@ export default function Home() {
   };
 
   const data = json
-    .filter((f) => f[0].includes(date))
+    .filter((f) => f[0].includes(date2))
     .map((f, i) => {
       return {
         key: i,
-        fecha: f[0],
+        hora: f[0].slice(11),
         ejecutado: f[1],
         diario: f[2],
         semanal: f[3],
       };
     });
-
-  console.log(data);
 
   return (
     <div>
@@ -124,10 +122,24 @@ export default function Home() {
             Buscar
           </button>
           <h3>Mostrando resultado del dia {date2}</h3>
-          {/* <DataTable data={data} /> */}
-          <section style={{ width: 1000, height: 800 }}>
-            <LineGraph myData={myData} />
-          </section>
+          <div
+            style={{
+              width: 1200,
+              height: 600,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 10,
+              marginTop: 30,
+            }}
+          >
+            <section style={{ width: 490, height: 600 }}>
+              <DataTable data={data} title={`Fecha ${date2}`} />
+            </section>
+            <section style={{ width: 700, height: 500 }}>
+              <LineGraph myData={myData} />
+            </section>
+          </div>
         </>
       ) : (
         <h1>Cargando...</h1>
