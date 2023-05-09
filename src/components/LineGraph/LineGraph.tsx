@@ -10,7 +10,7 @@ import {
   Title,
   Filler,
 } from "chart.js";
-import { MyDate } from "../constants/interfaces";
+import { MyDate } from "../../assets/constants/interfaces";
 
 ChartJS.register(
   CategoryScale,
