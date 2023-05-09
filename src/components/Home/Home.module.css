@@ -1,0 +1,133 @@
+.home {
+  padding-bottom: 3rem;
+}
+
+.home > p {
+  font-size: 2rem;
+  padding-left: 6rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  color: rgb(133, 14, 180);
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-style: italic;
+}
+
+section {
+  background-image: url("/src/assets/images/city.jpg");
+  background-repeat: round;
+  background-size: cover;
+  height: 400px;
+}
+
+.home > section > h1,
+.home > section > p {
+  margin: auto;
+  width: 55%;
+  color: #ffff;
+  letter-spacing: 1px;
+  -webkit-text-stroke: 0.1px black;
+  text-shadow: 5px 5px black;
+  text-align: center;
+}
+
+.home > section > h1 {
+  padding-top: 2.2rem;
+  font-size: 2.5rem;
+}
+
+.home > section > p {
+  padding-top: 1rem;
+  font-size: 1rem;
+}
+
+.home > main > h2 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  text-align: center;
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: rgb(95, 95, 95);
+}
+
+.home > main > div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 3rem;
+  width: 80%;
+  margin: auto;
+}
+
+.home > main > div > div {
+  width: 450px;
+  height: 300px;
+  margin: auto;
+}
+
+.home > main > div > div > h2 {
+  opacity: 1;
+  text-align: center;
+  padding-top: 3rem;
+  color: #ffff;
+  -webkit-text-stroke: 1px black;
+  font-size: 2.6rem;
+  font-weight: 800;
+}
+
+.home > main > div > div > span {
+  opacity: 1;
+  text-align: center;
+  padding: 1rem;
+  color: #ffff;
+  font-size: 1.1rem;
+  -webkit-text-stroke: 0.2px black;
+  text-shadow: 2px 2px black;
+}
+
+.home > main > div > div > button {
+  background-color: #ffff;
+  width: 50%;
+  height: 3rem;
+  border: 1px solid blue;
+  border-radius: 3rem;
+  margin: auto;
+  text-transform: uppercase;
+  color: blue;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: 0.5s;
+}
+
+.home > main > div > div > button:hover {
+  cursor: pointer;
+  background-color: blue;
+  color: white;
+}
+
+.prediction,
+.design,
+.report,
+.history {
+  background-repeat: round;
+  background-size: cover;
+  opacity: 0.8;
+  display: flex;
+  flex-direction: column;
+}
+
+.prediction {
+  background-image: url("/src/assets/images/prediccion.jpeg");
+}
+
+.design {
+  background-image: url("/src/assets/images/empresa.jpeg");
+}
+
+.report {
+  background-image: url("/src/assets/images/informe.jpg");
+}
+
+.history {
+  background-image: url("/src/assets/images/historico.jpeg");
+}
