@@ -7,7 +7,8 @@ import {
   Semanal,
 } from "../../assets/constants/initialStates";
 import { DataCoes } from "../../assets/constants/dataCoes";
-import DataTable from "../Table/Table";
+// import DataTable from "../Table/Table";
+import style from "./DataManagment.module.css";
 
 export default function DataManagment() {
   useEffect(() => {
@@ -59,7 +60,6 @@ export default function DataManagment() {
         tension: 0.5,
         fill: true,
         borderColor: "orange",
-        // backgroundColor: "none",
       },
       {
         label: "Prog. Diaria",
@@ -67,7 +67,6 @@ export default function DataManagment() {
         tension: 0.5,
         fill: true,
         borderColor: "yellow",
-        // backgroundColor: "none",
       },
       {
         label: "Prog. Semanal",
@@ -75,76 +74,90 @@ export default function DataManagment() {
         tension: 0.5,
         fill: true,
         borderColor: "green",
-        // backgroundColor: "none",
       },
     ],
   };
 
-  const data = json
-    .filter((f) => f[0].includes(date2))
-    .map((f, i) => {
-      return {
-        key: i,
-        hora: f[0].slice(11),
-        ejecutado: f[1],
-        diario: f[2],
-        semanal: f[3],
-      };
-    });
+  // const data = json
+  //   .filter((f) => f[0].includes(date2))
+  //   .map((f, i) => {
+  //     return {
+  //       key: i,
+  //       hora: f[0].slice(11),
+  //       ejecutado: f[1],
+  //       diario: f[2],
+  //       semanal: f[3],
+  //     };
+  //   });
+
+  const actualDate = new Date();
+  console.log(actualDate.getMinutes());
 
   return (
-    <div>
-      <h2>Demanda ejecutada por COES cada media hora</h2>
+    <div className={style.dataManagment}>
+      <div>
+        <h2>{actualDate.toDateString()}</h2>
+        <h2>
+          {actualDate.getHours()}:{actualDate.getMinutes()} - Perú, América
+          Latina
+        </h2>
+      </div>
       {json.length ? (
-        <>
-          <p>Elija una fecha para mostrar</p>
-          <select
-            onChange={(e) => handleSelectChangeYear(e)}
-            style={{ marginLeft: 15 }}
-          >
-            <option value={""}>year</option>
-            <option value={"2022"}>2022</option>
-            <option value={"2023"}>2023</option>
-          </select>
-          <select onChange={(e) => handleSelectChangeMonth(e)}>
-            <option value={""}>month</option>
-            {months.map((f, i) => (
-              <option key={i} value={f}>
-                {f}
-              </option>
-            ))}
-          </select>
-          <select onChange={(e) => handleSelectChangeDay(e)}>
-            <option value={""}>day</option>
-            {days.map((f, i) => (
-              <option key={i} value={f}>
-                {f}
-              </option>
-            ))}
-          </select>
-          <button type="button" onClick={handleSubmit}>
-            Buscar
-          </button>
-          <h3>Mostrando resultado del dia {date2}</h3>
+        <main>
+          <div style={{ display: "flex", padding: 15, gap: 3 }}>
+            <p>Filtrar por</p>
+            <select
+              onChange={(e) => handleSelectChangeDay(e)}
+              style={{ marginLeft: 10 }}
+            >
+              <option value={""}>dia</option>
+              {days.map((f, i) => (
+                <option key={i} value={f}>
+                  {f}
+                </option>
+              ))}
+            </select>
+            <select onChange={(e) => handleSelectChangeMonth(e)}>
+              <option value={""}>mes</option>
+              {months.map((f, i) => (
+                <option key={i} value={f}>
+                  {f}
+                </option>
+              ))}
+            </select>
+            <select onChange={(e) => handleSelectChangeYear(e)}>
+              <option value={""}>año</option>
+              <option value={"2022"}>2022</option>
+              <option value={"2023"}>2023</option>
+            </select>
+            <button
+              type="button"
+              onClick={handleSubmit}
+              style={{ marginLeft: 10 }}
+            >
+              Buscar
+            </button>
+          </div>
           <div
             style={{
               width: 1200,
               height: 600,
               display: "flex",
+              flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
               gap: 10,
-              marginTop: 30,
             }}
           >
-            <section style={{ width: 490, height: 600 }}>
+            <h3>{date2}</h3>
+            {/* <section style={{ width: 490, height: 600 }}>
               <DataTable data={data} title={`Fecha ${date2}`} />
-            </section>
-            <section style={{ width: 700, height: 500 }}>
+            </section> */}
+            <section style={{ width: 1000, height: 500 }}>
               <LineGraph myData={myData} />
             </section>
           </div>
-        </>
+        </main>
       ) : (
         <h1>Cargando...</h1>
       )}

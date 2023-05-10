@@ -1,6 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import style from "./Home.module.css";
 
 export default function Home() {
+  const navigate = useNavigate();
+  const goTo = (path: string) => {
+    navigate(path);
+  };
   return (
     <div className={style.home}>
       <p>GDx Solutions</p>
@@ -21,7 +26,13 @@ export default function Home() {
               De la demanda eléctrica a diferentes horizontes con uso de
               algoritmos de Inteligencia Artificial
             </span>
-            <button>Descubre mas</button>
+            <button
+              onClick={() => {
+                goTo("/dataCOES");
+              }}
+            >
+              Descubre mas
+            </button>
           </div>
           <div className={style.design}>
             <h2>Diseñar perfiles</h2>

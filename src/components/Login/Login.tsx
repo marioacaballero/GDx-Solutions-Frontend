@@ -10,7 +10,7 @@ export const Login = () => {
       <LoginDisplay />
       <p>
         ¿Eres nuevo en GDx Solutions? Puede obtener tu cuenta gratis{" "}
-        <Link to={"/register"}>aquí</Link>
+        <Link to={"/singUp"}>aquí</Link>
       </p>
     </div>
   );
