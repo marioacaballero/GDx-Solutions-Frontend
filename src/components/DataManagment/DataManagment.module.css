@@ -1,0 +1,10 @@
+.dataManagment > div {
+  border-bottom: 2px solid black;
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.dataManagment > div > h2 {
+  font-weight: 400;
+}

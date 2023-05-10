@@ -14,7 +14,7 @@
   font-style: italic;
 }
 
-section {
+.home > section {
   background-image: url("/src/assets/images/city.jpg");
   background-repeat: round;
   background-size: cover;

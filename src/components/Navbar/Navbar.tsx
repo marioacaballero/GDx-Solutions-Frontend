@@ -6,7 +6,7 @@ export default function Navbar() {
     <nav className={style.navbar}>
       <a href={"/"}>Quienes Somos</a>
       <a href={"/"}>Corporativo</a>
-      <a href={"/login"}>Login/Register</a>
+      <a href={"/singIn"}>Login/Register</a>
       <div>
         <img src={peruFlag} alt="flag" />
         <p>ES</p>
