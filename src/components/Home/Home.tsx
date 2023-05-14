@@ -28,7 +28,7 @@ export default function Home() {
             </span>
             <button
               onClick={() => {
-                goTo("/dataCOES");
+                goTo("/datamanagment");
               }}
             >
               Descubre mas

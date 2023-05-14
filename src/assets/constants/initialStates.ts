@@ -1,20 +1,17 @@
-export const Ejecutado = [
-  5806, 5735, 5624, 5540, 5451, 5339, 5263, 5220, 5182, 5126, 5051, 4918, 4752,
-  4636, 4677, 4725, 4819, 4930, 5048, 5069, 5243, 5288, 5311, 5383, 5412, 5351,
-  5420, 5508, 5491, 5373, 5399, 5364, 5446, 5348, 5377, 5444, 5572, 5856, 5978,
-  6060, 6068, 6210, 6153, 6046, 5831, 5854, 5679,
-];
+const actualDate = new Date();
 
-export const Diario = [
-  5714, 5600, 5471, 5396, 5284, 5195, 5102, 5025, 4993, 4987, 4944, 4811, 4689,
-  4637, 4680, 4797, 4894, 5027, 5117, 5183, 5210, 5266, 5314, 5328, 5373, 5370,
-  5371, 5352, 5361, 5305, 5283, 5276, 5244, 5215, 5199, 5231, 5451, 5790, 5953,
-  6011, 6045, 6009, 5966, 5877, 5799, 5676, 5508,
-];
+export const actualDateString = actualDate.toLocaleDateString("es-ES", {
+  weekday: "long",
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
 
-export const Semanal = [
-  5729, 5719, 5560, 5562, 5325, 5333, 5138, 5153, 5079, 5069, 4940, 4954, 4721,
-  4824, 4742, 4788, 4999, 5014, 5162, 5225, 5222, 5255, 5375, 5382, 5379, 5385,
-  5330, 5377, 5325, 5293, 5345, 5349, 5225, 5236, 5200, 5154, 5601, 5577, 6016,
-  5996, 6105, 6091, 6032, 6021, 5814, 5806, 5558,
-];
+export const actualDateDay = actualDate.getDate().toString();
+export const actualDateYear = actualDate.getFullYear().toString();
+
+export const actualDateMonth = () => {
+  const month = (actualDate.getMonth() + 1).toString();
+  if (month.length === 1) return "0".concat(month);
+  return month;
+};

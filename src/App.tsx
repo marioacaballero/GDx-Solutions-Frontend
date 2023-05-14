@@ -5,6 +5,7 @@ import { Login } from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
+import Data from "./components/DataManagment/Data/Data";
 
 const routes = createBrowserRouter([
   {
@@ -12,16 +13,20 @@ const routes = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/singIn",
+    path: "/singin",
     element: <Login />,
   },
   {
-    path: "/dataCOES",
+    path: "/datamanagment",
     element: <DataManagment />,
   },
   {
-    path: "/singUp",
+    path: "/singup",
     element: <Register />,
+  },
+  {
+    path: "/prueba",
+    element: <Data />,
   },
 ]);
 

@@ -1,0 +1,117 @@
+.data {
+  background-color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.data > header {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1.5rem;
+}
+
+.data > header > h2 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.data > header > h2:first-child {
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.data > header > h2:last-child {
+  color: green;
+  text-decoration: underline;
+}
+
+.data > main > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.data > main > div > section {
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+  height: 7rem;
+}
+
+.data > main > div > section > div > p {
+  background-color: gray;
+  height: 1.5rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  -webkit-text-stroke: 0.1px black;
+}
+
+.data > main > div > section > div > div {
+  background-color: #242424;
+  padding-left: 15px;
+  color: white;
+}
+
+.interval {
+  display: flex;
+  flex-direction: column;
+}
+
+.interval > p {
+  background-color: gray;
+  width: 100%;
+  height: 1.5rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  -webkit-text-stroke: 0.1px black;
+}
+
+.interval > section {
+  background-color: rgb(207, 207, 207);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+.interval > section > div {
+  background-color: black;
+  width: 25%;
+  height: 4rem;
+}
+
+.interval > section > div > p {
+  color: white;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: bold;
+  -webkit-text-stroke: 0.1px black;
+}
+
+.interval > section > div > p:first-child {
+  background-color: #242424;
+}
+
+.data > main > section {
+  margin-top: 2rem;
+  border: 1px solid white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.data > main > section > h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: gray;
+  width: 100%;
+  height: 2rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  -webkit-text-stroke: 0.1px black;
+  letter-spacing: 0.5px;
+}
