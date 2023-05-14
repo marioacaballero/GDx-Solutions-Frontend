@@ -1,10 +1,9 @@
-.dataManagment > div {
-  border-bottom: 2px solid black;
-  text-align: center;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+.dataManagment {
+  display: flex;
+  justify-content: space-around;
+  background-color: black;
 }
-
-.dataManagment > div > h2 {
-  font-weight: 400;
+.dataManagment > div:first-child {
+  width: 13rem;
+  height: 550px;
 }

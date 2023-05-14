@@ -9,3 +9,8 @@ export interface MyDate {
   labels: string[];
   datasets: Datasets[];
 }
+
+export interface Schedule {
+  name: string;
+  value: string;
+}
