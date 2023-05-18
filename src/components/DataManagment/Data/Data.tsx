@@ -160,9 +160,11 @@ export default function Data() {
               <h3>Gestión de Demanda</h3>
               <section
                 style={{
+                  width: 800,
                   height: 300,
                   display: "flex",
                   justifyContent: "center",
+                  alignItems: "center",
                 }}
               >
                 <LineGraph myData={myData} />
@@ -172,9 +174,11 @@ export default function Data() {
               <h3>Resultado Mensual</h3>
               <section
                 style={{
+                  width: 800,
                   height: 300,
                   display: "flex",
                   justifyContent: "center",
+                  alignItems: "center",
                 }}
               >
                 <BarGraph myData={databar} />
