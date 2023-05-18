@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { days, months, years } from "../../../assets/constants/schedule";
+import { months, years } from "../../../assets/constants/schedule";
 import { LineGraph } from "../../Graphs/LineGraph";
 import { DataCoes } from "../../../assets/constants/dataCoes";
 import style from "./Data.module.css";
@@ -11,6 +11,8 @@ import {
   actualDateYear,
 } from "../../../assets/constants/initialStates";
 import { BarGraph } from "../../Graphs/BarGraph";
+import { monthData } from "../../../assets/constants/auxiliar";
+import { data1, data2 } from "../../../assets/constants/interfaces";
 
 export default function Data() {
   useEffect(() => {
@@ -28,6 +30,27 @@ export default function Data() {
   const data = alldata.filter((f) => f[0].includes(date));
   const ejecutado = data.map((f) => parseInt(f[1]));
   const diario = data.map((f) => parseInt(f[2]));
+
+  const alldataMonth = alldata.filter((f) =>
+    f[0].slice(3, 10).includes(month + "/" + year)
+  );
+
+  const dataMonth = monthData(alldataMonth).map((elem: data2) => {
+    return [
+      elem.start,
+      elem.result.reduce(
+        (max: number, valor: number) => (valor > max ? valor : max),
+        0
+      ),
+    ];
+  });
+
+  const days = dataMonth.map((e: data1[]) => {
+    return {
+      name: e[0],
+      value: e[0],
+    };
+  });
 
   const myData = {
     labels: alldata
@@ -69,19 +92,13 @@ export default function Data() {
   };
 
   const databar = {
-    labels: [
-      "Etiqueta 1",
-      "Etiqueta 2",
-      "Etiqueta 3",
-      "Etiqueta 4",
-      "Etiqueta 5",
-    ],
+    labels: dataMonth.map((e: data1[]) => e[0]),
     datasets: [
       {
-        label: "Datos de ejemplo",
-        data: [10, 20, 15, 25, 18],
-        backgroundColor: "rgba(0, 123, 255, 0.5)", // Color de fondo de las barras
-        borderColor: "rgba(0, 123, 255, 1)", // Color del borde de las barras
+        label: "Máximo Ejecutado",
+        data: dataMonth.map((e: data1[]) => e[1]),
+        backgroundColor: "rgba(8, 197, 18, 0.5)", // Color de fondo de las barras
+        borderColor: "rgb(8, 197, 18)", // Color del borde de las barras
         borderWidth: 1, // Ancho del borde de las barras
       },
     ],
@@ -114,11 +131,21 @@ export default function Data() {
             <section>
               <div>
                 <p>Máxima Potencia (MW)</p>
-                <p>{diario[1]}</p>
+                <p>
+                  {diario.reduce(
+                    (max: number, valor: number) => (valor > max ? valor : max),
+                    0
+                  )}
+                </p>
               </div>
               <div>
                 <p>Máxima Potencia (MW)</p>
-                <p>{diario[1]}</p>
+                <p>
+                  {diario.reduce(
+                    (max: number, valor: number) => (valor > max ? valor : max),
+                    0
+                  )}
+                </p>
               </div>
               <div>
                 <p>Intervalo Horario (hr)</p>
@@ -131,14 +158,26 @@ export default function Data() {
           <>
             <section>
               <h3>Gestión de Demanda</h3>
-              <section style={{ width: 1000, height: 500 }}>
+              <section
+                style={{
+                  height: 300,
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
                 <LineGraph myData={myData} />
               </section>
             </section>
             <section>
               <h3>Resultado Mensual</h3>
-              <section style={{ width: 1000, height: 500 }}>
-                {/* <BarGraph myData={databar} /> */}
+              <section
+                style={{
+                  height: 300,
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <BarGraph myData={databar} />
               </section>
             </section>
           </>

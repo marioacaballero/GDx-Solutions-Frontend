@@ -6,7 +6,7 @@ import {
   Legend,
   LinearScale,
   PointElement,
-  LineElement,
+  BarElement,
   Title,
   Filler,
 } from "chart.js";
@@ -18,12 +18,12 @@ ChartJS.register(
   Legend,
   LinearScale,
   PointElement,
-  LineElement,
+  BarElement,
   Title,
   Filler
 );
 
-export const BarGraph = ({ myData }: { myData: any }) => {
+export const BarGraph = ({ myData }: { myData: MyDate }) => {
   return (
     <>
       <Bar data={myData} />
