@@ -1,18 +1,29 @@
 import React from "react";
 import { Button, Checkbox, Form, Input } from "antd";
 import { useNavigate } from "react-router";
+import axios from "axios";
+import { DataCoes } from "../../assets/constants/dataCoes";
 
 const LoginDisplay: React.FC = () => {
   const navigate = useNavigate();
 
-  const onFinish = (values: string) => {
-    console.log("Success:", values);
-    navigate("/home");
+  const onFinish = async (values: string) => {
+    // console.log("Success:", values);
+    try {
+      const response = await axios.post(DataCoes("auth/signIn"), values);
+      if (response.status === 201) return navigate("/datamanagment");
+      // console.log(response.status);
+    } catch (error: any) {
+      alert(JSON.parse(error.request.response).message);
+    }
+
+    // navigate("/home");
   };
 
   const onFinishFailed = (errorInfo: any) => {
     console.log("Failed:", errorInfo);
   };
+
   return (
     <Form
       name="basic"
@@ -42,13 +53,13 @@ const LoginDisplay: React.FC = () => {
         <Input.Password />
       </Form.Item>
 
-      <Form.Item
+      {/* <Form.Item
         name="remember"
         valuePropName="checked"
         wrapperCol={{ offset: 8, span: 16 }}
       >
         <Checkbox>Remember me</Checkbox>
-      </Form.Item>
+      </Form.Item> */}
 
       <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
         <Button type="primary" htmlType="submit">
