@@ -31,8 +31,15 @@
 .data > main > div > section {
   display: flex;
   justify-content: space-between;
-  width: 40%;
   height: 7rem;
+}
+
+.data > main > div > section:first-child {
+  width: 40%;
+}
+
+.data > main > div > section:last-child {
+  width: 55%;
 }
 
 .data > main > div > section > div > p {

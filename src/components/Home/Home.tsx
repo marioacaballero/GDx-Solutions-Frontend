@@ -4,6 +4,7 @@ import style from "./Home.module.css";
 export default function Home() {
   const navigate = useNavigate();
   const goTo = (path: string) => {
+    alert("Debes iniciar sesion para acceder a las predicciones");
     navigate(path);
   };
   return (
@@ -28,7 +29,7 @@ export default function Home() {
             </span>
             <button
               onClick={() => {
-                goTo("/datamanagment");
+                goTo("/singin");
               }}
             >
               Descubre mas
@@ -40,12 +41,24 @@ export default function Home() {
               De energia segun los objetivos de cada empresa, permitiendo
               optimizar el ritmo de produccion
             </span>
-            <button>Descubre mas</button>
+            <button
+              onClick={() => {
+                alert("En proceso de desarrollo");
+              }}
+            >
+              Descubre mas
+            </button>
           </div>
           <div className={style.report}>
             <h2>Elaborar informes</h2>
             <span>Y formatos de la estructura de costos de energia</span>
-            <button>Descubre mas</button>
+            <button
+              onClick={() => {
+                alert("En proceso de desarrollo");
+              }}
+            >
+              Descubre mas
+            </button>
           </div>
           <div className={style.history}>
             <h2>Resultados historicos</h2>
@@ -53,7 +66,13 @@ export default function Home() {
               Obtenidos durante el periodo 2022 y 2023, teniendo un porcentaje
               de acierto del 100%
             </span>
-            <button>Descubre mas</button>
+            <button
+              onClick={() => {
+                alert("En proceso de desarrollo");
+              }}
+            >
+              Descubre mas
+            </button>
           </div>
         </div>
       </main>
