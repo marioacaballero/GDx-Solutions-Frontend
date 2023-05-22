@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { DotSpinner } from "@uiball/loaders";
 import { months, years } from "../../../assets/constants/schedule";
 import { LineGraph } from "../../Graphs/LineGraph";
 import { DataCoes } from "../../../assets/constants/dataCoes";
@@ -186,7 +187,9 @@ export default function Data() {
             </section>
           </>
         ) : (
-          <h1>Cargando...</h1>
+          <div className={style.loader}>
+            <DotSpinner size={70} speed={0.9} color="white" />
+          </div>
         )}
       </main>
     </div>

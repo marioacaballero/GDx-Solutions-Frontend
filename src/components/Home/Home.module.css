@@ -2,7 +2,13 @@
   padding-bottom: 3rem;
 }
 
-.home > p {
+.home > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home > header > p {
   font-size: 2rem;
   padding-left: 6rem;
   padding-top: 0.5rem;
@@ -14,11 +20,42 @@
   font-style: italic;
 }
 
+.linkContact {
+  margin-right: 6rem;
+  padding: 8px;
+  border: 2px solid rgb(133, 14, 180);
+  border-radius: 2rem;
+
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: rgb(133, 14, 180);
+
+  transition: 0.2s;
+}
+
+.linkContact:hover {
+  cursor: pointer;
+  background-color: rgba(133, 14, 180, 0.7);
+  color: white;
+}
+
 .home > section {
   background-image: url("/src/assets/images/city.jpg");
   background-repeat: round;
   background-size: cover;
   height: 400px;
+  animation: 3s cubic-bezier(0.25, 1, 0.3, 1) wipe-in-bottom-right both;
+}
+
+@keyframes wipe-in-bottom-right {
+  from {
+    clip-path: polygon(0 0, 0 0, 0 0, 0 50%);
+  }
+  to {
+    clip-path: polygon(-50% 0%, 200% 0, 0 200%, 0 -50%);
+  }
 }
 
 .home > section > h1,

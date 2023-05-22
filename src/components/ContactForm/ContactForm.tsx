@@ -10,8 +10,6 @@ const API_PUBLIC_KEY = import.meta.env.VITE_API_PUBLIC_KEY;
 const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
 const EMAIL_SERVICE_ID = import.meta.env.VITE_EMAIL_SERVICE_ID;
 
-console.log(TEMPLATE_ID, API_PUBLIC_KEY);
-
 export default function ContactForm() {
   const initialState = {
     name: "",
