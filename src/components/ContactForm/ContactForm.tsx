@@ -85,32 +85,35 @@ export default function ContactForm() {
       <h2>Contactanos</h2>
       <p>
         Para contactarse con nosotros complete los siguientes campos, le
-        responderemos a la brevedad.{" "}
+        responderemos a la brevedad.
       </p>
       <form onSubmit={sendEmail}>
         <label>
-          Nombre
+          <span>Nombre:</span>
           <input
             type="text"
             name="name"
-            placeholder="Nombre"
+            placeholder="GDx Solutions"
             value={input.name}
             onChange={(e) => handleInputChange(e)}
           />
+          <p className={style.hide}></p>
         </label>
         <label>
-          Asunto *
+          <span>Asunto:</span>
           <input
             type="text"
             name="subject"
             value={input.subject}
-            placeholder="Asunto"
+            placeholder="Consulta"
             onChange={(e) => handleInputChange(e)}
           />
+          <p className={errors.subject ? style.error : style.hide}>
+            {errors.subject}
+          </p>
         </label>
-        {errors.subject && <p>{errors.subject}</p>}
         <label>
-          Email *
+          <span>Email:</span>
           <input
             type="email"
             name="email"
@@ -118,14 +121,20 @@ export default function ContactForm() {
             placeholder="google@google.com"
             onChange={(e) => handleInputChange(e)}
           />
+          <p className={errors.email ? style.error : style.hide}>
+            {errors.email}
+          </p>
         </label>
-        {errors.email && <p>{errors.email}</p>}
-        <label>Mensaje</label>
-        {errors.message && <p>{errors.message}</p>}
+        <label>
+          <span>Mensaje:</span>
+          <p className={errors.message ? style.error : style.hide}>
+            {errors.message}
+          </p>
+        </label>
         <textarea
           name="message"
           value={input.message}
-          placeholder="Hola GDx..."
+          placeholder="Hola GDx Solutions, les escribo para..."
           onChange={(e) => handleInputChange(e)}
         />
         <button type="submit">Enviar</button>
