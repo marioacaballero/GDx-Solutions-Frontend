@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../../components/Home/Home";
-import Data from "../../components/DataManagment/Data/Data";
 import DataManagment from "../../components/DataManagment/DataManagment";
 import { Login } from "../../components/Login/Login";
 import Register from "../../components/Register/Register";
+import ContactForm from "../../components/ContactForm/ContactForm";
 
 export const routes = createBrowserRouter([
   {
@@ -23,7 +23,7 @@ export const routes = createBrowserRouter([
     element: <Register />,
   },
   {
-    path: "/prueba",
-    element: <Data />,
+    path: "/contact",
+    element: <ContactForm />,
   },
 ]);

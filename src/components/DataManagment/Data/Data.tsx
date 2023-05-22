@@ -11,7 +11,7 @@ import {
   actualDateYear,
 } from "../../../assets/constants/initialStates";
 import { BarGraph } from "../../Graphs/BarGraph";
-import { monthData } from "../../../assets/constants/auxiliar";
+import { monthData } from "../../../assets/helpers/auxiliar";
 import { data1, data2 } from "../../../assets/constants/interfaces";
 
 export default function Data() {
