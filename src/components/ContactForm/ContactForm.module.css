@@ -1,0 +1,67 @@
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contact > h2 {
+  padding-top: 1rem;
+  font-size: 2rem;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.contact > p {
+  width: 50%;
+}
+
+.contact > form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 10px;
+}
+
+.contact > form > label {
+  display: flex;
+  width: 28rem;
+  /* justify-content: space-between; */
+}
+
+.contact > form > label > span {
+  width: 5rem;
+}
+
+.hide {
+  width: 8rem;
+  color: white;
+  font-size: 10px;
+}
+
+.error {
+  width: 8rem;
+  text-align: left;
+  font-size: 10px;
+  color: red;
+  padding-left: 5px;
+}
+
+.contact > form > label > input {
+  width: 15rem;
+  font-size: 1rem;
+  padding-left: 4px;
+}
+
+.contact > form > textarea {
+  height: 10rem;
+  padding: 4px;
+  font-size: 1rem;
+}
+
+.contact > form > button {
+  width: 10rem;
+  height: 2rem;
+  /* margin: auto; */
+}
