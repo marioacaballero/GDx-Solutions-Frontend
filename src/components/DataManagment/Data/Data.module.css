@@ -121,3 +121,13 @@
   -webkit-text-stroke: 0.1px black;
   letter-spacing: 0.5px;
 }
+
+.loader {
+  height: 670px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-left: 50%;
+}

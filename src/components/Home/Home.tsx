@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import style from "./Home.module.css";
 
 export default function Home() {
@@ -9,7 +9,12 @@ export default function Home() {
   };
   return (
     <div className={style.home}>
-      <p>GDx Solutions</p>
+      <header>
+        <p>GDx Solutions</p>
+        <Link to={"/contact"} className={style.linkContact}>
+          Contáctanos
+        </Link>
+      </header>
       <section>
         <h1>Optimizando resultados a través de soluciones innovadoras</h1>
         <p>
