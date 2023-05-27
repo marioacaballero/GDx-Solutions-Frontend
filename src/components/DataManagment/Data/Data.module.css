@@ -1,7 +1,11 @@
 .data {
   background-color: black;
   font-family: Arial, Helvetica, sans-serif;
+  padding-left: 1%;
+  padding-right: 1%;
 }
+
+/* Header */
 
 .data > header {
   display: flex;
@@ -23,81 +27,137 @@
   text-decoration: underline;
 }
 
-.data > main > div {
-  display: flex;
-  justify-content: space-between;
-}
+/* Main */
 
-.data > main > div > section {
-  display: flex;
-  justify-content: space-between;
-  height: 7rem;
-}
-
-.data > main > div > section:first-child {
-  width: 40%;
-}
-
-.data > main > div > section:last-child {
-  width: 55%;
-}
-
-.data > main > div > section > div > p {
-  background-color: gray;
-  height: 1.5rem;
-  color: white;
-  text-align: center;
-  font-weight: bold;
-  -webkit-text-stroke: 0.1px black;
-}
-
-.data > main > div > section > div > div {
-  background-color: #242424;
-  padding-left: 15px;
-  color: white;
-}
-
-.interval {
+/* Secciones principales */
+.data > main {
+  /* margin-top: 2rem; */
+  width: 100%;
   display: flex;
   flex-direction: column;
-}
-
-.interval > p {
-  background-color: gray;
-  width: 100%;
-  height: 1.5rem;
-  color: white;
-  text-align: center;
-  font-weight: bold;
-  -webkit-text-stroke: 0.1px black;
-}
-
-.interval > section {
-  background-color: rgb(207, 207, 207);
-  display: flex;
-  justify-content: space-around;
   align-items: center;
-  height: 100%;
+  justify-content: center;
+  gap: 10px;
 }
 
-.interval > section > div {
-  background-color: black;
-  width: 25%;
-  height: 4rem;
+/* Filtros y Grafico de linea */
+
+.data > main > div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
-.interval > section > div > p {
+/* Filtros */
+.data > main > div > section:first-child {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* Filtro de dias*/
+.dateFilter {
+  display: flex;
+  justify-content: space-between;
+  gap: 2px;
+}
+
+.dateFilter > div {
   color: white;
+}
+
+.dateFilter > div > p {
+  background-color: gray;
   text-align: center;
-  font-size: 0.85rem;
   font-weight: bold;
   -webkit-text-stroke: 0.1px black;
 }
 
-.interval > section > div > p:first-child {
-  background-color: #242424;
+/* Filtro del grafico */
+
+.graphFilter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* color: white; */
+  gap: 10px;
 }
 
+.graphFilter > label {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin: auto;
+}
+
+/* Ejecutada */
+.graphFilter > label:first-child {
+  color: rgb(8, 197, 18);
+}
+
+/* Prediccion */
+.graphFilter > label:nth-child(2) {
+  color: rgb(128, 0, 128);
+}
+
+/* Diario */
+.graphFilter > label:last-child {
+  color: rgb(0, 153, 255);
+}
+
+/* Intervalos de prediccion */
+.interval {
+  display: flex;
+  color: white;
+}
+
+.interval > div {
+  width: 50%;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Intervalo horario */
+.interval > div:first-child > p:first-child {
+  font-weight: bold;
+}
+
+.interval > div:first-child > p:nth-child(2) {
+  font-weight: bold;
+  color: rgb(221, 53, 41);
+  font-size: 1.2rem;
+}
+
+/* Maxima potencia */
+.interval > div:last-child > p:first-child {
+  font-weight: bold;
+}
+
+.interval > div:last-child > p:nth-child(2) {
+  font-weight: bold;
+  color: rgb(8, 197, 18);
+  font-size: 1.5rem;
+}
+
+.interval > div:last-child > p:last-child {
+  font-size: 0.9rem;
+}
+
+/* Grafico de linea */
+.data > main > div > section:last-child {
+  width: 68%;
+}
+
+.lineGraph {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Seccion de grafico de barras */
 .data > main > section {
   margin-top: 2rem;
   width: 100%;
@@ -122,6 +182,16 @@
   letter-spacing: 0.5px;
 }
 
+.barGraph {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Loader */
+
 .loader {
   height: 670px;
   width: 100%;
@@ -129,5 +199,4 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding-left: 50%;
 }

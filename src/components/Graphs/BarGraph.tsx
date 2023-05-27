@@ -26,7 +26,19 @@ ChartJS.register(
 export const BarGraph = ({ myData }: { myData: MyDate }) => {
   return (
     <>
-      <Bar data={myData} />
+      <Bar
+        data={myData}
+        options={{
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: { y: { min: 6000, max: 8000, ticks: { stepSize: 1000 } } },
+        }}
+      />
     </>
   );
 };

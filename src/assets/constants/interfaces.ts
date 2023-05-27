@@ -1,6 +1,8 @@
+import { Chart, ChartDataset } from "chart.js";
+
 export interface Datasets {
   label: string;
-  data: number[];
+  data: number[] | [];
   // tension: number;
   // fill: boolean;
 }
@@ -23,4 +25,11 @@ export interface data1 {
 export interface data2 {
   start: string;
   result: number[];
+}
+
+export interface ChartContext {
+  chart: Chart;
+  dataIndex: number;
+  dataset: ChartDataset;
+  datasetIndex: number;
 }

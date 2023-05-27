@@ -1,12 +1,13 @@
 .checkbox {
   display: flex;
   flex-direction: column;
-  width: 7rem;
-  height: 5rem;
+  width: 7.5rem;
+  height: 4rem;
   overflow: scroll;
   font-size: 0.85rem;
+  padding-left: 1rem;
 }
 
 .checkbox > label > input {
-  margin-right: 5px;
+  margin-right: 8px;
 }
