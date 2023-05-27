@@ -26,7 +26,29 @@ ChartJS.register(
 export const LineGraph = ({ myData }: { myData: MyDate }) => {
   return (
     <>
-      <Line data={myData} />
+      <Line
+        data={myData}
+        options={{
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              min: 4500,
+            },
+            x: {
+              ticks: {
+                autoSkip: true,
+                maxTicksLimit: 20,
+              },
+            },
+          },
+        }}
+      />
     </>
   );
 };
