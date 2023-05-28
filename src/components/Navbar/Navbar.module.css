@@ -7,7 +7,7 @@
   background-color: rgba(248, 127, 29, 0.9);
 }
 
-.navbar a {
+.navbar span {
   display: flex;
   width: fit-content;
   font-size: 0.75rem;
