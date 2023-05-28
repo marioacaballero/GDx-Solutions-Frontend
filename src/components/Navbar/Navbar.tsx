@@ -2,10 +2,12 @@ import style from "./Navbar.module.css";
 import peruFlag from "../../assets/images/peruFlag.png";
 
 export default function Navbar() {
+  const home = "/";
+  const services = "/services";
   return (
     <nav className={style.navbar}>
-      <a href={`${import.meta.env.BASE_URL}`}>Quienes Somos</a>
-      <a href={`${import.meta.env.BASE_URL}services`}>Servicios</a>
+      <a href={home}>Quienes Somos</a>
+      <a href={services}>Servicios</a>
       {/* <a href={"/singin"}>Ingresar</a> */}
       <div>
         <img src={peruFlag} alt="flag" />
