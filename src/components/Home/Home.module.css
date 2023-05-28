@@ -1,5 +1,6 @@
 .home {
   padding-bottom: 3rem;
+  background-color: rgba(248, 244, 29, 0.2);
 }
 
 .home > header {
@@ -22,22 +23,22 @@
 
 .linkContact {
   margin-right: 6rem;
-  padding: 8px;
-  border: 2px solid rgb(133, 14, 180);
-  border-radius: 2rem;
+  padding: 6px;
+  border: 2px solid rgba(248, 127, 29, 0.9);
+  border-radius: 4rem;
 
   text-decoration: none;
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 1px;
-  color: rgb(133, 14, 180);
+  color: rgba(248, 127, 29, 0.9);
 
   transition: 0.2s;
 }
 
 .linkContact:hover {
   cursor: pointer;
-  background-color: rgba(133, 14, 180, 0.7);
+  background-color: rgba(248, 127, 29, 0.9);
   color: white;
 }
 
@@ -45,7 +46,8 @@
   background-image: url("/src/assets/images/city.jpg");
   background-repeat: round;
   background-size: cover;
-  height: 400px;
+  height: 100%;
+  min-height: 100vh;
   animation: 3s cubic-bezier(0.25, 1, 0.3, 1) wipe-in-bottom-right both;
 }
 
@@ -61,7 +63,7 @@
 .home > section > h1,
 .home > section > p {
   margin: auto;
-  width: 55%;
+  width: 70%;
   color: #ffff;
   letter-spacing: 1px;
   -webkit-text-stroke: 0.1px black;
@@ -70,101 +72,22 @@
 }
 
 .home > section > h1 {
-  padding-top: 2.2rem;
-  font-size: 2.5rem;
+  padding-top: 7rem;
+  font-size: 3rem;
+  animation: 10s cubic-bezier(0.25, 1, 0.3, 1) circle-in-center both;
 }
 
 .home > section > p {
-  padding-top: 1rem;
-  font-size: 1rem;
-}
-
-.home > main > h2 {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  text-align: center;
-  font-size: 2rem;
-  text-transform: uppercase;
-  color: rgb(95, 95, 95);
-}
-
-.home > main > div {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  row-gap: 3rem;
-  width: 80%;
-  margin: auto;
-}
-
-.home > main > div > div {
-  width: 450px;
-  height: 300px;
-  margin: auto;
-}
-
-.home > main > div > div > h2 {
-  opacity: 1;
-  text-align: center;
   padding-top: 3rem;
-  color: #ffff;
-  -webkit-text-stroke: 1px black;
-  font-size: 2.6rem;
-  font-weight: 800;
+  font-size: 1.5rem;
+  animation: 10s cubic-bezier(0.25, 1, 0.3, 1) circle-in-center both;
 }
 
-.home > main > div > div > span {
-  opacity: 1;
-  text-align: center;
-  padding: 1rem;
-  color: #ffff;
-  font-size: 1.1rem;
-  -webkit-text-stroke: 0.2px black;
-  text-shadow: 2px 2px black;
-}
-
-.home > main > div > div > button {
-  background-color: #ffff;
-  width: 50%;
-  height: 3rem;
-  border: 1px solid blue;
-  border-radius: 3rem;
-  margin: auto;
-  text-transform: uppercase;
-  color: blue;
-  font-weight: bold;
-  letter-spacing: 1px;
-  transition: 0.5s;
-}
-
-.home > main > div > div > button:hover {
-  cursor: pointer;
-  background-color: blue;
-  color: white;
-}
-
-.prediction,
-.design,
-.report,
-.history {
-  background-repeat: round;
-  background-size: cover;
-  opacity: 0.8;
-  display: flex;
-  flex-direction: column;
-}
-
-.prediction {
-  background-image: url("/src/assets/images/prediccion.jpeg");
-}
-
-.design {
-  background-image: url("/src/assets/images/empresa.jpeg");
-}
-
-.report {
-  background-image: url("/src/assets/images/informe.jpg");
-}
-
-.history {
-  background-image: url("/src/assets/images/historico.jpeg");
+@keyframes circle-in-center {
+  from {
+    clip-path: circle(0%);
+  }
+  to {
+    clip-path: circle(125%);
+  }
 }

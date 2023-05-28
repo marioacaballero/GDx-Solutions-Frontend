@@ -4,6 +4,7 @@ import DataManagment from "../../components/DataManagment/DataManagment";
 import { Login } from "../../components/Login/Login";
 import Register from "../../components/Register/Register";
 import ContactForm from "../../components/ContactForm/ContactForm";
+import Services from "../../components/Services/Services";
 
 export const routes = createBrowserRouter([
   {
@@ -25,5 +26,9 @@ export const routes = createBrowserRouter([
   {
     path: "/contact",
     element: <ContactForm />,
+  },
+  {
+    path: "/services",
+    element: <Services />,
   },
 ]);
