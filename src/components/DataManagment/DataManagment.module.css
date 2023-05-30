@@ -1,14 +1,15 @@
 .dataManagment {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  /* justify-content: space-around; */
+  /* align-items: center; */
   background-color: black;
-  padding-top: 2rem;
+  padding-top: 0.5rem;
   padding-bottom: 2rem;
+  min-height: 95.7vh;
 }
 .dataManagment > div:first-child {
   width: 20%;
-  height: 900px;
+  /* height: 900px; */
 }
 
 .dataManagment > div:last-child {
