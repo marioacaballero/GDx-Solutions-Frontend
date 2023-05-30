@@ -36,7 +36,21 @@ export const BarGraph = ({ myData }: { myData: MyDate }) => {
           },
           responsive: true,
           maintainAspectRatio: false,
-          scales: { y: { min: 6000, max: 8000, ticks: { stepSize: 1000 } } },
+          scales: {
+            y: {
+              min: 6000,
+              max: 8000,
+              ticks: { stepSize: 1000 },
+              grid: {
+                color: "rgba(255, 255, 255, 0.2)",
+              },
+            },
+            x: {
+              grid: {
+                color: "rgba(255, 255, 255, 0.2)",
+              },
+            },
+          },
         }}
       />
     </>

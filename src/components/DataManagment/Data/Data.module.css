@@ -3,46 +3,52 @@
   font-family: Arial, Helvetica, sans-serif;
   padding-left: 1%;
   padding-right: 1%;
+  height: fit-content;
+  /* border: 1px solid white; */
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  min-height: 80vh;
 }
 
 /* Header */
 
 .data > header {
+  height: 6%;
   display: flex;
   justify-content: space-between;
-  padding-top: 1rem;
-  padding-bottom: 1.5rem;
+  /* padding-top: 1rem; */
+  padding-bottom: 1rem;
 }
 
 .data > header > h2 {
   font-family: Arial, Helvetica, sans-serif;
-}
-
-.data > header > h2:first-child {
-  color: rgba(255, 255, 255, 0.96);
-}
-
-.data > header > h2:last-child {
-  color: green;
-  text-decoration: underline;
+  color: rgba(221, 34, 34, 0.96);
+  font-size: 1.25rem;
+  border: 1px solid rgba(221, 34, 34, 0.96);
+  padding: 2px 1.5rem 2px 1.5rem;
+  background-color: white;
+  -webkit-text-stroke: 0.1px black;
 }
 
 /* Main */
 
 /* Secciones principales */
 .data > main {
-  /* margin-top: 2rem; */
+  /* height: 84%; */
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
-  gap: 10px;
+  /* gap: 10px; */
 }
 
 /* Filtros y Grafico de linea */
 
 .data > main > div {
+  height: 40%;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -53,7 +59,8 @@
   width: 30%;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  justify-content: center;
+  gap: 2rem;
 }
 
 /* Filtro de dias*/
@@ -149,9 +156,21 @@
   width: 68%;
 }
 
+.data > main > div > section:last-child > label {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  color: white;
+  background-color: rgba(221, 53, 41, 0.6);
+  text-align: center;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
 .lineGraph {
   width: 100%;
-  height: 400px;
+  height: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -159,13 +178,15 @@
 
 /* Seccion de grafico de barras */
 .data > main > section {
-  margin-top: 2rem;
+  margin-top: 1rem;
+  /* border: 1px solid white; */
+  height: 20%;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  /* gap: 10px; */
 }
 
 .data > main > section > h3 {
