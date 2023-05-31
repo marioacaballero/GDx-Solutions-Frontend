@@ -3,8 +3,8 @@ const actualDate = new Date("01/01/2023");
 
 export const actualDateString = actualDate.toLocaleDateString("es-ES", {
   weekday: "short",
-  day: "numeric",
-  month: "numeric",
+  day: "2-digit",
+  month: "2-digit",
   year: "numeric",
 });
 
