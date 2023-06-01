@@ -113,6 +113,21 @@ function DataNow({
     .map((e: data1[]) => e[1])
     .reduce((max: number, valor: number) => (valor > max ? valor : max), 0);
 
+  const semana = {
+    labels: ["lun", "mar", "mie", "jue", "vie", "sab", "dom"],
+    datasets: [
+      {
+        label: "Máximo Ejecutado",
+        data: [6300, 7500, 7800, 7100, 6200, 7250, 7180],
+        backgroundColor: "rgba(8, 197, 18, 0.75)",
+        borderColor: "rgb(8, 197, 18)",
+        borderWidth: 1, // Ancho del borde de las barras
+        categoryPercentage: 0.3,
+        barPercentage: 2,
+      },
+    ],
+  };
+
   return (
     <main>
       <div>
@@ -143,26 +158,11 @@ function DataNow({
               />
             </label>
           </section>
-          <section className={style.interval}>
-            <div>
-              <p>Intervalo Horario</p>
-              <p>
-                {minIntervalValueNow()} - {maxIntervalValueNow()} (2h)
-              </p>
-            </div>
-            <div>
-              <p>Máxima Potencia</p>
-              <p>
-                {maxValuePerDayNow ? `${maxValuePerDayNow} MW` : "sin datos"}
-              </p>
-              <p>{timePerMaxValueDayNow()}</p>
-            </div>
-          </section>
         </section>
         <section>
           <label>
-            Interlvalo Horario {minIntervalValueNow()} - {maxIntervalValueNow()}{" "}
-            (2h)
+            Rango de Modulación {minIntervalValueNow()} -{" "}
+            {maxIntervalValueNow()} (2h)
             <input
               type="checkbox"
               defaultChecked={displayIntervalNow}
@@ -187,6 +187,24 @@ function DataNow({
           </section>
         </section>
       </div>
+      <article>
+        <section className={style.interval}>
+          <div>
+            <p>Intervalo Horario</p>
+            <p>
+              {minIntervalValueNow()} - {maxIntervalValueNow()} (2h)
+            </p>
+          </div>
+          <div>
+            <p>Máxima Potencia</p>
+            <p>{maxValuePerDayNow ? `${maxValuePerDayNow} MW` : "sin datos"}</p>
+            <p>{timePerMaxValueDayNow()}</p>
+          </div>
+        </section>
+        <section>
+          <BarGraph myData={semana} />
+        </section>
+      </article>
       <section>
         <h3>
           Resultado Mensual{" "}

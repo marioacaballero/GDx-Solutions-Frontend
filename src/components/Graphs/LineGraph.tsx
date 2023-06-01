@@ -46,7 +46,7 @@ export const LineGraph = ({ myData }: { myData: MyDate }) => {
                 color: "white",
               },
               grid: {
-                color: "rgba(255, 255, 255, 0.2)",
+                color: "rgba(255, 255, 255, 0.1)",
               },
             },
             x: {
@@ -56,7 +56,7 @@ export const LineGraph = ({ myData }: { myData: MyDate }) => {
                 color: "white",
               },
               grid: {
-                color: "rgba(255, 255, 255, 0.2)",
+                color: "rgba(255, 255, 255, 0.1)",
               },
             },
           },

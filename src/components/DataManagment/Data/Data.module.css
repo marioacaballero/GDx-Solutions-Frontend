@@ -1,8 +1,8 @@
 .data {
   background-color: black;
-  font-family: Arial, Helvetica, sans-serif;
-  padding-left: 1%;
-  padding-right: 1%;
+  font-family: "Open Sans", sans-serif;
+  /* padding-left: 1%; */
+  /* padding-right: 1%; */
   height: fit-content;
   /* border: 1px solid white; */
   display: flex;
@@ -20,6 +20,7 @@
   justify-content: start;
   gap: 1rem;
   padding-bottom: 1rem;
+  padding-left: 0.5rem;
 }
 
 .data > header > select {
@@ -53,7 +54,7 @@
   flex-direction: column;
   /* align-items: center; */
   justify-content: center;
-  /* gap: 10px; */
+  /* gap: 1rem; */
 }
 
 /* Filtros y Grafico de linea */
@@ -70,8 +71,8 @@
   width: 30%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 2rem;
+  justify-content: space-evenly;
+  /* gap: 2rem; */
 }
 
 /* Filtro de dias*/
@@ -128,44 +129,6 @@
   color: rgb(0, 153, 255);
 }
 
-/* Intervalos de prediccion */
-.interval {
-  display: flex;
-  color: white;
-}
-
-.interval > div {
-  width: 50%;
-  text-align: center;
-  padding: 10px;
-}
-
-/* Intervalo horario */
-.interval > div:first-child > p:first-child {
-  font-weight: bold;
-}
-
-.interval > div:first-child > p:nth-child(2) {
-  font-weight: bold;
-  color: rgb(221, 53, 41);
-  font-size: 1.2rem;
-}
-
-/* Maxima potencia */
-.interval > div:last-child > p:first-child {
-  font-weight: bold;
-}
-
-.interval > div:last-child > p:nth-child(2) {
-  font-weight: bold;
-  color: rgb(8, 197, 18);
-  font-size: 1.5rem;
-}
-
-.interval > div:last-child > p:last-child {
-  font-size: 0.9rem;
-}
-
 /* Grafico de linea */
 .data > main > div > section:last-child {
   width: 68%;
@@ -177,7 +140,7 @@
   gap: 1rem;
   width: 100%;
   color: white;
-  background-color: rgba(221, 53, 41, 0.6);
+  background-color: rgba(221, 114, 26, 0.7);
   text-align: center;
   margin-bottom: 5px;
   font-weight: bold;
@@ -189,11 +152,77 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px;
+  /* background-color: rgba(128, 128, 128, 0.1); */
 }
 
-/* Seccion de grafico de barras */
+/* Seccion de grafico de barras semanal e intervalos */
+.data > main > article {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  align-items: center;
+}
+
+/* Intervalos de prediccion */
+.interval {
+  display: flex;
+  color: white;
+}
+
+.interval > div {
+  width: 50%;
+  text-align: center;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 8rem;
+}
+
+.interval > div:first-child {
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Intervalo horario */
+.interval > div:first-child > p:first-child {
+  font-weight: bold;
+}
+
+.interval > div:first-child > p:nth-child(2) {
+  font-weight: bold;
+  color: rgba(221, 53, 41, 0.7);
+  font-size: 1.2rem;
+}
+
+/* Maxima potencia */
+.interval > div:last-child > p:first-child {
+  font-weight: bold;
+}
+
+.interval > div:last-child > p:nth-child(2) {
+  font-weight: bold;
+  color: rgba(8, 197, 18, 0.6);
+  font-size: 1.5rem;
+}
+
+.interval > div:last-child > p:last-child {
+  font-size: 0.9rem;
+}
+
+/* Grafico semanal */
+
+.data > main > article > section:last-child {
+  width: 70%;
+  padding: 10px;
+  background-color: rgba(128, 128, 128, 0.1);
+}
+
+/* Seccion de grafico de barras mensual*/
 .data > main > section {
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   /* border: 1px solid white; */
   height: 20%;
   width: 100%;
@@ -201,17 +230,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* gap: 10px; */
 }
 
 .data > main > section > h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: gray;
+  background-color: rgba(95, 65, 143, 0.2);
   width: 100%;
-  height: 2rem;
-  color: white;
+  height: 1.3rem;
+  color: rgba(253, 219, 107, 0.6);
   text-align: center;
   font-weight: bold;
   -webkit-text-stroke: 0.1px black;
@@ -224,6 +252,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px;
+  background-color: rgba(128, 128, 128, 0.1);
 }
 
 /* Loader */

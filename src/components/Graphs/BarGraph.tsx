@@ -40,14 +40,15 @@ export const BarGraph = ({ myData }: { myData: MyDate }) => {
             y: {
               min: 6000,
               max: 8000,
-              ticks: { stepSize: 1000 },
+              ticks: { stepSize: 1000, color: "white" },
               grid: {
-                color: "rgba(255, 255, 255, 0.2)",
+                color: "rgba(255, 255, 255, 0.1)",
               },
             },
             x: {
+              ticks: { color: "white" },
               grid: {
-                color: "rgba(255, 255, 255, 0.2)",
+                color: "rgba(255, 255, 255, 0.1)",
               },
             },
           },

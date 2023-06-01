@@ -134,6 +134,21 @@ function DataHistory({
     cb(e.target.value);
   };
 
+  const semana = {
+    labels: ["lun", "mar", "mie", "jue", "vie", "sab", "dom"],
+    datasets: [
+      {
+        label: "Máximo Ejecutado",
+        data: [6300, 7500, 7800, 7100, 6200, 7250, 7180],
+        backgroundColor: "rgba(8, 197, 18, 0.75)",
+        borderColor: "rgb(8, 197, 18)",
+        borderWidth: 1, // Ancho del borde de las barras
+        categoryPercentage: 0.3,
+        barPercentage: 2,
+      },
+    ],
+  };
+
   return (
     <main>
       <div>
@@ -184,23 +199,10 @@ function DataHistory({
               />
             </label>
           </section>
-          <section className={style.interval}>
-            <div>
-              <p>Intervalo Horario</p>
-              <p>
-                {minIntervalValue()} - {maxIntervalValue()} (2h)
-              </p>
-            </div>
-            <div>
-              <p>Máxima Potencia</p>
-              <p>{maxValuePerDay} MW</p>
-              <p>{timePerMaxValueDay()}</p>
-            </div>
-          </section>
         </section>
         <section>
           <label>
-            {day}/{month}/{year} - Interlvalo Horario {minIntervalValue()} -{" "}
+            {day}/{month}/{year} - Rango de Modulación {minIntervalValue()} -{" "}
             {maxIntervalValue()} (2h)
             <input
               type="checkbox"
@@ -226,6 +228,24 @@ function DataHistory({
           </section>
         </section>
       </div>
+      <article>
+        <section className={style.interval}>
+          <div>
+            <p>Intervalo Horario</p>
+            <p>
+              {minIntervalValue()} - {maxIntervalValue()} (2h)
+            </p>
+          </div>
+          <div>
+            <p>Máxima Potencia</p>
+            <p>{maxValuePerDay ? `${maxValuePerDay} MW` : "sin datos"}</p>
+            <p>{timePerMaxValueDay()}</p>
+          </div>
+        </section>
+        <section>
+          <BarGraph myData={semana} />
+        </section>
+      </article>
       <section>
         <h3>
           Resultado Mensual {months.find((e) => e.value === month)?.name} {year}
