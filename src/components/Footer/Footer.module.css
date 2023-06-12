@@ -1,0 +1,19 @@
+.footer {
+  background-color: var(--background);
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer > p {
+  color: white;
+  font-size: large;
+  text-align: center;
+  font-style: oblique;
+}
+
+.footer > p > a {
+  text-decoration: none;
+  color: #a52b8b;
+}

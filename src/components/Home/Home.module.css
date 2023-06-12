@@ -1,54 +1,31 @@
+.mainDiv {
+  position: relative;
+  overflow-y: scroll;
+  width: 100%;
+  max-height: 100vh;
+  scroll-snap-type: y mandatory;
+}
+
+.snap {
+  scroll-snap-align: center;
+}
+
 .home {
-  padding-bottom: 3rem;
-  background-color: rgba(248, 244, 29, 0.2);
-}
-
-.home > header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.home > header > p {
-  font-size: 2rem;
-  padding-left: 6rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  color: rgb(133, 14, 180);
-  font-weight: bold;
-  letter-spacing: 1px;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-style: italic;
-}
-
-.linkContact {
-  margin-right: 6rem;
-  padding: 6px;
-  border: 2px solid rgba(248, 127, 29, 0.9);
-  border-radius: 4rem;
-
-  text-decoration: none;
-  text-transform: uppercase;
-  font-weight: bold;
-  letter-spacing: 1px;
-  color: rgba(248, 127, 29, 0.9);
-
-  transition: 0.2s;
-}
-
-.linkContact:hover {
-  cursor: pointer;
-  background-color: rgba(248, 127, 29, 0.9);
-  color: white;
-}
-
-.home > section {
+  scroll-snap-align: center;
+  background-color: rgba(45, 0, 91, 0.9);
+  position: relative;
+  top: 0;
   background-image: url("/src/assets/images/city.jpg");
   background-repeat: round;
   background-size: cover;
   height: 100%;
   min-height: 100vh;
   animation: 3s cubic-bezier(0.25, 1, 0.3, 1) wipe-in-bottom-right both;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6rem;
 }
 
 @keyframes wipe-in-bottom-right {
@@ -60,9 +37,8 @@
   }
 }
 
-.home > section > h1,
-.home > section > p {
-  margin: auto;
+.home > h1,
+.home > p {
   width: 70%;
   color: #ffff;
   letter-spacing: 1px;
@@ -71,14 +47,12 @@
   text-align: center;
 }
 
-.home > section > h1 {
-  padding-top: 7rem;
+.home > h1 {
   font-size: 3rem;
   animation: 10s cubic-bezier(0.25, 1, 0.3, 1) circle-in-center both;
 }
 
-.home > section > p {
-  padding-top: 3rem;
+.home > p {
   font-size: 1.5rem;
   animation: 10s cubic-bezier(0.25, 1, 0.3, 1) circle-in-center both;
 }
@@ -90,4 +64,13 @@
   to {
     clip-path: circle(125%);
   }
+}
+
+.up {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 2;
+  color: white;
+  font-size: 2.5rem;
 }

@@ -1,0 +1,22 @@
+.chat {
+  position: absolute;
+  bottom: 2rem;
+  left: 1rem;
+
+  font-size: 3rem;
+  color: white;
+  text-align: center;
+
+  background-color: #25d366;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 9999px;
+
+  transition: 2s;
+
+  z-index: 2;
+}
+
+.chat:hover {
+  background-color: rgb(7, 94, 84);
+}

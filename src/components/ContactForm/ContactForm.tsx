@@ -5,6 +5,7 @@ import emailjs from "@emailjs/browser";
 import swal from "sweetalert";
 import { validator } from "../../assets/helpers/validators";
 import style from "./ContactForm.module.css";
+import Footer from "../Footer/Footer";
 
 const API_PUBLIC_KEY = import.meta.env.VITE_API_PUBLIC_KEY;
 const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
@@ -79,64 +80,67 @@ export default function ContactForm() {
   };
 
   return (
-    <div className={style.contact}>
-      <h2>Contactanos</h2>
-      <p>
-        Para contactarse con nosotros complete los siguientes campos, le
-        responderemos a la brevedad.
-      </p>
-      <form onSubmit={sendEmail}>
-        <label>
-          <span>Nombre:</span>
-          <input
-            type="text"
-            name="name"
-            placeholder="GDx Solutions"
-            value={input.name}
+    <div id="contact">
+      <div className={style.contact}>
+        <h2>Contáctenos</h2>
+        <p>
+          Para contactarse con nosotros debe completar los siguientes campos,
+          nuestro equipo se pondrá en contacto con usted a la brevedad.
+        </p>
+        <form onSubmit={sendEmail}>
+          <label>
+            <span>Nombre:</span>
+            <input
+              type="text"
+              name="name"
+              placeholder="GDx Solutions"
+              value={input.name}
+              onChange={(e) => handleInputChange(e)}
+            />
+            <p className={style.hide}></p>
+          </label>
+          <label>
+            <span>Asunto:</span>
+            <input
+              type="text"
+              name="subject"
+              value={input.subject}
+              placeholder="Tipo de consulta"
+              onChange={(e) => handleInputChange(e)}
+            />
+            <p className={errors.subject ? style.error : style.hide}>
+              {errors.subject}
+            </p>
+          </label>
+          <label>
+            <span>Email:</span>
+            <input
+              type="email"
+              name="email"
+              value={input.email}
+              placeholder="google@google.com"
+              onChange={(e) => handleInputChange(e)}
+            />
+            <p className={errors.email ? style.error : style.hide}>
+              {errors.email}
+            </p>
+          </label>
+          <label>
+            <span>Mensaje:</span>
+            <p className={errors.message ? style.error : style.hide}>
+              {errors.message}
+            </p>
+          </label>
+          <textarea
+            name="message"
+            value={input.message}
+            placeholder="Hola GDx Solutions, les escribo para..."
             onChange={(e) => handleInputChange(e)}
           />
-          <p className={style.hide}></p>
-        </label>
-        <label>
-          <span>Asunto:</span>
-          <input
-            type="text"
-            name="subject"
-            value={input.subject}
-            placeholder="Consulta"
-            onChange={(e) => handleInputChange(e)}
-          />
-          <p className={errors.subject ? style.error : style.hide}>
-            {errors.subject}
-          </p>
-        </label>
-        <label>
-          <span>Email:</span>
-          <input
-            type="email"
-            name="email"
-            value={input.email}
-            placeholder="google@google.com"
-            onChange={(e) => handleInputChange(e)}
-          />
-          <p className={errors.email ? style.error : style.hide}>
-            {errors.email}
-          </p>
-        </label>
-        <label>
-          <span>Mensaje:</span>
-          <p className={errors.message ? style.error : style.hide}>
-            {errors.message}
-          </p>
-        </label>
-        <textarea
-          name="message"
-          value={input.message}
-          placeholder="Hola GDx Solutions, les escribo para..."
-          onChange={(e) => handleInputChange(e)}
-        />
-        <button type="submit">Enviar</button>
-      </form>
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+      <Footer />
     </div>
   );
 }

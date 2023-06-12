@@ -1,70 +1,100 @@
 import { useNavigate } from "react-router-dom";
+import { Carousel } from "antd";
 import style from "./Services.module.css";
+import swal from "sweetalert";
 
 export default function Services() {
   const navigate = useNavigate();
   const goTo = (path: string) => {
-    alert("Debes iniciar sesion para acceder a las predicciones");
-    navigate(path);
+    swal({
+      title: "Cuidado",
+      text: "Debes iniciar sesion para acceder a la gestión de la demanda",
+      icon: "warning",
+      buttons: ["Cancelar", "Iniciar Sesion"],
+    }).then((isConfirm) => {
+      if (isConfirm) {
+        navigate(path);
+      }
+    });
   };
   return (
-    <main className={style.services}>
-      <h2>Nuestros Servicios</h2>
+    <section className={style.services} id="services">
       <div>
-        <div className={style.prediction}>
-          <h2>Realizar predicciones</h2>
-          <span>
-            De la demanda eléctrica a diferentes horizontes con uso de
-            algoritmos de Inteligencia Artificial
-          </span>
-          <button
-            onClick={() => {
-              goTo("/singin");
-            }}
-          >
-            Descubre mas
-          </button>
-        </div>
-        <div className={style.design}>
-          <h2>Diseñar perfiles</h2>
-          <span>
-            De energia segun los objetivos de cada empresa, permitiendo
-            optimizar el ritmo de produccion
-          </span>
-          <button
-            onClick={() => {
-              alert("En proceso de desarrollo");
-            }}
-          >
-            Descubre mas
-          </button>
-        </div>
-        <div className={style.report}>
-          <h2>Elaborar informes</h2>
-          <span>Y formatos de la estructura de costos de energia</span>
-          <button
-            onClick={() => {
-              alert("En proceso de desarrollo");
-            }}
-          >
-            Descubre mas
-          </button>
-        </div>
-        <div className={style.history}>
-          <h2>Resultados historicos</h2>
-          <span>
-            Obtenidos durante el periodo 2022 y 2023, teniendo un porcentaje de
-            acierto del 100%
-          </span>
-          <button
-            onClick={() => {
-              alert("En proceso de desarrollo");
-            }}
-          >
-            Descubre mas
-          </button>
-        </div>
+        <h2>Nuestros Servicios</h2>
+        <p>
+          Gracias a nuestros servicios las empresas pueden optimizar y ahorrar
+          recursos, además de contribuir a la lucha contra el cambio climático
+        </p>
       </div>
-    </main>
+      <section>
+        <Carousel autoplay style={{ borderRadius: "1rem" }}>
+          <div className={style.prediction}>
+            <h2>Realizar predicciones</h2>
+            <p>
+              De la demanda eléctrica a diferentes horizontes con uso de
+              algoritmos de Inteligencia Artificial
+            </p>
+            <button
+              onClick={() => {
+                goTo("/singin");
+              }}
+            >
+              Descubre mas
+            </button>
+          </div>
+          <div className={style.design}>
+            <h2>Diseñar perfiles</h2>
+            <p>
+              De energia segun los objetivos de cada empresa, permitiendo
+              optimizar el ritmo de produccion
+            </p>
+            <button
+              onClick={() => {
+                swal({
+                  title: "Lo sentimos",
+                  text: "En este momento este sector se encuentra en desarrollo",
+                  icon: "warning",
+                });
+              }}
+            >
+              Descubre mas
+            </button>
+          </div>
+          <div className={style.report}>
+            <h2>Elaborar informes</h2>
+            <p>Y formatos de la estructura de costos de energia</p>
+            <button
+              onClick={() => {
+                swal({
+                  title: "Lo sentimos",
+                  text: "En este momento este sector se encuentra en desarrollo",
+                  icon: "warning",
+                });
+              }}
+            >
+              Descubre mas
+            </button>
+          </div>
+          <div className={style.history}>
+            <h2>Resultados historicos</h2>
+            <p>
+              Obtenidos durante el periodo 2022 y 2023, teniendo un porcentaje
+              de acierto del 100%
+            </p>
+            <button
+              onClick={() => {
+                swal({
+                  title: "Lo sentimos",
+                  text: "En este momento este sector se encuentra en desarrollo",
+                  icon: "warning",
+                });
+              }}
+            >
+              Descubre mas
+            </button>
+          </div>
+        </Carousel>
+      </section>
+    </section>
   );
 }
