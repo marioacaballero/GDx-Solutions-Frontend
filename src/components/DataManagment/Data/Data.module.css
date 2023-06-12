@@ -12,6 +12,25 @@
   min-height: 80vh;
 }
 
+/* Boton de salir */
+.data > a {
+  position: absolute;
+  top: 0.5rem;
+  right: 2rem;
+  color: white;
+  font-size: 1.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  padding-bottom: 4px;
+  border: 2px solid white;
+  border-radius: 10px;
+  height: 2rem;
+  width: 2rem;
+}
+
 /* Header */
 
 .data > header {

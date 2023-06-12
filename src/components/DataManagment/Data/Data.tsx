@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { DotSpinner } from "@uiball/loaders";
-import { DataCoes } from "../../../assets/constants/dataCoes";
+import {
+  DataCoes /*, DataPrediction*/,
+} from "../../../assets/constants/dataCoes";
 import style from "./Data.module.css";
 import {
   actualDateDay,
@@ -16,6 +18,15 @@ export default function Data() {
     fetch(DataCoes("data"))
       .then((res) => res.json())
       .then((data) => setAlldata(data));
+
+    // fetch(
+    //   DataPrediction(
+    //     "prediccion_detalle",
+    //     actualDateYear + "-" + actualDateMonth() + "-" + actualDateDay()
+    //   )
+    // )
+    //   .then((res) => res.json())
+    //   .then((data) => setGDxNow(data));
   }, []);
 
   const [alldata, setAlldata] = useState<string[]>([]);
@@ -28,6 +39,8 @@ export default function Data() {
 
   const [displayGDx, setDisplayGDx] = useState<boolean>(true);
   const [displayGDxNow, setDisplayGDxNow] = useState<boolean>(true);
+  // const [GDxNow, setGDxNow] = useState<any>([]);
+  // console.log(GDxNow);
 
   const [displayDi, setDisplayDi] = useState<boolean>(true);
   const [displayDiNow, setDisplayDiNow] = useState<boolean>(true);
@@ -44,6 +57,7 @@ export default function Data() {
 
   return (
     <div className={style.data}>
+      <a href="/">x</a>
       <header>
         <select onChange={(e) => onChangeDaily(e)}>
           <option>Monitor Diario</option>
