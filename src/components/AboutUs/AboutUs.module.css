@@ -1,0 +1,91 @@
+.about {
+  scroll-behavior: smooth;
+  background-color: white;
+  /* gap: 5rem; */
+}
+
+.about > section {
+  display: flex;
+  align-items: center;
+  gap: 10%;
+  min-height: 100vh;
+}
+
+.about > section:first-child {
+  margin-bottom: 4rem;
+}
+
+.about > section:first-child > img {
+  /* width: 45%; */
+  animation: 1s anim ease-in;
+  height: 100vh;
+}
+
+.about > section > div {
+  width: 50%;
+  /* padding-right: 3rem; */
+}
+
+.about > section > div > h2 {
+  color: var(--background);
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 4rem;
+  animation: 1s anim ease-in;
+}
+
+.about > section > div > h2 > p {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.about > section > div > p {
+  padding-top: 1.5rem;
+  font-size: 2rem;
+  color: black;
+  animation: 1.25s anim ease-in;
+}
+
+.about > section:nth-child(2) {
+  gap: 5%;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.about > section:nth-child(2) > div {
+  padding-left: 3rem;
+  width: 45%;
+}
+
+.about > section:nth-child(2) > div > h2 {
+  animation: 1.5s anim ease-in;
+}
+
+.about > section:nth-child(2) > div > p {
+  font-size: 1.75rem;
+  animation: 1.75s anim ease-in;
+}
+
+.about > section:nth-child(2) > img {
+  animation: 1.25s anim ease-in;
+  width: 50%;
+}
+
+@keyframes anim {
+  0% {
+    opacity: 0;
+    transform: translatey(80%);
+  }
+  35% {
+    opacity: 0.35;
+    transform: translatey(60%);
+  }
+  70% {
+    opacity: 0.7;
+    transform: translatey(40%);
+  }
+  100% {
+    opacity: 1;
+    transform: translatey(0%);
+  }
+}

@@ -4,6 +4,7 @@ import logo from "../../assets/images/LOGO-PNG.png";
 
 export default function Navbar() {
   const home = "/";
+  const about = "/about";
   const services = "/#services";
   const contact = "/#contact";
   return (
@@ -11,7 +12,7 @@ export default function Navbar() {
       <a href={home}>
         <img src={logo} alt="GDx-logo" />
       </a>
-      <a href={home}>Quienes Somos</a>
+      <a href={about}>Nosotros</a>
       <a href={services}>Servicios</a>
       <a href={contact}>Contacto</a>
       <div>
