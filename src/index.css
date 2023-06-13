@@ -9,6 +9,7 @@ body {
   height: 100vh;
   min-width: 320px;
   min-height: 100vh;
+  font-family: "Open Sans", sans-serif;
 }
 
 :root {

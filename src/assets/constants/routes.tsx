@@ -6,6 +6,7 @@ import { Login } from "../../components/Login/Login";
 // import ContactForm from "../../components/ContactForm/ContactForm";
 // import Services from "../../components/Services/Services";
 import Navbar from "../../components/Navbar/Navbar";
+import AboutUs from "../../components/AboutUs/AboutUs";
 
 export const routes = createBrowserRouter([
   {
@@ -30,10 +31,15 @@ export const routes = createBrowserRouter([
     path: "/datamanagment",
     element: <DataManagment />,
   },
-  // {
-  //   path: "/singup",
-  //   element: <Register />,
-  // },
+  {
+    path: "/about",
+    element: (
+      <>
+        <Navbar />
+        <AboutUs />,
+      </>
+    ),
+  },
   // {
   //   path: "/contact",
   //   element: (

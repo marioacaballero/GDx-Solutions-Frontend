@@ -27,12 +27,12 @@ export default function Services() {
         </p>
       </div>
       <section>
-        <Carousel autoplay style={{ borderRadius: "1rem" }}>
+        <Carousel autoplay className={style.carousel}>
           <div className={style.prediction}>
-            <h2>Realizar predicciones</h2>
+            <h2>Gestion de la Demanda</h2>
             <p>
-              De la demanda eléctrica a diferentes horizontes con uso de
-              algoritmos de Inteligencia Artificial
+              Eléctrica, a diferentes horizontes con uso de algoritmos de
+              Inteligencia Artificial
             </p>
             <button
               onClick={() => {

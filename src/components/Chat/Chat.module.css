@@ -1,5 +1,5 @@
 .chat {
-  position: absolute;
+  position: fixed;
   bottom: 2rem;
   left: 1rem;
 

@@ -1,9 +1,9 @@
-// import { Link } from "react-router-dom";
 import LoginDisplay from "./LoginDisplay";
+import style from "./Login.module.css";
 
 export const Login = () => {
   return (
-    <div>
+    <div className={style.login}>
       <h1>GDx Solutions</h1>
       <h2>Bienvenidos</h2>
       <p>Debe iniciar sesión para continuar</p>

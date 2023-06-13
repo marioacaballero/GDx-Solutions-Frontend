@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, /* Checkbox,*/ Form, Input } from "antd";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import { DataCoes } from "../../assets/constants/dataCoes";
+import { DotSpinner } from "@uiball/loaders";
 
 const LoginDisplay: React.FC = () => {
+  const [load, setLoad] = useState<boolean>(false);
   const navigate = useNavigate();
 
   const onFinish = async (values: string) => {
     // console.log("Success:", values);
     try {
+      setLoad(true);
       const response = await axios.post(DataCoes("auth/signIn"), values);
-      if (response.status === 201) return navigate("/datamanagment");
+      if (response.status === 201) {
+        setLoad(false);
+        return navigate("/datamanagment");
+      }
       // console.log(response.status);
     } catch (error: any) {
       alert(JSON.parse(error.request.response).message);
@@ -62,9 +68,16 @@ const LoginDisplay: React.FC = () => {
       </Form.Item> */}
 
       <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button type="primary" htmlType="submit">
+        <Button
+          type="primary"
+          htmlType="submit"
+          style={{ backgroundColor: "var(--background)" }}
+        >
           Iniciar sesión
         </Button>
+        <div style={{ paddingLeft: "10%", paddingTop: "1rem" }}>
+          {load && <DotSpinner size={25} speed={0.9} color="black" />}
+        </div>
       </Form.Item>
     </Form>
   );
