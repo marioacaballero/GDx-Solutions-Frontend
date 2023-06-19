@@ -25,6 +25,11 @@ export default function Services() {
           Gracias a nuestros servicios las empresas pueden optimizar y ahorrar
           recursos, además de contribuir a la lucha contra el cambio climático
         </p>
+        <p>
+          * Solicita una prueba gratis <a href={"/#contact"}>aquí</a> para
+          conocer como funciona nuestra tecnología de gestión de la demanda
+          eléctrica.
+        </p>
       </div>
       <section>
         <Carousel autoplay className={style.carousel}>

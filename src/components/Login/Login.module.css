@@ -26,3 +26,14 @@
 .display {
   color: white;
 }
+
+.login > p:last-child {
+  color: red;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+.login > p:last-child > a {
+  color: blue;
+  text-decoration: none;
+}
