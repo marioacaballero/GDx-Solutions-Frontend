@@ -8,10 +8,10 @@ export const Login = () => {
       <h2>Bienvenidos</h2>
       <p>Debe iniciar sesión para continuar</p>
       <LoginDisplay />
-      {/* <p>
-        ¿Eres nuevo en GDx Solutions? Puede obtener tu cuenta gratis{" "}
-        <Link to={"/singUp"}>aquí</Link>
-      </p> */}
+      <p>
+        * Solicita una prueba gratis <a href={"/#contact"}>aquí</a> para conocer
+        como funciona nuestra tecnología de gestión de la demanda eléctrica.
+      </p>
     </div>
   );
 };

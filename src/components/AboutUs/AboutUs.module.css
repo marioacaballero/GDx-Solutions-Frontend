@@ -1,7 +1,6 @@
 .about {
   scroll-behavior: smooth;
   background-color: white;
-  /* gap: 5rem; */
 }
 
 .about > section {
@@ -16,14 +15,12 @@
 }
 
 .about > section:first-child > img {
-  /* width: 45%; */
   animation: 1s anim ease-in;
   height: 100vh;
 }
 
 .about > section > div {
   width: 50%;
-  /* padding-right: 3rem; */
 }
 
 .about > section > div > h2 {

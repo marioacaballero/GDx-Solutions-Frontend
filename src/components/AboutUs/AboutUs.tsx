@@ -33,8 +33,8 @@ function AboutUs() {
           <>
             <div>
               <h2>
-                Gestionamos
-                <p>la Demanda</p>
+                Gestión de
+                <p>Demanda Eléctrica</p>
               </h2>
               <p>
                 La gestión de la demanda es una estrategia utilizada por las
