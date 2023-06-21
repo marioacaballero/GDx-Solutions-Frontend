@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React /*, { useState } */ from "react";
 import { Button, /* Checkbox,*/ Form, Input } from "antd";
 import { useNavigate } from "react-router";
 // import axios from "axios";
 // import { DataCoes } from "../../assets/constants/fetchData";
-import { DotSpinner } from "@uiball/loaders";
+// import { DotSpinner } from "@uiball/loaders";
 
 const LoginDisplay: React.FC = () => {
-  const [load, setLoad] = useState<boolean>(false);
+  // const [load, setLoad] = useState<boolean>(false);
   const navigate = useNavigate();
 
   const onFinish = async (values: string) => {
-    // console.log("Success:", values);
+    console.log("Success:", values);
     navigate("/datamanagment");
     // try {
     //   setLoad(true);
@@ -76,9 +76,9 @@ const LoginDisplay: React.FC = () => {
         >
           Iniciar sesión
         </Button>
-        <div style={{ paddingLeft: "10%", paddingTop: "1rem" }}>
+        {/* <div style={{ paddingLeft: "10%", paddingTop: "1rem" }}>
           {load && <DotSpinner size={25} speed={0.9} color="black" />}
-        </div>
+        </div> */}
       </Form.Item>
     </Form>
   );
