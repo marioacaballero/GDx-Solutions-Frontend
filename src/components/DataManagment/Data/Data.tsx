@@ -21,59 +21,32 @@ export default function Data() {
   const [year, setYear] = useState<string>(actualDateYear);
 
   const date = `${year}-${month}-${day}`;
-
   useEffect(() => {
-    const fetchingAsync = async () => {
-      try {
-        const ejecResp = await fetch(FetchData(`ejecutado?date=${date}`));
-        const ejectData = await ejecResp.json();
-        setEjecutado(ejectData);
+    fetch(FetchData(`ejecutado?date=${date}`))
+      .then((res) => res.json())
+      .then((data) => setEjecutado(data));
 
-        // const gdxResp = await fetch(
-        //   FetchData(`prediccion_detalle?date=${date}`)
-        // );
-        // const gdxData = await gdxResp.json();
-        // setGdx(gdxData);
-        setGdx([]);
+    fetch(FetchData(`prediccion_detalle?date=${date}`))
+      .then((res) => res.json())
+      .then((data) => setGdx(data));
 
-        // const diarioResp = await fetch(
-        //   FetchData(`programa_diario?date=${date}`)
-        // );
-        // const diarioData = await diarioResp.json();
-        // setDiario(diarioData);
-        setDiario([]);
+    fetch(FetchData(`programa_diario?date=${date}`))
+      .then((res) => res.json())
+      .then((data) => setDiario(data));
 
-        // const reprodiarioResp = await fetch(
-        //   FetchData(`reprograma_diario?date=${date}`)
-        // );
-        // const reprodiarioData = await reprodiarioResp.json();
-        // setReprodiario(reprodiarioData);
-        setReprodiario([]);
+    fetch(FetchData(`reprograma_diario?date=${date}`))
+      .then((res) => res.json())
+      .then((data) => setReprodiario(data));
 
-        // const monthResp = await fetch(
-        //   FetchData(`prediccion_maximos_diarios?date=${date}`)
-        // );
-        // const monthData = await monthResp.json();
-        // setDataMonth(monthData);
-        setDataMonth([]);
+    fetch(FetchData(`prediccion_maximos_diarios?date=${date}`))
+      .then((res) => res.json())
+      .then((data) => setDataMonth(data));
 
-        // const predResp = await fetch(FetchData(`prediccion/?date=${date}`));
-        // const predData = await predResp.json();
-        // setPrediction(predData);
-        setPrediction({
-          date_pred: "sin datos",
-          hora_min: "sin datos",
-          hora_max: "sin datos",
-          demanda_pred: "sin datos",
-        });
+    fetch(FetchData(`prediccion/?date=${date}`))
+      .then((res) => res.json())
+      .then((data) => setPrediction(data));
 
-        setLoading(false);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchingAsync();
+    setLoading(false);
   }, [date]);
 
   const [loading, setLoading] = useState<boolean>(true);
@@ -118,6 +91,7 @@ export default function Data() {
         </div>
       ) : (
         <DataNow
+          key={"dataNow"}
           ejecutadoNow={ejecutado}
           gdxNow={gdx}
           diarioNow={diario}
