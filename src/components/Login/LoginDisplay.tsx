@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Button, /* Checkbox,*/ Form, Input } from "antd";
 import { useNavigate } from "react-router";
-import axios from "axios";
-import { DataCoes } from "../../assets/constants/fetchData";
+// import axios from "axios";
+// import { DataCoes } from "../../assets/constants/fetchData";
 import { DotSpinner } from "@uiball/loaders";
 
 const LoginDisplay: React.FC = () => {
@@ -11,17 +11,18 @@ const LoginDisplay: React.FC = () => {
 
   const onFinish = async (values: string) => {
     // console.log("Success:", values);
-    try {
-      setLoad(true);
-      const response = await axios.post(DataCoes("auth/signIn"), values);
-      if (response.status === 201) {
-        setLoad(false);
-        return navigate("/datamanagment");
-      }
-      // console.log(response.status);
-    } catch (error: any) {
-      alert(JSON.parse(error.request.response).message);
-    }
+    navigate("/datamanagment");
+    // try {
+    //   setLoad(true);
+    //   const response = await axios.post(DataCoes("auth/signIn"), values);
+    //   if (response.status === 201) {
+    //     setLoad(false);
+    //     return navigate("/datamanagment");
+    //   }
+    //   // console.log(response.status);
+    // } catch (error: any) {
+    //   alert(JSON.parse(error.request.response).message);
+    // }
 
     // navigate("/home");
   };
