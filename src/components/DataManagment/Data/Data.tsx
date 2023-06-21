@@ -29,33 +29,33 @@ export default function Data() {
         const ejectData = await ejecResp.json();
         setEjecutado(ejectData);
 
-        const gdxResp = await fetch(
-          FetchData(`prediccion_detalle?date=${date}`)
-        );
-        const gdxData = await gdxResp.json();
-        setGdx(gdxData);
+        // const gdxResp = await fetch(
+        //   FetchData(`prediccion_detalle?date=${date}`)
+        // );
+        // const gdxData = await gdxResp.json();
+        // setGdx(gdxData);
 
-        const diarioResp = await fetch(
-          FetchData(`programa_diario?date=${date}`)
-        );
-        const diarioData = await diarioResp.json();
-        setDiario(diarioData);
+        // const diarioResp = await fetch(
+        //   FetchData(`programa_diario?date=${date}`)
+        // );
+        // const diarioData = await diarioResp.json();
+        // setDiario(diarioData);
 
-        const reprodiarioResp = await fetch(
-          FetchData(`reprograma_diario?date=${date}`)
-        );
-        const reprodiarioData = await reprodiarioResp.json();
-        setReprodiario(reprodiarioData);
+        // const reprodiarioResp = await fetch(
+        //   FetchData(`reprograma_diario?date=${date}`)
+        // );
+        // const reprodiarioData = await reprodiarioResp.json();
+        // setReprodiario(reprodiarioData);
 
-        const monthResp = await fetch(
-          FetchData(`prediccion_maximos_diarios?date=${date}`)
-        );
-        const monthData = await monthResp.json();
-        setDataMonth(monthData);
+        // const monthResp = await fetch(
+        //   FetchData(`prediccion_maximos_diarios?date=${date}`)
+        // );
+        // const monthData = await monthResp.json();
+        // setDataMonth(monthData);
 
-        const predResp = await fetch(FetchData(`prediccion/?date=${date}`));
-        const predData = await predResp.json();
-        setPrediction(predData);
+        // const predResp = await fetch(FetchData(`prediccion/?date=${date}`));
+        // const predData = await predResp.json();
+        // setPrediction(predData);
 
         setLoading(false);
       } catch (error) {
