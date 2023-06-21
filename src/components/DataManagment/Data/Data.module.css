@@ -1,13 +1,7 @@
 .data {
   background-color: black;
   font-family: "Open Sans", sans-serif;
-  /* padding-left: 1%; */
-  /* padding-right: 1%; */
-  height: fit-content;
-  /* border: 1px solid white; */
   display: flex;
-  flex-direction: column;
-  /* align-items: center; */
   justify-content: center;
   min-height: 80vh;
 }
@@ -16,7 +10,7 @@
 .data > a {
   position: absolute;
   top: 0.5rem;
-  right: 2rem;
+  right: 0.5rem;
   color: white;
   font-size: 1.7rem;
   display: flex;
@@ -34,64 +28,36 @@
 /* Header */
 
 .data > header {
-  height: 6%;
-  display: flex;
-  justify-content: start;
-  gap: 1rem;
-  padding-bottom: 1rem;
-  padding-left: 0.5rem;
-}
-
-.data > header > select {
-  text-align: center;
-  background-color: black;
-  color: white;
-  font-weight: bold;
-  border: 1px solid white;
-  border-bottom: none;
-  padding: 2px;
-  width: 8rem;
-}
-
-.data > header > h2 {
-  font-family: Arial, Helvetica, sans-serif;
-  color: rgba(221, 34, 34, 0.96);
-  font-size: 1.25rem;
-  border: 1px solid rgba(221, 34, 34, 0.96);
-  padding: 2px 1.5rem 2px 1.5rem;
-  background-color: white;
-  -webkit-text-stroke: 0.1px black;
+  width: 13%;
+  min-height: 95vh;
 }
 
 /* Main */
 
 /* Secciones principales */
 .data > main {
-  /* height: 84%; */
-  width: 100%;
+  width: 87%;
+  min-height: 96vh;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  justify-content: center;
-  /* gap: 1rem; */
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* Filtros y Grafico de linea */
 
 .data > main > div {
-  height: 40%;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
 /* Filtros */
-.data > main > div > section:first-child {
-  width: 30%;
+.data > main > div > section:last-child {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  /* gap: 2rem; */
 }
 
 /* Filtro de dias*/
@@ -119,10 +85,9 @@
 /* Filtro del grafico */
 
 .graphFilter {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* color: white; */
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
 
@@ -133,27 +98,42 @@
   margin: auto;
 }
 
-/* Ejecutada */
+/* Estimacion */
 .graphFilter > label:first-child {
-  color: rgb(8, 197, 18);
-}
-
-/* Prediccion */
-.graphFilter > label:nth-child(2) {
   color: rgb(128, 0, 128);
 }
 
+/* Maximos GDx */
+.graphFilter > label:nth-child(2) {
+  color: rgb(255, 255, 0);
+}
+
+/* Ejecutada */
+.graphFilter > label:nth-child(3) {
+  color: rgb(8, 197, 18);
+}
+
 /* Diario */
-.graphFilter > label:last-child {
-  color: rgb(0, 153, 255);
+.graphFilter > label:nth-child(4) {
+  color: rgb(0, 0, 255);
+}
+
+/* Repro Diario */
+.graphFilter > label:nth-child(5) {
+  color: rgb(0, 225, 255);
+}
+
+/* Semanal */
+.graphFilter > label:nth-child(6) {
+  color: chocolate;
 }
 
 /* Grafico de linea */
-.data > main > div > section:last-child {
-  width: 68%;
+.data > main > div > section:first-child {
+  width: 100%;
 }
 
-.data > main > div > section:last-child > label {
+.data > main > div > section:first-child > label {
   display: flex;
   justify-content: center;
   gap: 1rem;
@@ -172,78 +152,49 @@
   justify-content: center;
   align-items: center;
   padding: 10px;
-  /* background-color: rgba(128, 128, 128, 0.1); */
 }
 
 /* Seccion de grafico de barras semanal e intervalos */
 .data > main > article {
-  margin-top: 2rem;
+  width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
   align-items: center;
 }
 
 /* Intervalos de prediccion */
 .interval {
+  width: 90%;
   display: flex;
+  justify-content: space-between;
   color: white;
 }
 
 .interval > div {
-  width: 50%;
+  border: 1px solid gray;
   text-align: center;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 8rem;
+  justify-content: space-around;
+  height: 5rem;
 }
 
-.interval > div:first-child {
-  border-right: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-/* Intervalo horario */
-.interval > div:first-child > p:first-child {
+.interval > div > p:first-child {
   font-weight: bold;
 }
 
-.interval > div:first-child > p:nth-child(2) {
+.interval > div > p:nth-child(2) {
   font-weight: bold;
-  color: rgba(221, 53, 41, 0.7);
+  color: gray;
   font-size: 1.2rem;
-}
-
-/* Maxima potencia */
-.interval > div:last-child > p:first-child {
-  font-weight: bold;
-}
-
-.interval > div:last-child > p:nth-child(2) {
-  font-weight: bold;
-  color: rgba(8, 197, 18, 0.6);
-  font-size: 1.5rem;
-}
-
-.interval > div:last-child > p:last-child {
-  font-size: 0.9rem;
-}
-
-/* Grafico semanal */
-
-.data > main > article > section:last-child {
-  width: 70%;
-  padding: 10px;
-  background-color: rgba(128, 128, 128, 0.1);
 }
 
 /* Seccion de grafico de barras mensual*/
 .data > main > section {
-  /* margin-top: 1rem; */
-  /* border: 1px solid white; */
-  height: 20%;
+  padding-top: 1rem;
   width: 100%;
   display: flex;
   flex-direction: column;

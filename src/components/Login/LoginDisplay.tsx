@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, /* Checkbox,*/ Form, Input } from "antd";
 import { useNavigate } from "react-router";
 import axios from "axios";
-import { DataCoes } from "../../assets/constants/dataCoes";
+import { DataCoes } from "../../assets/constants/fetchData";
 import { DotSpinner } from "@uiball/loaders";
 
 const LoginDisplay: React.FC = () => {
