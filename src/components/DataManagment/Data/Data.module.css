@@ -1,9 +1,9 @@
 .data {
-  background-color: black;
+  /* background-color: #323548; */
   font-family: "Open Sans", sans-serif;
   display: flex;
   justify-content: center;
-  min-height: 80vh;
+  min-height: 100vh;
 }
 
 /* Boton de salir */
@@ -29,7 +29,7 @@
 
 .data > header {
   width: 13%;
-  min-height: 95vh;
+  min-height: 100vh;
 }
 
 /* Main */
@@ -37,11 +37,11 @@
 /* Secciones principales */
 .data > main {
   width: 87%;
-  min-height: 96vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 /* Filtros y Grafico de linea */
@@ -89,6 +89,10 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
+  background-color: #323548;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-top: 1rem;
 }
 
 .graphFilter > label {
@@ -100,7 +104,7 @@
 
 /* Estimacion */
 .graphFilter > label:first-child {
-  color: rgb(128, 0, 128);
+  color: rgb(247, 39, 247);
 }
 
 /* Maximos GDx */
@@ -115,7 +119,7 @@
 
 /* Diario */
 .graphFilter > label:nth-child(4) {
-  color: rgb(0, 0, 255);
+  color: rgb(78, 78, 255);
 }
 
 /* Repro Diario */
@@ -124,13 +128,16 @@
 }
 
 /* Semanal */
-.graphFilter > label:nth-child(6) {
+/* .graphFilter > label:nth-child(6) {
   color: chocolate;
-}
+} */
 
 /* Grafico de linea */
 .data > main > div > section:first-child {
   width: 100%;
+  background-color: #323548;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .data > main > div > section:first-child > label {
@@ -161,6 +168,9 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  background-color: #323548;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 /* Intervalos de prediccion */
@@ -168,7 +178,7 @@
   width: 90%;
   display: flex;
   justify-content: space-between;
-  color: white;
+  color: #45cab5;
 }
 
 .interval > div {
@@ -188,7 +198,7 @@
 
 .interval > div > p:nth-child(2) {
   font-weight: bold;
-  color: gray;
+  color: white;
   font-size: 1.2rem;
 }
 
@@ -206,14 +216,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(95, 65, 143, 0.2);
+  background-color: #242635;
   width: 100%;
   height: 1.3rem;
-  color: rgba(253, 219, 107, 0.6);
+  color: white;
   text-align: center;
   font-weight: bold;
   -webkit-text-stroke: 0.1px black;
   letter-spacing: 0.5px;
+  padding-bottom: 2rem;
 }
 
 .barGraph {
@@ -223,7 +234,7 @@
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background-color: rgba(128, 128, 128, 0.1);
+  background-color: #323548;
 }
 
 /* Loader */

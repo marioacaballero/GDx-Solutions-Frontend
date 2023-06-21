@@ -9,6 +9,7 @@ import {
   actualDateYear,
 } from "../../../assets/constants/initialStates";
 import { useState } from "react";
+import swal from "sweetalert";
 
 export default function ControlPanel({
   setYear,
@@ -47,44 +48,40 @@ export default function ControlPanel({
         <div>
           <button>GDx Solutions</button>
         </div>
-        <div
-          onClick={() => {
-            if (
-              date !==
-              `${actualDateYear}-${actualDateMonth()}-${actualDateDay()}`
-            ) {
-              setLoading(true);
-              setYear(actualDateYear);
-              setMonth(actualDateMonth());
-              setDay(actualDateDay());
-            }
-            setDisplayDaily(false);
-            setBackHistory(false);
-            setBackDiario(true);
-          }}
-        >
+        <div>
           <LuShoppingBag className={style.icon} />
           <button
             style={{
-              backgroundColor: backDiario ? "gray" : "#242424",
-              color: backDiario ? "black" : "rgba(255, 255, 255, 0.96)",
+              backgroundColor: backDiario ? "#323548" : "",
+            }}
+            onClick={() => {
+              if (
+                date !==
+                `${actualDateYear}-${actualDateMonth()}-${actualDateDay()}`
+              ) {
+                setLoading(true);
+                setYear(actualDateYear);
+                setMonth(actualDateMonth());
+                setDay(actualDateDay());
+              }
+              setDisplayDaily(false);
+              setBackHistory(false);
+              setBackDiario(true);
             }}
           >
             Control Diario
           </button>
         </div>
-        <div
-          onClick={() => {
-            setDisplayDaily(true);
-            setBackHistory(true);
-            setBackDiario(false);
-          }}
-        >
+        <div>
           <TbActivityHeartbeat className={style.icon} />
           <button
             style={{
-              backgroundColor: backHistory ? "gray" : "#242424",
-              color: backHistory ? "black" : "rgba(255, 255, 255, 0.96)",
+              backgroundColor: backHistory ? "#323548" : "",
+            }}
+            onClick={() => {
+              setDisplayDaily(true);
+              setBackHistory(true);
+              setBackDiario(false);
             }}
           >
             Record Histórico
@@ -92,7 +89,17 @@ export default function ControlPanel({
         </div>
         <div>
           <LuUsers className={style.icon} />
-          <button>Usuario</button>
+          <button
+            onClick={() =>
+              swal({
+                title: "Lo sentimos!",
+                text: "Todavía estamos desarrollando esta sección",
+                icon: "warning",
+              })
+            }
+          >
+            Usuario
+          </button>
         </div>
       </section>
       <section>
