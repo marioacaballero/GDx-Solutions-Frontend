@@ -7,31 +7,80 @@
   justify-content: center;
 }
 
-.controlPanel > h2 {
-  color: rgba(255, 255, 255, 0.96);
+.controlPanel > section {
+  height: 50%;
+}
+
+.controlPanel > section:first-child {
+  border-bottom: 1px solid grey;
+  padding-top: 2rem;
+}
+
+.controlPanel > section:first-child > div {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 0.5rem;
+}
+
+.controlPanel > section:first-child > div > button {
+  width: 75%;
   border: 2px solid gray;
-  width: 10rem;
-  padding: 6px;
-  font-size: 1rem;
+  height: 3rem;
+  font-size: 0.9rem;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   letter-spacing: 0.5px;
   font-family: Arial, Helvetica, sans-serif;
+  color: rgba(255, 255, 255, 0.96);
+  background-color: #242424;
+  border: 2px solid black;
 }
 
-.controlPanel > h2:first-child {
-  text-transform: uppercase;
-  margin-bottom: 35%;
-  margin-top: 20%;
-}
-
-.controlPanel > h2:nth-child(2) {
+.controlPanel > section:first-child > div > button:hover {
+  cursor: pointer;
+  background-color: gray;
   color: black;
-  background-color: rgba(255, 255, 255, 0.96);
-  font-weight: 400;
-  margin-bottom: 15%;
 }
 
-.controlPanel > img {
-  margin-top: 40%;
-  width: 10rem;
+.controlPanel > section:first-child > div:first-child {
+  margin-bottom: 25%;
+  justify-content: center;
+}
+
+.controlPanel > section:first-child > div:first-child > button:hover {
+  cursor: auto;
+  color: rgba(255, 255, 255, 0.96);
+  background-color: #242424;
+}
+
+.icon {
+  font-size: 2rem;
+  color: gray;
+}
+
+.controlPanel > section:nth-child(2) > h2 {
+  text-align: center;
+  color: white;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.controlPanel > section:nth-child(2) > p {
+  text-align: center;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.controlPanel > section:nth-child(2) > select {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
 }

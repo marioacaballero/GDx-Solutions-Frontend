@@ -33,3 +33,19 @@ export interface ChartContext {
   dataset: ChartDataset;
   datasetIndex: number;
 }
+
+export interface FetchGDx {
+  date: string;
+  demanda: number;
+}
+export interface FetchEject {
+  date: string;
+  ejecutado: number;
+}
+
+export interface FetchPrediction {
+  date_pred: string;
+  hora_min: string;
+  hora_max: string;
+  demanda_pred: string;
+}

@@ -1,152 +1,123 @@
 import { databarDaily } from "../../../assets/constants/dataGraphBar";
 import { myDataDaily } from "../../../assets/constants/dataGraphLine";
 import {
-  actualDateDay,
   actualDateMonth,
   actualDateYear,
 } from "../../../assets/constants/initialStates";
-import { data1, data2 } from "../../../assets/constants/interfaces";
+import {
+  FetchEject,
+  FetchGDx,
+  FetchPrediction,
+} from "../../../assets/constants/interfaces";
 import { months } from "../../../assets/constants/schedule";
-import { monthData } from "../../../assets/helpers/auxiliar";
 import { BarGraph } from "../../Graphs/BarGraph";
 import { LineGraph } from "../../Graphs/LineGraph";
 import style from "./Data.module.css";
 
 function DataNow({
-  alldata,
+  ejecutadoNow,
+  gdxNow,
+  diarioNow,
+  prediccionNow,
   displayEjNow,
   setDisplayEjNow,
   displayGDxNow,
   setDisplayGDxNow,
   displayDiNow,
   setDisplayDiNow,
+  dataMonthNow,
   displayIntervalNow,
   setDisplayIntervalNow,
+  reprodiario,
+  displayReproDiNow,
+  setDisplayReproDiNow,
 }: {
-  alldata: string[];
+  ejecutadoNow: FetchEject[];
+  gdxNow: FetchGDx[];
+  diarioNow: FetchGDx[];
   displayEjNow: boolean;
   setDisplayEjNow: React.Dispatch<React.SetStateAction<boolean>>;
   displayGDxNow: boolean;
   setDisplayGDxNow: React.Dispatch<React.SetStateAction<boolean>>;
   displayDiNow: boolean;
   setDisplayDiNow: React.Dispatch<React.SetStateAction<boolean>>;
+  dataMonthNow: FetchGDx[];
+  prediccionNow: FetchPrediction;
   displayIntervalNow: boolean;
   setDisplayIntervalNow: React.Dispatch<React.SetStateAction<boolean>>;
+  reprodiario: FetchGDx[];
+  displayReproDiNow: boolean;
+  setDisplayReproDiNow: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
-  const dateNow =
-    actualDateDay() + "/" + actualDateMonth() + "/" + actualDateYear;
-
-  const dataNow = alldata.filter((f) => f[0].includes(dateNow));
-
-  const ejecutadoNow = dataNow.map((f) => parseInt(f[1]));
-
-  const gdxNow = dataNow.map((f) => parseInt(f[3])); //corregir este valor por el verdadero
-
-  const diarioNow = dataNow.map((f) => parseInt(f[2]));
-
-  const maxValuePerDayNow = ejecutadoNow.reduce(
-    (max: number, valor: number) => (valor > max ? valor : max),
-    0
-  );
-
-  const timePerMaxValueDayNow = () => {
-    const time = dataNow.find((e) => parseInt(e[1]) === maxValuePerDayNow);
-    return time?.length ? time[0] : "sin datos";
-  };
-
-  const intervalTimePerMaxValueNow = () => {
-    const interval = [];
-    const dataArray = dataNow.map((e) => e[0]);
-    const i = dataArray.indexOf(timePerMaxValueDayNow());
-    interval.push(dataArray[i - 2]);
-    interval.push(dataArray[i - 1]);
-    interval.push(dataArray[i]);
-    interval.push(dataArray[i + 1]);
-    interval.push(dataArray[i + 2]);
-    return interval;
-  };
-
-  const intervalForGraphNow = () => {
-    const indexes: number[] = [];
-    const dataArray = dataNow.map((e) => e[0]);
-    const i = dataArray.indexOf(timePerMaxValueDayNow());
-    indexes.push(i - 2);
-    indexes.push(i - 1);
-    indexes.push(i);
-    indexes.push(i + 1);
-    indexes.push(i + 2);
-
-    return ejecutadoNow.map((value, index: number) => {
-      if (indexes.includes(index)) {
-        return value;
-      } else {
-        return 0;
-      }
-    });
-  };
-
-  const minIntervalValueNow = () => {
-    const min = intervalTimePerMaxValueNow()[0];
-    return min ? min.slice(11) : "sin datos";
-  };
-
-  const maxIntervalValueNow = () => {
-    const max = intervalTimePerMaxValueNow()[4];
-    return max ? max.slice(11) : "sin datos";
-  };
-
-  const alldataMonthNow = alldata.filter((f) =>
-    f[0].slice(3, 10).includes(actualDateMonth() + "/" + actualDateYear)
-  );
-
-  const dataMonthNow = monthData(alldataMonthNow).map((elem: data2) => {
-    return [
-      elem.start,
-      elem.result.reduce(
-        (max: number, valor: number) => (valor > max ? valor : max),
-        0
-      ),
-    ];
-  });
-
-  const maxValuePerMonthNow = dataMonthNow
-    .map((e: data1[]) => e[1])
-    .reduce((max: number, valor: number) => (valor > max ? valor : max), 0);
-
-  const semana = {
-    labels: ["lun", "mar", "mie", "jue", "vie", "sab", "dom"],
-    datasets: [
-      {
-        label: "Máximo Ejecutado",
-        data: [6300, 7500, 7800, 7100, 6200, 7250, 7180],
-        backgroundColor: "rgba(8, 197, 18, 0.75)",
-        borderColor: "rgb(8, 197, 18)",
-        borderWidth: 1, // Ancho del borde de las barras
-        categoryPercentage: 0.3,
-        barPercentage: 2,
-      },
-    ],
-  };
+  const { date_pred, hora_max, hora_min, demanda_pred } = prediccionNow;
 
   return (
     <main>
+      <article>
+        <section className={style.interval}>
+          <div>
+            <p>Predicción</p>
+            <p>{demanda_pred ? `${demanda_pred} MW` : "sin datos"}</p>
+          </div>
+          <div>
+            <p>Estimación Horaria</p>
+            <p>{date_pred.slice(11, 16)} hs</p>
+          </div>
+          <div>
+            <p>Intervalo de modulación</p>
+            <p>
+              {hora_min.slice(11, 16)} - {hora_max.slice(11, 16)} hs
+            </p>
+          </div>
+          <div>
+            <p>Gestión de Riesgo</p>
+            <p>Low/Medium/Hard</p>
+          </div>
+        </section>
+      </article>
       <div>
         <section>
+          <section className={style.lineGraph}>
+            <LineGraph
+              myData={myDataDaily(
+                reprodiario,
+                displayReproDiNow,
+                displayEjNow,
+                ejecutadoNow,
+                // displayIntervalNow,
+                displayGDxNow,
+                gdxNow,
+                displayDiNow,
+                diarioNow
+                // intervalForGraphNow()
+              )}
+            />
+          </section>
+        </section>
+        <section>
           <section className={style.graphFilter}>
+            <label>
+              Estimación de la demanda
+              <input
+                type="checkbox"
+                defaultChecked={displayGDxNow}
+                onClick={() => setDisplayGDxNow(!displayGDxNow)}
+              />
+            </label>
+            <label>
+              MDC GDx
+              <input
+                type="checkbox"
+                defaultChecked={displayIntervalNow}
+                onClick={() => setDisplayIntervalNow(!displayIntervalNow)}
+              />
+            </label>
             <label>
               Demanda Ejecutada
               <input
                 type="checkbox"
                 defaultChecked={displayEjNow}
                 onClick={() => setDisplayEjNow(!displayEjNow)}
-              />
-            </label>
-            <label>
-              Estimación GDx
-              <input
-                type="checkbox"
-                defaultChecked={displayGDxNow}
-                onClick={() => setDisplayGDxNow(!displayGDxNow)}
               />
             </label>
             <label>
@@ -157,54 +128,25 @@ function DataNow({
                 onClick={() => setDisplayDiNow(!displayDiNow)}
               />
             </label>
-          </section>
-        </section>
-        <section>
-          <label>
-            Rango de Modulación {minIntervalValueNow()} -{" "}
-            {maxIntervalValueNow()} (2h)
-            <input
-              type="checkbox"
-              defaultChecked={displayIntervalNow}
-              onClick={() => setDisplayIntervalNow(!displayIntervalNow)}
-            />
-          </label>
-          <section className={style.lineGraph}>
-            <LineGraph
-              myData={myDataDaily(
-                alldata,
-                dateNow,
-                displayEjNow,
-                ejecutadoNow,
-                displayIntervalNow,
-                displayGDxNow,
-                gdxNow,
-                displayDiNow,
-                diarioNow,
-                intervalForGraphNow()
-              )}
-            />
+            <label>
+              Reprograma Diario
+              <input
+                type="checkbox"
+                defaultChecked={displayReproDiNow}
+                onClick={() => setDisplayReproDiNow(!displayReproDiNow)}
+              />
+            </label>
+            <label>
+              Programa Semanal
+              <input
+                type="checkbox"
+                defaultChecked={displayIntervalNow}
+                onClick={() => setDisplayIntervalNow(!displayIntervalNow)}
+              />
+            </label>
           </section>
         </section>
       </div>
-      <article>
-        <section className={style.interval}>
-          <div>
-            <p>Intervalo Horario</p>
-            <p>
-              {minIntervalValueNow()} - {maxIntervalValueNow()} (2h)
-            </p>
-          </div>
-          <div>
-            <p>Máxima Potencia</p>
-            <p>{maxValuePerDayNow ? `${maxValuePerDayNow} MW` : "sin datos"}</p>
-            <p>{timePerMaxValueDayNow()}</p>
-          </div>
-        </section>
-        <section>
-          <BarGraph myData={semana} />
-        </section>
-      </article>
       <section>
         <h3>
           Resultado Mensual{" "}
@@ -212,7 +154,7 @@ function DataNow({
           {actualDateYear}
         </h3>
         <section className={style.barGraph}>
-          <BarGraph myData={databarDaily(dataMonthNow, maxValuePerMonthNow)} />
+          <BarGraph myData={databarDaily(dataMonthNow)} />
         </section>
       </section>
     </main>
