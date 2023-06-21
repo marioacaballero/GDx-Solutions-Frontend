@@ -57,31 +57,6 @@ export default function Data() {
     };
 
     fetchingAsync();
-    // fetch(FetchData(`ejecutado?date=${date}`))
-    //   .then((res) => res.json())
-    //   .then((data) => setEjecutado(data));
-
-    // fetch(FetchData(`prediccion_detalle?date=${date}`))
-    //   .then((res) => res.json())
-    //   .then((data) => setGdx(data));
-
-    // fetch(FetchData(`programa_diario?date=${date}`))
-    //   .then((res) => res.json())
-    //   .then((data) => setDiario(data));
-
-    // fetch(FetchData(`reprograma_diario?date=${date}`))
-    //   .then((res) => res.json())
-    //   .then((data) => setReprodiario(data));
-
-    // fetch(FetchData(`prediccion_maximos_diarios?date=${date}`))
-    //   .then((res) => res.json())
-    //   .then((data) => setDataMonth(data));
-
-    // fetch(FetchData(`prediccion/?date=${date}`))
-    //   .then((res) => res.json())
-    //   .then((data) => setPrediction(data));
-
-    // setLoading(false);
   }, [date]);
 
   const [loading, setLoading] = useState<boolean>(true);

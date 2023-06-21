@@ -1,5 +1,5 @@
 .controlPanel {
-  background-color: #242424;
+  background-color: #242635;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -29,7 +29,6 @@
 
 .controlPanel > section:first-child > div > button {
   width: 75%;
-  border: 2px solid gray;
   height: 3rem;
   font-size: 0.9rem;
   text-align: center;
@@ -40,13 +39,13 @@
   font-family: Arial, Helvetica, sans-serif;
   color: rgba(255, 255, 255, 0.96);
   background-color: #242424;
-  border: 2px solid black;
+  border: 1px solid gray;
 }
 
 .controlPanel > section:first-child > div > button:hover {
   cursor: pointer;
-  background-color: gray;
-  color: black;
+  background-color: #323548;
+  /* color: black; */
 }
 
 .controlPanel > section:first-child > div:first-child {

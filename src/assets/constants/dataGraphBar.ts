@@ -20,17 +20,17 @@ export const databarDaily = (
         backgroundColor: (context: ChartContext) => {
           const value = context.dataset.data[context.dataIndex];
           if (value === maxValue) {
-            return "rgba(221, 53, 41, 0.7)";
+            return "#E98754";
           } else {
-            return "rgba(8, 197, 18, 0.5)";
+            return "#46CAB5";
           }
         },
         borderColor: (context: ChartContext) => {
           const value = context.dataset.data[context.dataIndex];
           if (value === maxValue) {
-            return "rgba(221, 53, 41, 0.7)";
+            return "#E98754";
           } else {
-            return "rgba(8, 197, 18, 0.5)";
+            return "#46CAB5";
           }
         },
         borderWidth: 1, // Ancho del borde de las barras

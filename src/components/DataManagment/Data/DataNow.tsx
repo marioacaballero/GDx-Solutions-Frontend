@@ -136,14 +136,14 @@ function DataNow({
                 onClick={() => setDisplayReproDiNow(!displayReproDiNow)}
               />
             </label>
-            <label>
+            {/* <label>
               Programa Semanal
               <input
                 type="checkbox"
                 defaultChecked={displayIntervalNow}
                 onClick={() => setDisplayIntervalNow(!displayIntervalNow)}
               />
-            </label>
+            </label> */}
           </section>
         </section>
       </div>
