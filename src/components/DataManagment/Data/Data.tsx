@@ -25,18 +25,18 @@ export default function Data() {
   useEffect(() => {
     const fetchingAsync = async () => {
       try {
-        const ejecResp = await fetch(FetchData(`ejecutado/?date=${date}`));
+        const ejecResp = await fetch(FetchData(`ejecutado?date=${date}`));
         const ejectData = await ejecResp.json();
         setEjecutado(ejectData);
 
         const gdxResp = await fetch(
-          FetchData(`prediccion_detalle/?date=${date}`)
+          FetchData(`prediccion_detalle?date=${date}`)
         );
         const gdxData = await gdxResp.json();
         setGdx(gdxData);
 
         const diarioResp = await fetch(
-          FetchData(`programa_diario/?date=${date}`)
+          FetchData(`programa_diario?date=${date}`)
         );
         const diarioData = await diarioResp.json();
         setDiario(diarioData);
