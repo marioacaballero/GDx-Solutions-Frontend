@@ -1,0 +1,24 @@
+.calendar {
+  background-color: #0c1137;
+  font-size: 9px;
+  padding: 5px;
+  color: white;
+}
+
+.calendar
+  > div
+  > div:nth-child(2)
+  > div
+  > table
+  > tbody
+  > tr:nth-child(2)
+  > td
+  > div
+  > div
+  > div
+  > table
+  > tbody
+  > tr
+  > td:hover {
+  cursor: pointer;
+}

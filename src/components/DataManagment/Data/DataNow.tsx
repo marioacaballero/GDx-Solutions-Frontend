@@ -1,18 +1,13 @@
-import { databarDaily } from "../../../assets/constants/dataGraphBar";
-import { myDataDaily } from "../../../assets/constants/dataGraphLine";
-import {
-  actualDateMonth,
-  actualDateYear,
-} from "../../../assets/constants/initialStates";
 import {
   FetchEject,
   FetchGDx,
   FetchPrediction,
 } from "../../../assets/constants/interfaces";
-import { months } from "../../../assets/constants/schedule";
-import { BarGraph } from "../../Graphs/BarGraph";
-import { LineGraph } from "../../Graphs/LineGraph";
+import DataTable from "../../Table/Table";
 import style from "./Data.module.css";
+import DataGraphsDay from "./DataGrapsDay/DataGraphsDay";
+import DataIntervals from "./DataIntervals/DataIntervals";
+import DataMonths from "./DataMonths/DataMonths";
 
 function DataNow({
   ejecutadoNow,
@@ -49,114 +44,59 @@ function DataNow({
   displayReproDiNow: boolean;
   setDisplayReproDiNow: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
-  const { date_pred, hora_max, hora_min, demanda_pred } = prediccionNow;
+  const getRowClassName = (record: {
+    key: string;
+    hora: string;
+    gdx: number;
+  }): string => {
+    return record.hora === prediccionNow.date_pred.slice(11, 16)
+      ? style.colorMax
+      : style.colorOthersRows;
+  };
 
   return (
     <main>
-      <article>
-        <section className={style.interval}>
-          <div>
-            <p>Predicción</p>
-            <p>{demanda_pred ? `${demanda_pred} MW` : "sin datos"}</p>
-          </div>
-          <div>
-            <p>Estimación Horaria</p>
-            <p>{date_pred.slice(11, 16)} hs</p>
-          </div>
-          <div>
-            <p>Intervalo de modulación</p>
-            <p>
-              {hora_min.slice(11, 16)} - {hora_max.slice(11, 16)} hs
-            </p>
-          </div>
-          <div>
-            <p>Gestión de Riesgo</p>
-            <p>Low/Medium/Hard</p>
-          </div>
-        </section>
-      </article>
       <div>
-        <section>
-          <section className={style.lineGraph}>
-            <LineGraph
-              myData={myDataDaily(
-                reprodiario,
-                displayReproDiNow,
-                displayEjNow,
-                ejecutadoNow,
-                // displayIntervalNow,
-                displayGDxNow,
-                gdxNow,
-                displayDiNow,
-                diarioNow
-                // intervalForGraphNow()
-              )}
+        <article>
+          <DataIntervals key={"dataIntervals"} prediccionNow={prediccionNow} />
+        </article>
+        <div>
+          <div className={style.tableData}>
+            <DataTable
+              key={"dataGDXTable"}
+              data={gdxNow.map((e) => {
+                return {
+                  key: e.date.slice(11, 16),
+                  hora: e.date.slice(11, 16),
+                  gdx: e.demanda,
+                };
+              })}
+              getRowClassName={getRowClassName}
             />
-          </section>
-        </section>
+          </div>
+          <DataGraphsDay
+            key={"dataGraphsDay"}
+            ejecutadoNow={ejecutadoNow}
+            diarioNow={diarioNow}
+            reprodiario={reprodiario}
+            gdxNow={gdxNow}
+            displayDiNow={displayDiNow}
+            displayEjNow={displayEjNow}
+            displayGDxNow={displayGDxNow}
+            displayIntervalNow={displayIntervalNow}
+            displayReproDiNow={displayReproDiNow}
+            setDisplayDiNow={setDisplayDiNow}
+            setDisplayEjNow={setDisplayEjNow}
+            setDisplayGDxNow={setDisplayGDxNow}
+            setDisplayIntervalNow={setDisplayIntervalNow}
+            setDisplayReproDiNow={setDisplayReproDiNow}
+          />
+        </div>
         <section>
-          <section className={style.graphFilter}>
-            <label>
-              Estimación de la demanda
-              <input
-                type="checkbox"
-                defaultChecked={displayGDxNow}
-                onClick={() => setDisplayGDxNow(!displayGDxNow)}
-              />
-            </label>
-            <label>
-              MDC GDx
-              <input
-                type="checkbox"
-                defaultChecked={displayIntervalNow}
-                onClick={() => setDisplayIntervalNow(!displayIntervalNow)}
-              />
-            </label>
-            <label>
-              Demanda Ejecutada
-              <input
-                type="checkbox"
-                defaultChecked={displayEjNow}
-                onClick={() => setDisplayEjNow(!displayEjNow)}
-              />
-            </label>
-            <label>
-              Programa Diario
-              <input
-                type="checkbox"
-                defaultChecked={displayDiNow}
-                onClick={() => setDisplayDiNow(!displayDiNow)}
-              />
-            </label>
-            <label>
-              Reprograma Diario
-              <input
-                type="checkbox"
-                defaultChecked={displayReproDiNow}
-                onClick={() => setDisplayReproDiNow(!displayReproDiNow)}
-              />
-            </label>
-            {/* <label>
-              Programa Semanal
-              <input
-                type="checkbox"
-                defaultChecked={displayIntervalNow}
-                onClick={() => setDisplayIntervalNow(!displayIntervalNow)}
-              />
-            </label> */}
-          </section>
+          <DataMonths key={"dataMonths"} dataMonthNow={dataMonthNow} />
         </section>
       </div>
-      <section>
-        <h3>
-          Resultado Mensual{" "}
-          {months.find((e) => e.value === actualDateMonth())?.name}{" "}
-          {actualDateYear}
-        </h3>
-        <section className={style.barGraph}>
-          <BarGraph myData={databarDaily(dataMonthNow)} />
-        </section>
-      </section>
+      <div></div>
     </main>
   );
 }

@@ -21,9 +21,9 @@ export const myDataDaily = (
             data: ejecutadoNow.map((e) => e.ejecutado),
             tension: 0.1,
             borderColor: "rgb(8, 197, 18)",
-            backgroundColor: "rgba(8, 197, 18, 0.5)",
+            // backgroundColor: "rgba(8, 197, 18, 0.5)",
             fill: false,
-            borderWidth: 1,
+            borderWidth: 2,
             pointRadius: 0,
           }
         : { label: "", data: [] },
@@ -41,13 +41,13 @@ export const myDataDaily = (
       //   : { label: "", data: [] },
       displayGDxNow
         ? {
-            label: "Estimación de la demanda",
-            data: gdxNow.map((e) => e.demanda), //cambiar esto por la estimacion verdadera
+            label: "Estimación GDx",
+            data: gdxNow.map((e) => e.demanda),
             tension: 0.1,
-            borderColor: "rgb(128, 0, 128)",
-            backgroundColor: "rgba(128, 0, 128,0.5)",
+            borderColor: "rgb(247, 39, 247)",
+            // backgroundColor: "rgba(128, 0, 128,0.5)",
             fill: false,
-            borderWidth: 1,
+            borderWidth: 2,
             pointRadius: 0,
           }
         : { label: "", data: [] },
@@ -56,10 +56,10 @@ export const myDataDaily = (
             label: "Programa Diario",
             data: diarioNow.map((e) => e.demanda),
             tension: 0.1,
-            borderColor: "rgb(0, 153, 255)",
-            backgroundColor: "rgba(0, 153, 255,0.5)",
+            borderColor: "rgb(78, 78, 255)",
+            // backgroundColor: "rgba(0, 153, 255,0.5)",
             fill: false,
-            borderWidth: 1,
+            borderWidth: 2,
             pointRadius: 0,
           }
         : { label: "", data: [] },
@@ -68,10 +68,10 @@ export const myDataDaily = (
             label: "Reprograma Diario",
             data: reprodiario.map((e) => e.demanda),
             tension: 0.1,
-            borderColor: "rgb(0, 153, 255)",
-            backgroundColor: "rgba(0, 153, 255,0.5)",
+            borderColor: "rgb(0, 225, 255)",
+            // backgroundColor: "rgba(0, 153, 255,0.5)",
             fill: false,
-            borderWidth: 1,
+            borderWidth: 2,
             pointRadius: 0,
           }
         : { label: "", data: [] },

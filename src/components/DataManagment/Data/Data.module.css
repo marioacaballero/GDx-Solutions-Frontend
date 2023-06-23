@@ -1,5 +1,4 @@
 .data {
-  /* background-color: #323548; */
   font-family: "Open Sans", sans-serif;
   display: flex;
   justify-content: center;
@@ -28,7 +27,7 @@
 /* Header */
 
 .data > header {
-  width: 13%;
+  width: 20%;
   min-height: 100vh;
 }
 
@@ -36,174 +35,103 @@
 
 /* Secciones principales */
 .data > main {
-  width: 87%;
+  width: 80%;
   min-height: 100vh;
   display: flex;
+  padding-left: 1px;
+}
+
+.data > main > div:first-child {
+  width: 65%;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-}
-
-/* Filtros y Grafico de linea */
-
-.data > main > div {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
   justify-content: space-between;
 }
 
-/* Filtros */
-.data > main > div > section:last-child {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+.data > main > div:nth-child(2) {
+  width: 35%;
+  border: 1px solid white;
 }
 
-/* Filtro de dias*/
-.dateFilter {
+.data > main > div:first-child > div {
   display: flex;
-  justify-content: start;
-  gap: 3px;
-}
-
-.dateFilter > select {
   width: 100%;
-  height: 1.75rem;
-  padding: 2px;
-  color: white;
-  background-color: black;
-  text-align: center;
-  font-weight: bold;
-  -webkit-text-stroke: 0.1px black;
+  align-items: center;
+  justify-content: center;
 }
 
-.dateFilter > select > option {
-  text-align: center;
-}
-
-/* Filtro del grafico */
-
-.graphFilter {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  background-color: #323548;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  margin-top: 1rem;
-}
-
-.graphFilter > label {
-  display: flex;
-  justify-content: space-between;
-  width: 50%;
+/* Tabla de Estimacion GDx*/
+.tableData {
+  width: 30%;
   margin: auto;
+  border-bottom: 1px solid white;
 }
 
-/* Estimacion */
-.graphFilter > label:first-child {
-  color: rgb(247, 39, 247);
+.tableData
+  > div
+  > div
+  > div
+  > div
+  > div
+  > div:first-child
+  > table
+  > thead
+  > tr
+  > th {
+  background: #232c79;
+  color: white;
+}
+.tableData
+  > div
+  > div
+  > div
+  > div
+  > div
+  > div:nth-child(2)
+  > table
+  > tbody
+  > tr:hover {
+  color: red;
 }
 
-/* Maximos GDx */
-.graphFilter > label:nth-child(2) {
-  color: rgb(255, 255, 0);
-}
-
-/* Ejecutada */
-.graphFilter > label:nth-child(3) {
-  color: rgb(8, 197, 18);
-}
-
-/* Diario */
-.graphFilter > label:nth-child(4) {
-  color: rgb(78, 78, 255);
-}
-
-/* Repro Diario */
-.graphFilter > label:nth-child(5) {
-  color: rgb(0, 225, 255);
-}
-
-/* Semanal */
-/* .graphFilter > label:nth-child(6) {
-  color: chocolate;
+/* .tableData
+  > div
+  > div
+  > div
+  > div
+  > div
+  > div:nth-child(2)
+  > table
+  > tbody
+  > tr
+  > td:hover {
+  background: green;
 } */
 
-/* Grafico de linea */
-.data > main > div > section:first-child {
-  width: 100%;
-  background-color: #323548;
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.data > main > div > section:first-child > label {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  width: 100%;
+.tableData > div > div > div > div > div {
+  background: #0c1137;
   color: white;
-  background-color: rgba(221, 114, 26, 0.7);
-  text-align: center;
-  margin-bottom: 5px;
-  font-weight: bold;
 }
 
-.lineGraph {
-  width: 100%;
-  height: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
+.colorMax {
+  background-color: red;
 }
 
 /* Seccion de grafico de barras semanal e intervalos */
-.data > main > article {
+.data > main > div:first-child > article {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: #323548;
+  /* background-color: #0c1137; */
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
 
-/* Intervalos de prediccion */
-.interval {
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  color: #45cab5;
-}
-
-.interval > div {
-  border: 1px solid gray;
-  text-align: center;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  height: 5rem;
-}
-
-.interval > div > p:first-child {
-  font-weight: bold;
-}
-
-.interval > div > p:nth-child(2) {
-  font-weight: bold;
-  color: white;
-  font-size: 1.2rem;
-}
-
 /* Seccion de grafico de barras mensual*/
-.data > main > section {
+.data > main > div:first-child > section {
   padding-top: 1rem;
   width: 100%;
   display: flex;
@@ -212,11 +140,11 @@
   justify-content: center;
 }
 
-.data > main > section > h3 {
+.data > main > div:first-child > section > h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #242635;
+  background-color: #232c79;
   width: 100%;
   height: 1.3rem;
   color: white;
@@ -224,17 +152,9 @@
   font-weight: bold;
   -webkit-text-stroke: 0.1px black;
   letter-spacing: 0.5px;
-  padding-bottom: 2rem;
-}
-
-.barGraph {
-  width: 100%;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  background-color: #323548;
+  padding-bottom: 5px;
+  padding-top: 1.5rem;
+  z-index: 2;
 }
 
 /* Loader */
