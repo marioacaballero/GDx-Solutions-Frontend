@@ -2,11 +2,9 @@ import { Table } from "antd";
 import type { ColumnsType } from "antd/es/table";
 
 interface DataType {
-  key: number;
+  key: string;
   hora: string;
-  ejecutado: string;
-  diario: string;
-  semanal: string;
+  gdx: number;
 }
 
 const columns: ColumnsType<DataType> = [
@@ -16,30 +14,28 @@ const columns: ColumnsType<DataType> = [
     key: "hora",
   },
   {
-    title: "Ejecutado [MW]",
-    dataIndex: "ejecutado",
-    key: "ejecutado",
-  },
-  {
-    title: "Prog. Diaria [MW]",
-    dataIndex: "diario",
-    key: "diario",
-  },
-  {
-    title: "Prog. Semanal [MW]",
-    dataIndex: "semanal",
-    key: "semanal",
+    title: "GDx [MW]",
+    dataIndex: "gdx",
+    key: "gdx",
   },
 ];
 
-const DataTable = ({ data, title }: { data: DataType[]; title: string }) => (
+const DataTable = ({
+  data,
+  getRowClassName,
+}: {
+  data: DataType[];
+  getRowClassName: (record: DataType) => string;
+}) => (
   <Table
     columns={columns}
     dataSource={data}
     size="small"
-    title={() => title}
     bordered
     tableLayout="auto"
+    pagination={false}
+    scroll={{ y: 310 }}
+    rowClassName={getRowClassName}
   />
 );
 

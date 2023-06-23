@@ -11,6 +11,12 @@
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
+    "@fullcalendar/core": "^6.1.8",
+    "@fullcalendar/daygrid": "^6.1.8",
+    "@fullcalendar/interaction": "^6.1.8",
+    "@fullcalendar/list": "^6.1.8",
+    "@fullcalendar/react": "^6.1.8",
+    "@fullcalendar/timegrid": "^6.1.8",
     "@uiball/loaders": "^1.2.6",
     "antd": "^5.4.6",
     "axios": "^1.4.0",

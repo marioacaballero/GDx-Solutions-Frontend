@@ -1,0 +1,30 @@
+/* Intervalos de prediccion */
+.interval {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.interval > div {
+  border: 1px solid gray;
+  text-align: center;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 5rem;
+  background-color: #232c79;
+}
+
+.interval > div > p:first-child {
+  font-weight: bold;
+  color: #45cab5;
+  font-size: 1rem;
+}
+
+.interval > div > p:nth-child(2) {
+  font-weight: bold;
+  color: white;
+  font-size: 0.85rem;
+}

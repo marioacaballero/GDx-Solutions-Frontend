@@ -41,7 +41,7 @@ export const LineGraph = ({ myData }: { myData: MyDate }) => {
           maintainAspectRatio: false,
           scales: {
             y: {
-              min: 4500,
+              min: 5000,
               ticks: {
                 color: "white",
               },
@@ -52,7 +52,7 @@ export const LineGraph = ({ myData }: { myData: MyDate }) => {
             x: {
               ticks: {
                 autoSkip: true,
-                maxTicksLimit: 20,
+                maxTicksLimit: 10,
                 color: "white",
               },
               grid: {

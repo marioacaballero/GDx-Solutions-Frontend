@@ -1,10 +1,11 @@
 .controlPanel {
-  background-color: #242635;
+  background-color: #232c79;
   display: flex;
   flex-direction: column;
   height: 100%;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
 }
 
 .controlPanel > section {
@@ -12,23 +13,25 @@
 }
 
 .controlPanel > section:first-child {
-  border-bottom: 1px solid grey;
-  padding-top: 2rem;
+  border-bottom: 3px solid #0c1137;
+  padding-top: 1rem;
+  width: 100%;
+  padding-left: 2rem;
 }
 
 .controlPanel > section:first-child > div {
-  width: 80%;
+  width: 100%;
   margin: auto;
   margin-bottom: 10%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .controlPanel > section:first-child > div > button {
-  width: 75%;
+  width: 100%;
   height: 3rem;
   font-size: 0.9rem;
   text-align: center;
@@ -38,30 +41,28 @@
   letter-spacing: 0.5px;
   font-family: Arial, Helvetica, sans-serif;
   color: rgba(255, 255, 255, 0.96);
-  background-color: #242424;
-  border: 1px solid gray;
+  background-color: #232c79;
+  border: 3px solid #0c1137;
+  border-right: none;
+  color: #19ccc6;
+  font-weight: bold;
+  transition: 0.2s;
 }
 
 .controlPanel > section:first-child > div > button:hover {
   cursor: pointer;
-  background-color: #323548;
-  /* color: black; */
+  background-color: #0c1137;
 }
 
-.controlPanel > section:first-child > div:first-child {
-  margin-bottom: 25%;
-  justify-content: center;
-}
-
-.controlPanel > section:first-child > div:first-child > button:hover {
-  cursor: auto;
-  color: rgba(255, 255, 255, 0.96);
-  background-color: #242424;
+.controlPanel > section:first-child > div:first-child > img {
+  width: 55%;
+  margin-left: 0;
+  justify-content: left;
 }
 
 .icon {
   font-size: 2rem;
-  color: gray;
+  color: #19ccc6;
 }
 
 .controlPanel > section:nth-child(2) > h2 {
@@ -75,6 +76,9 @@
   text-align: center;
   color: white;
   margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .controlPanel > section:nth-child(2) > select {
