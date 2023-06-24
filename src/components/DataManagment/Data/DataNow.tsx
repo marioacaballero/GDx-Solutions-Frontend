@@ -26,6 +26,13 @@ function DataNow({
   reprodiario,
   displayReproDiNow,
   setDisplayReproDiNow,
+  mdcgdx,
+  maxgdx,
+  displayMDCgdx,
+  setDisplayMDCgdx,
+  displayMaxgdx,
+  setDisplayMaxgdx,
+  intervalForGraphNow,
 }: {
   ejecutadoNow: FetchEject[];
   gdxNow: FetchGDx[];
@@ -43,6 +50,13 @@ function DataNow({
   reprodiario: FetchGDx[];
   displayReproDiNow: boolean;
   setDisplayReproDiNow: React.Dispatch<React.SetStateAction<boolean>>;
+  setDisplayMDCgdx: React.Dispatch<React.SetStateAction<boolean>>;
+  setDisplayMaxgdx: React.Dispatch<React.SetStateAction<boolean>>;
+  mdcgdx: (number | null)[];
+  maxgdx: (number | null)[];
+  intervalForGraphNow: (number | null)[];
+  displayMDCgdx: boolean;
+  displayMaxgdx: boolean;
 }) {
   const getRowClassName = (record: {
     key: string;
@@ -90,6 +104,13 @@ function DataNow({
             setDisplayGDxNow={setDisplayGDxNow}
             setDisplayIntervalNow={setDisplayIntervalNow}
             setDisplayReproDiNow={setDisplayReproDiNow}
+            displayMDCgdx={displayMDCgdx}
+            mdcgdx={mdcgdx}
+            setDisplayMDCgdx={setDisplayMDCgdx}
+            displayMaxgdx={displayMaxgdx}
+            maxgdx={maxgdx}
+            setDisplayMaxgdx={setDisplayMaxgdx}
+            intervalForGraphNow={intervalForGraphNow}
           />
         </div>
         <section>

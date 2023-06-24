@@ -1,10 +1,14 @@
 import { Chart, ChartDataset } from "chart.js";
 
 export interface Datasets {
-  label: string;
-  data: number[] | [];
-  // tension: number;
-  // fill: boolean;
+  label?: string;
+  data: (number | null)[] | [];
+  tension?: number;
+  fill?: boolean;
+  backgroundColor?: string;
+  borderColor?: string;
+  borderWidth?: number;
+  pointRadius?: number;
 }
 
 export interface MyDate {

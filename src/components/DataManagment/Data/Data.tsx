@@ -25,6 +25,7 @@ export default function Data() {
     fetchingAsync(
       date,
       setEjecutado,
+      // setMdcgdx,
       setGdx,
       setDiario,
       setReprodiario,
@@ -36,6 +37,7 @@ export default function Data() {
 
   const [loading, setLoading] = useState<boolean>(true);
   const [ejecutado, setEjecutado] = useState<FetchEject[]>([]);
+  // const [mdcgdx, setMdcgdx] = useState<FetchEject[]>([]);
   const [gdx, setGdx] = useState<FetchGDx[]>([]);
   const [diario, setDiario] = useState<FetchGDx[]>([]);
   const [reprodiario, setReprodiario] = useState<FetchGDx[]>([]);
@@ -52,6 +54,46 @@ export default function Data() {
   const [displayDiNow, setDisplayDiNow] = useState<boolean>(true);
   const [displayReproDiNow, setDisplayReproDiNow] = useState<boolean>(true);
   const [displayIntervalNow, setDisplayIntervalNow] = useState<boolean>(true);
+  const [displayMDCgdx, setDisplayMDCgdx] = useState<boolean>(true);
+  const [displayMaxgdx, setDisplayMaxgdx] = useState<boolean>(true);
+
+  const MDCGDx = () => {
+    const indexes: number[] = [];
+    const i = gdx
+      .map((e) => e.demanda)
+      .indexOf(Number(prediction.demanda_pred));
+    indexes.push(i - 2);
+    indexes.push(i - 1);
+    indexes.push(i);
+    indexes.push(i + 1);
+    indexes.push(i + 2);
+
+    return gdx
+      .map((e) => e.demanda)
+      .map((value, index) => {
+        if (indexes.includes(index)) {
+          return value;
+        } else {
+          return null;
+        }
+      });
+  };
+
+  const MaxGDx = () => {
+    const indexes: number[] = [
+      gdx.map((e) => e.demanda).indexOf(Number(prediction.demanda_pred)),
+    ];
+
+    return gdx
+      .map((e) => e.demanda)
+      .map((value, index) => {
+        if (indexes.includes(index)) {
+          return value;
+        } else {
+          return null;
+        }
+      });
+  };
 
   return (
     <div className={style.data}>
@@ -89,6 +131,13 @@ export default function Data() {
           reprodiario={reprodiario}
           displayReproDiNow={displayReproDiNow}
           setDisplayReproDiNow={setDisplayReproDiNow}
+          setDisplayMDCgdx={setDisplayMDCgdx}
+          displayMDCgdx={displayMDCgdx}
+          mdcgdx={MDCGDx()}
+          intervalForGraphNow={MDCGDx()}
+          setDisplayMaxgdx={setDisplayMaxgdx}
+          displayMaxgdx={displayMaxgdx}
+          maxgdx={MaxGDx()}
         />
       )}
     </div>

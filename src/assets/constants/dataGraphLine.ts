@@ -5,12 +5,16 @@ export const myDataDaily = (
   displayReproDiNow: boolean,
   displayEjNow: boolean,
   ejecutadoNow: FetchEject[],
-  // displayIntervalNow: boolean,
+  displayIntervalNow: boolean,
   displayGDxNow: boolean,
   gdxNow: FetchGDx[],
   displayDiNow: boolean,
-  diarioNow: FetchGDx[]
-  // intervalForGraphNow: number[]
+  diarioNow: FetchGDx[],
+  mdcgdx: (number | null)[],
+  maxgdx: (number | null)[],
+  displayMDCgdx: boolean,
+  displayMaxgdx: boolean,
+  intervalForGraphNow: (number | null)[]
 ) => {
   return {
     labels: ejecutadoNow.map((f) => f.date.slice(11, 16)),
@@ -27,18 +31,18 @@ export const myDataDaily = (
             pointRadius: 0,
           }
         : { label: "", data: [] },
-      // displayIntervalNow
-      //   ? {
-      //       label: "Intervalo",
-      //       data: intervalForGraphNow,
-      //       tension: 0,
-      //       borderColor: "rgba(255, 255, 255, 0.5)",
-      //       backgroundColor: "rgba(221, 114, 26, 0.3)",
-      //       fill: "origin",
-      //       borderWidth: 2,
-      //       pointRadius: 4,
-      //     }
-      //   : { label: "", data: [] },
+      displayIntervalNow
+        ? {
+            label: "Intervalo",
+            data: intervalForGraphNow,
+            tension: 0,
+            borderColor: "rgba(255, 255, 255, 0.5)",
+            backgroundColor: "rgba(221, 114, 26, 0.3)",
+            fill: true,
+            borderWidth: 0,
+            pointRadius: 0,
+          }
+        : { label: "", data: [] },
       displayGDxNow
         ? {
             label: "Estimación GDx",
@@ -75,72 +79,30 @@ export const myDataDaily = (
             pointRadius: 0,
           }
         : { label: "", data: [] },
+      displayMDCgdx
+        ? {
+            label: "MDC GDx",
+            data: mdcgdx,
+            tension: 0.1,
+            borderColor: "rgb(255, 255, 0)",
+            backgroundColor: "rgb(255, 255, 0)",
+            fill: false,
+            borderWidth: 2,
+            pointRadius: 3,
+          }
+        : { label: "", data: [] },
+      displayMaxgdx
+        ? {
+            label: "Max GDx",
+            data: maxgdx,
+            tension: 0.1,
+            borderColor: "red",
+            backgroundColor: "red",
+            fill: false,
+            borderWidth: 2,
+            pointRadius: 5,
+          }
+        : { label: "", data: [] },
     ],
   };
 };
-
-// export const myData = (
-//   date: string,
-//   displayEj: boolean,
-//   ejecutado: { date: string; ejecutado: number }[],
-//   // displayInterval: boolean,
-//   // intervalForGraph: number[],
-//   displayGDx: boolean,
-//   gdx: { date: string; demanda: number }[],
-//   displayDi: boolean,
-//   diario: { date: string; demanda: number }[]
-// ) => {
-//   return {
-//     labels: ejecutado.map((f) => f.date.slice(11, 16)),
-//     datasets: [
-//       displayEj
-//         ? {
-//             label: "Demanda Ejectuada",
-//             data: ejecutado,
-//             tension: 0.1,
-//             borderColor: "rgb(8, 197, 18)",
-//             backgroundColor: "rgba(8, 197, 18, 0.5)",
-//             fill: false,
-//             borderWidth: 1,
-//             pointRadius: 0,
-//           }
-//         : { label: "", data: [] },
-//       displayInterval
-//         ? {
-//             label: "Intervalo",
-//             data: intervalForGraph,
-//             tension: 0,
-//             borderColor: "rgba(255, 255, 255, 0.5)",
-//             backgroundColor: "rgba(221, 114, 26, 0.3)",
-//             fill: "origin",
-//             borderWidth: 2,
-//             pointRadius: 4,
-//           }
-//         : { label: "", data: [] },
-//       displayGDx
-//         ? {
-//             label: "Estimación GDx",
-//             data: gdx, //cambiar esto por la estimacion verdadera
-//             tension: 0.1,
-//             borderColor: "rgb(128, 0, 128)",
-//             backgroundColor: "rgba(128, 0, 128,0.5)",
-//             fill: false,
-//             borderWidth: 1,
-//             pointRadius: 0,
-//           }
-//         : { label: "", data: [] },
-//       displayDi
-//         ? {
-//             label: "Programa Diario",
-//             data: diario,
-//             tension: 0.1,
-//             borderColor: "rgb(0, 153, 255)",
-//             backgroundColor: "rgba(0, 153, 255,0.5)",
-//             fill: false,
-//             borderWidth: 1,
-//             pointRadius: 0,
-//           }
-//         : { label: "", data: [] },
-//     ],
-//   };
-// };
