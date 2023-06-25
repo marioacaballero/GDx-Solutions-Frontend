@@ -2,6 +2,7 @@ import {
   FetchEject,
   FetchGDx,
   FetchPrediction,
+  FetchRisk,
 } from "../../../assets/constants/interfaces";
 import DataTable from "../../Table/Table";
 import style from "./Data.module.css";
@@ -26,6 +27,14 @@ function DataNow({
   reprodiario,
   displayReproDiNow,
   setDisplayReproDiNow,
+  mdcgdx,
+  maxgdx,
+  displayMDCgdx,
+  setDisplayMDCgdx,
+  displayMaxgdx,
+  setDisplayMaxgdx,
+  intervalForGraphNow,
+  risk,
 }: {
   ejecutadoNow: FetchEject[];
   gdxNow: FetchGDx[];
@@ -43,6 +52,14 @@ function DataNow({
   reprodiario: FetchGDx[];
   displayReproDiNow: boolean;
   setDisplayReproDiNow: React.Dispatch<React.SetStateAction<boolean>>;
+  setDisplayMDCgdx: React.Dispatch<React.SetStateAction<boolean>>;
+  setDisplayMaxgdx: React.Dispatch<React.SetStateAction<boolean>>;
+  mdcgdx: (number | null)[];
+  maxgdx: (number | null)[];
+  intervalForGraphNow: (number | null)[];
+  displayMDCgdx: boolean;
+  displayMaxgdx: boolean;
+  risk: FetchRisk[];
 }) {
   const getRowClassName = (record: {
     key: string;
@@ -58,7 +75,11 @@ function DataNow({
     <main>
       <div>
         <article>
-          <DataIntervals key={"dataIntervals"} prediccionNow={prediccionNow} />
+          <DataIntervals
+            key={"dataIntervals"}
+            prediccionNow={prediccionNow}
+            risk={risk}
+          />
         </article>
         <div>
           <div className={style.tableData}>
@@ -90,6 +111,14 @@ function DataNow({
             setDisplayGDxNow={setDisplayGDxNow}
             setDisplayIntervalNow={setDisplayIntervalNow}
             setDisplayReproDiNow={setDisplayReproDiNow}
+            displayMDCgdx={displayMDCgdx}
+            mdcgdx={mdcgdx}
+            setDisplayMDCgdx={setDisplayMDCgdx}
+            displayMaxgdx={displayMaxgdx}
+            maxgdx={maxgdx}
+            setDisplayMaxgdx={setDisplayMaxgdx}
+            intervalForGraphNow={intervalForGraphNow}
+            prediccionNow={prediccionNow}
           />
         </div>
         <section>

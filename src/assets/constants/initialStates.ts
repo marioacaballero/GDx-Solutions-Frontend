@@ -5,18 +5,36 @@ export const actualDateString = actualDate.toLocaleDateString("es-ES", {
   day: "2-digit",
   month: "2-digit",
   year: "numeric",
+  timeZone: "America/Lima",
 });
 
-export const actualDateYear = actualDate.getFullYear().toString();
+export const actualDateYear = actualDate
+  .toLocaleString("es-PE", {
+    timeZone: "America/Lima",
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  })
+  .slice(6, 10);
 
 export const actualDateDay = () => {
-  const day = actualDate.getDate().toString();
-  if (day.length === 1) return "0".concat(day);
-  return day;
+  return actualDate
+    .toLocaleString("es-PE", {
+      timeZone: "America/Lima",
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    })
+    .slice(0, 2);
 };
 
 export const actualDateMonth = () => {
-  const month = (actualDate.getMonth() + 1).toString();
-  if (month.length === 1) return "0".concat(month);
-  return month;
+  return actualDate
+    .toLocaleString("es-PE", {
+      timeZone: "America/Lima",
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    })
+    .slice(3, 5);
 };

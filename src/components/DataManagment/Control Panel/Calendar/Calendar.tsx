@@ -9,24 +9,27 @@ const CalendarGDx = ({
   setYear,
   setMonth,
   setDay,
+  currentDate,
 }: {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   setYear: React.Dispatch<React.SetStateAction<string>>;
   setMonth: React.Dispatch<React.SetStateAction<string>>;
   setDay: React.Dispatch<React.SetStateAction<string>>;
+  currentDate: string;
 }) => {
   const handleDateClick = (arg: any) => {
-    const dateArr = arg.dateStr.split("-");
-    setLoading(true);
-    setYear(dateArr[0]);
-    setMonth(dateArr[1]);
-    setDay(dateArr[2]);
-    // alert(`year: ${dateArr[0]} month: ${dateArr[1]} day: ${dateArr[2]}`);
+    if (currentDate != arg.dateStr) {
+      const dateArr = arg.dateStr.split("-");
+      setLoading(true);
+      setYear(dateArr[0]);
+      setMonth(dateArr[1]);
+      setDay(dateArr[2]);
+    }
   };
 
   const getCalendarHeight = () => {
-    const weekCount = 6; // Ajusta el número de semanas que deseas mostrar
-    const weekHeight = 40; // Ajusta la altura de cada semana según tus preferencias
+    const weekCount = 6;
+    const weekHeight = 26;
     return weekCount * weekHeight;
   };
 
@@ -51,8 +54,9 @@ const CalendarGDx = ({
   return (
     <div
       style={{
-        width: "255px",
+        width: "160px",
         height: `${getCalendarHeight()}px`,
+        margin: "auto",
       }}
       className={style.calendar}
     >

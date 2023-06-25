@@ -1,15 +1,36 @@
 import { Chart, ChartDataset } from "chart.js";
 
 export interface Datasets {
-  label: string;
-  data: number[] | [];
-  // tension: number;
-  // fill: boolean;
+  label?: string;
+  data: (number | null)[] | [];
+  tension?: number;
+  fill?: boolean;
+  backgroundColor?: string;
+  borderColor?: string;
+  borderWidth?: number;
+  pointRadius?: number;
+  categoryPercentage?: number;
+  barPercentage?: number;
 }
 
 export interface MyDate {
   labels: string[];
   datasets: Datasets[];
+}
+
+export interface DatasetsBar {
+  label?: string;
+  data: number[];
+  backgroundColor?: string | any;
+  borderColor?: string | any;
+  borderWidth?: number;
+  categoryPercentage?: number;
+  barPercentage?: number;
+}
+
+export interface MyDateBar {
+  labels: string[];
+  datasets: DatasetsBar[];
 }
 
 export interface Schedule {
@@ -48,4 +69,9 @@ export interface FetchPrediction {
   hora_min: string;
   hora_max: string;
   demanda_pred: string;
+}
+
+export interface FetchRisk {
+  date: string;
+  risk: string;
 }

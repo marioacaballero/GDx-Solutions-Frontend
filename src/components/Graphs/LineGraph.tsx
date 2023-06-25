@@ -41,7 +41,7 @@ export const LineGraph = ({ myData }: { myData: MyDate }) => {
           maintainAspectRatio: false,
           scales: {
             y: {
-              min: 5000,
+              max: 8000,
               ticks: {
                 color: "white",
               },

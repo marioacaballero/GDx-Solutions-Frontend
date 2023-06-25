@@ -11,6 +11,7 @@ import {
 } from "../../../assets/constants/initialStates";
 import CalendarGDx from "./Calendar/Calendar";
 import logo from "../../../assets/images/LOGO-PNG.png";
+import { months } from "../../../assets/constants/schedule";
 
 export default function ControlPanel({
   setYear,
@@ -30,6 +31,7 @@ export default function ControlPanel({
   const [backDiario, setBackDiario] = useState<boolean>(true);
   const [backHistory, setBackHistory] = useState<boolean>(false);
   const dateArray = date.split("-");
+  const monthToDate = Number(dateArray[1]) - 1;
 
   return (
     <div className={style.controlPanel}>
@@ -98,12 +100,12 @@ export default function ControlPanel({
       <section>
         <h2>Calendario</h2>
         {loading ? (
-          <p>
+          <div>
             <DotPulse size={40} speed={1.3} color="white" />
-          </p>
+          </div>
         ) : (
           <p>
-            Resultados del {dateArray[2]}-{dateArray[1]}-{dateArray[0]}
+            {dateArray[2]} de {months[monthToDate].name} del {dateArray[0]}
           </p>
         )}
         <CalendarGDx
@@ -112,6 +114,7 @@ export default function ControlPanel({
           setLoading={setLoading}
           setMonth={setMonth}
           setYear={setYear}
+          currentDate={date}
         />
       </section>
     </div>

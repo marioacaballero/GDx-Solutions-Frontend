@@ -10,7 +10,7 @@ import {
   Title,
   Filler,
 } from "chart.js";
-import { MyDate } from "../../assets/constants/interfaces";
+import { MyDateBar } from "../../assets/constants/interfaces";
 
 ChartJS.register(
   CategoryScale,
@@ -23,7 +23,7 @@ ChartJS.register(
   Filler
 );
 
-export const BarGraph = ({ myData }: { myData: MyDate }) => {
+export const BarGraph = ({ myData }: { myData: MyDateBar }) => {
   return (
     <>
       <Bar
