@@ -48,11 +48,6 @@
   justify-content: space-between;
 }
 
-.data > main > div:nth-child(2) {
-  width: 32%;
-  border: 1px solid white;
-}
-
 .data > main > div:first-child > div {
   display: flex;
   width: 95%;
@@ -142,11 +137,31 @@
   letter-spacing: 0.5px;
 }
 
+/* Generacion */
+
+.data > main > div:nth-child(2) {
+  width: 32%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+
+.data > main > div:nth-child(2) > h2 {
+  width: 100%;
+  min-height: 5vh;
+  background-color: #232c79;
+  text-align: center;
+  margin-top: 0.65rem;
+  border: 1px solid gray;
+}
+
 /* Loader */
 
 .loader {
-  height: 670px;
-  width: 100%;
+  min-height: 100vh;
+  width: 86%;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -56,6 +56,26 @@ function DataGraphsDay({
 }) {
   const { hora_max, hora_min } = prediccionNow;
 
+  const maxValue1 = gdxNow
+    .map((e) => e.demanda)
+    .reduce((max: number, valor: number) => (valor > max ? valor : max), 0);
+
+  const maxValue2 = diarioNow
+    .map((e) => e.demanda)
+    .reduce((max: number, valor: number) => (valor > max ? valor : max), 0);
+
+  const maxValue = Math.max(maxValue1, maxValue2);
+
+  const roundToNearestMultiple = (numb: number) => {
+    const roundedNumber = Math.round(numb);
+    const remainder = roundedNumber % 100;
+
+    if (remainder >= 50) {
+      return roundedNumber + (100 - remainder);
+    } else {
+      return roundedNumber + (50 - remainder) + 100;
+    }
+  };
   return (
     <div className={style.graphLineData}>
       <section>
@@ -70,6 +90,7 @@ function DataGraphsDay({
         </label>
         <section className={style.lineGraph}>
           <LineGraph
+            key={"lineGraphDay"}
             myData={myDataDaily(
               reprodiario,
               displayReproDiNow,
@@ -86,6 +107,7 @@ function DataGraphsDay({
               displayMaxgdx,
               intervalForGraphNow
             )}
+            maxValue={roundToNearestMultiple(maxValue)}
           />
         </section>
       </section>
