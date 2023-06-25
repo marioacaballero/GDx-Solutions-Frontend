@@ -27,7 +27,7 @@
 /* Header */
 
 .data > header {
-  width: 20%;
+  width: 14%;
   min-height: 100vh;
 }
 
@@ -35,14 +35,13 @@
 
 /* Secciones principales */
 .data > main {
-  width: 80%;
+  width: 86%;
   min-height: 100vh;
   display: flex;
-  padding-left: 1px;
 }
 
 .data > main > div:first-child {
-  width: 65%;
+  width: 68%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,22 +49,34 @@
 }
 
 .data > main > div:nth-child(2) {
-  width: 35%;
+  width: 32%;
   border: 1px solid white;
 }
 
 .data > main > div:first-child > div {
   display: flex;
-  width: 100%;
+  width: 95%;
   align-items: center;
   justify-content: center;
+  min-height: 50vh;
 }
 
 /* Tabla de Estimacion GDx*/
 .tableData {
-  width: 30%;
+  width: 17%;
   margin: auto;
-  border-bottom: 1px solid white;
+  min-height: 48vh;
+}
+
+.tableData > div > div > div > div {
+  background: #232c79;
+  border-radius: none;
+}
+
+.tableData > div > div > div > div > div {
+  background: #0c1137;
+  color: white;
+  font-size: 12px;
 }
 
 .tableData
@@ -95,49 +106,26 @@
   color: red;
 }
 
-/* .tableData
-  > div
-  > div
-  > div
-  > div
-  > div
-  > div:nth-child(2)
-  > table
-  > tbody
-  > tr
-  > td:hover {
-  background: green;
-} */
-
-.tableData > div > div > div > div > div {
-  background: #0c1137;
-  color: white;
-}
-
 .colorMax {
   background-color: red;
 }
 
 /* Seccion de grafico de barras semanal e intervalos */
 .data > main > div:first-child > article {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  /* background-color: #0c1137; */
+  width: 95%;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  min-height: 10vh;
 }
 
 /* Seccion de grafico de barras mensual*/
 .data > main > div:first-child > section {
-  padding-top: 1rem;
-  width: 100%;
+  width: 95%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 25vh;
 }
 
 .data > main > div:first-child > section > h3 {
@@ -146,15 +134,12 @@
   justify-content: center;
   background-color: #232c79;
   width: 100%;
-  height: 1.3rem;
+  height: 2rem;
   color: white;
   text-align: center;
   font-weight: bold;
   -webkit-text-stroke: 0.1px black;
   letter-spacing: 0.5px;
-  padding-bottom: 5px;
-  padding-top: 1.5rem;
-  z-index: 2;
 }
 
 /* Loader */

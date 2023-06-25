@@ -1,5 +1,10 @@
 import { FetchData } from "../constants/fetchData";
-import { FetchEject, FetchGDx, FetchPrediction } from "../constants/interfaces";
+import {
+  FetchEject,
+  FetchGDx,
+  FetchPrediction,
+  FetchRisk,
+} from "../constants/interfaces";
 
 export const monthData = (array: string[]) => {
   let result: number[] = [];
@@ -27,6 +32,7 @@ export const monthData = (array: string[]) => {
 export const fetchingAsync = async (
   date: string,
   setEjecutado: React.Dispatch<React.SetStateAction<FetchEject[]>>,
+  setRisk: React.Dispatch<React.SetStateAction<FetchRisk[]>>,
   setGdx: React.Dispatch<React.SetStateAction<FetchGDx[]>>,
   setDiario: React.Dispatch<React.SetStateAction<FetchGDx[]>>,
   setReprodiario: React.Dispatch<React.SetStateAction<FetchGDx[]>>,
@@ -35,9 +41,12 @@ export const fetchingAsync = async (
   setLoading: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   try {
-    const ejecResp = await fetch(FetchData(`ejecutado/?date=${date}`));
-    const ejectData = await ejecResp.json();
+    const ejectResp = await fetch(FetchData(`ejecutado/?date=${date}`));
+    const ejectData = await ejectResp.json();
     setEjecutado(ejectData);
+    const riskResp = await fetch(FetchData(`riesgo_fecha?date=${date}`));
+    const riskData = await riskResp.json();
+    setRisk(riskData);
     const gdxResp = await fetch(FetchData(`prediccion_detalle/?date=${date}`));
     const gdxData = await gdxResp.json();
     setGdx(gdxData);

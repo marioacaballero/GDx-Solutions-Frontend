@@ -3,6 +3,39 @@
   font-size: 9px;
   padding: 5px;
   color: white;
+  z-index: 10;
+}
+
+.calendar > div > div:first-child {
+  width: 154px;
+}
+
+.calendar > div > div:first-child > div:first-child > h2 {
+  font-size: 1.05em;
+}
+
+.calendar > div > div:first-child > div:nth-child(3) > button {
+  display: none;
+}
+
+.calendar
+  > div
+  > div:nth-child(2)
+  > div
+  > table
+  > tbody
+  > tr:nth-child(2)
+  > td
+  > div
+  > div
+  > div
+  > table
+  > tbody
+  > tr
+  > td
+  > div
+  > div:nth-child(2) {
+  min-height: 0;
 }
 
 .calendar
@@ -21,4 +54,5 @@
   > tr
   > td:hover {
   cursor: pointer;
+  background-color: rgb(93, 109, 255);
 }

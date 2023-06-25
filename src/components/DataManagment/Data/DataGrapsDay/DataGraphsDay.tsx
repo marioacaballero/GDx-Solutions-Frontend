@@ -1,5 +1,9 @@
 import { myDataDaily } from "../../../../assets/constants/dataGraphLine";
-import { FetchEject, FetchGDx } from "../../../../assets/constants/interfaces";
+import {
+  FetchEject,
+  FetchGDx,
+  FetchPrediction,
+} from "../../../../assets/constants/interfaces";
 import { LineGraph } from "../../../Graphs/LineGraph";
 import style from "./DataGraphsDay.module.css";
 
@@ -25,6 +29,7 @@ function DataGraphsDay({
   displayMaxgdx,
   setDisplayMaxgdx,
   intervalForGraphNow,
+  prediccionNow,
 }: {
   ejecutadoNow: FetchEject[];
   gdxNow: FetchGDx[];
@@ -47,18 +52,22 @@ function DataGraphsDay({
   intervalForGraphNow: (number | null)[];
   displayMDCgdx: boolean;
   displayMaxgdx: boolean;
+  prediccionNow: FetchPrediction;
 }) {
+  const { hora_max, hora_min } = prediccionNow;
+
   return (
     <div className={style.graphLineData}>
       <section>
-        <h2>
-          Intervalo de Modulación{" "}
+        <label>
+          Intervalo de Modulación {hora_min.slice(11, 16)} hs -{" "}
+          {hora_max.slice(11, 16)} hs
           <input
             type="checkbox"
             defaultChecked={displayIntervalNow}
             onClick={() => setDisplayIntervalNow(!displayIntervalNow)}
           />
-        </h2>
+        </label>
         <section className={style.lineGraph}>
           <LineGraph
             myData={myDataDaily(

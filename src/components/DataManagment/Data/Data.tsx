@@ -12,6 +12,7 @@ import {
   FetchEject,
   FetchGDx,
   FetchPrediction,
+  FetchRisk,
 } from "../../../assets/constants/interfaces";
 import { fetchingAsync } from "../../../assets/helpers/auxiliar";
 
@@ -25,7 +26,7 @@ export default function Data() {
     fetchingAsync(
       date,
       setEjecutado,
-      // setMdcgdx,
+      setRisk,
       setGdx,
       setDiario,
       setReprodiario,
@@ -37,7 +38,7 @@ export default function Data() {
 
   const [loading, setLoading] = useState<boolean>(true);
   const [ejecutado, setEjecutado] = useState<FetchEject[]>([]);
-  // const [mdcgdx, setMdcgdx] = useState<FetchEject[]>([]);
+  const [risk, setRisk] = useState<FetchRisk[]>([]);
   const [gdx, setGdx] = useState<FetchGDx[]>([]);
   const [diario, setDiario] = useState<FetchGDx[]>([]);
   const [reprodiario, setReprodiario] = useState<FetchGDx[]>([]);
@@ -73,6 +74,28 @@ export default function Data() {
       .map((value, index) => {
         if (indexes.includes(index)) {
           return value;
+        } else {
+          return null;
+        }
+      });
+  };
+
+  const intervalGDx = () => {
+    const indexes: number[] = [];
+    const i = gdx
+      .map((e) => e.demanda)
+      .indexOf(Number(prediction.demanda_pred));
+    indexes.push(i - 2);
+    indexes.push(i - 1);
+    indexes.push(i);
+    indexes.push(i + 1);
+    indexes.push(i + 2);
+
+    return gdx
+      .map((e) => e.demanda)
+      .map((value, index) => {
+        if (indexes.includes(index)) {
+          return value - value + 8000;
         } else {
           return null;
         }
@@ -134,10 +157,11 @@ export default function Data() {
           setDisplayMDCgdx={setDisplayMDCgdx}
           displayMDCgdx={displayMDCgdx}
           mdcgdx={MDCGDx()}
-          intervalForGraphNow={MDCGDx()}
+          intervalForGraphNow={intervalGDx()}
           setDisplayMaxgdx={setDisplayMaxgdx}
           displayMaxgdx={displayMaxgdx}
           maxgdx={MaxGDx()}
+          risk={risk}
         />
       )}
     </div>

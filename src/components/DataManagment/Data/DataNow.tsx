@@ -2,6 +2,7 @@ import {
   FetchEject,
   FetchGDx,
   FetchPrediction,
+  FetchRisk,
 } from "../../../assets/constants/interfaces";
 import DataTable from "../../Table/Table";
 import style from "./Data.module.css";
@@ -33,6 +34,7 @@ function DataNow({
   displayMaxgdx,
   setDisplayMaxgdx,
   intervalForGraphNow,
+  risk,
 }: {
   ejecutadoNow: FetchEject[];
   gdxNow: FetchGDx[];
@@ -57,6 +59,7 @@ function DataNow({
   intervalForGraphNow: (number | null)[];
   displayMDCgdx: boolean;
   displayMaxgdx: boolean;
+  risk: FetchRisk[];
 }) {
   const getRowClassName = (record: {
     key: string;
@@ -72,7 +75,11 @@ function DataNow({
     <main>
       <div>
         <article>
-          <DataIntervals key={"dataIntervals"} prediccionNow={prediccionNow} />
+          <DataIntervals
+            key={"dataIntervals"}
+            prediccionNow={prediccionNow}
+            risk={risk}
+          />
         </article>
         <div>
           <div className={style.tableData}>
@@ -111,6 +118,7 @@ function DataNow({
             maxgdx={maxgdx}
             setDisplayMaxgdx={setDisplayMaxgdx}
             intervalForGraphNow={intervalForGraphNow}
+            prediccionNow={prediccionNow}
           />
         </div>
         <section>

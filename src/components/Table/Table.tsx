@@ -31,11 +31,12 @@ const DataTable = ({
     columns={columns}
     dataSource={data}
     size="small"
-    bordered
+    // bordered
     tableLayout="auto"
     pagination={false}
-    scroll={{ y: 310 }}
+    scroll={{ y: "50vh" }}
     rowClassName={getRowClassName}
+    style={{ textAlign: "center" }}
   />
 );
 

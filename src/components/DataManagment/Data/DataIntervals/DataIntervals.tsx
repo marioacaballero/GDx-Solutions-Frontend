@@ -1,8 +1,31 @@
 import style from "./DataIntervals.module.css";
-import { FetchPrediction } from "../../../../assets/constants/interfaces";
+import {
+  FetchPrediction,
+  FetchRisk,
+} from "../../../../assets/constants/interfaces";
 
-function DataIntervals({ prediccionNow }: { prediccionNow: FetchPrediction }) {
+function DataIntervals({
+  prediccionNow,
+  risk,
+}: {
+  prediccionNow: FetchPrediction;
+  risk: FetchRisk[];
+}) {
   const { date_pred, hora_max, hora_min, demanda_pred } = prediccionNow;
+
+  const riskColor = () => {
+    switch (risk[0].risk) {
+      case "Bajo":
+        return "green";
+      case "Medio":
+        return "yellow";
+      case "Alto":
+        return "red";
+      default:
+        return;
+    }
+  };
+
   return (
     <section className={style.interval}>
       <div>
@@ -21,7 +44,7 @@ function DataIntervals({ prediccionNow }: { prediccionNow: FetchPrediction }) {
       </div>
       <div>
         <p>Gestión de Riesgo</p>
-        <p>Low/Medium/Hard</p>
+        <p style={{ color: riskColor() }}>{risk[0].risk}</p>
       </div>
     </section>
   );
