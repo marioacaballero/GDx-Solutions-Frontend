@@ -1,0 +1,8 @@
+.marginalCost {
+  width: 100%;
+  min-height: 26vh;
+  background-color: #232c79;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

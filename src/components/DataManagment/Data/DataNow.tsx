@@ -5,10 +5,13 @@ import {
   FetchRisk,
 } from "../../../assets/constants/interfaces";
 import DataTable from "../../Table/Table";
+import MarginalCost from "../MarginalCost/MarginalCost";
 import style from "./Data.module.css";
 import DataGraphsDay from "./DataGrapsDay/DataGraphsDay";
 import DataIntervals from "./DataIntervals/DataIntervals";
 import DataMonths from "./DataMonths/DataMonths";
+import GenerationResource from "./GenerationResource/GenerationResource";
+import GenerationTopTen from "./GenerationTopTen/GenerationTopTen";
 
 function DataNow({
   ejecutadoNow,
@@ -125,7 +128,12 @@ function DataNow({
           <DataMonths key={"dataMonths"} dataMonthNow={dataMonthNow} />
         </section>
       </div>
-      <div></div>
+      <div>
+        <h2>Generación</h2>
+        <MarginalCost />
+        <GenerationResource />
+        <GenerationTopTen />
+      </div>
     </main>
   );
 }

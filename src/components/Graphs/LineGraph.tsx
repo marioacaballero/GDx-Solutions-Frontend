@@ -23,7 +23,13 @@ ChartJS.register(
   Filler
 );
 
-export const LineGraph = ({ myData }: { myData: MyDate }) => {
+export const LineGraph = ({
+  myData,
+  maxValue,
+}: {
+  myData: MyDate;
+  maxValue: number;
+}) => {
   return (
     <>
       <Line
@@ -41,7 +47,7 @@ export const LineGraph = ({ myData }: { myData: MyDate }) => {
           maintainAspectRatio: false,
           scales: {
             y: {
-              max: 8000,
+              max: maxValue + 100,
               ticks: {
                 color: "white",
               },
