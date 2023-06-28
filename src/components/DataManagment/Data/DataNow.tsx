@@ -3,9 +3,10 @@ import {
   FetchGDx,
   FetchPrediction,
   FetchRisk,
+  GenerationType,
 } from "../../../assets/constants/interfaces";
 import DataTable from "../../Table/Table";
-import MarginalCost from "../MarginalCost/MarginalCost";
+import MarginalCost from "./MarginalCost/MarginalCost";
 import style from "./Data.module.css";
 import DataGraphsDay from "./DataGrapsDay/DataGraphsDay";
 import DataIntervals from "./DataIntervals/DataIntervals";
@@ -38,6 +39,7 @@ function DataNow({
   setDisplayMaxgdx,
   intervalForGraphNow,
   risk,
+  generationData,
 }: {
   ejecutadoNow: FetchEject[];
   gdxNow: FetchGDx[];
@@ -63,6 +65,7 @@ function DataNow({
   displayMDCgdx: boolean;
   displayMaxgdx: boolean;
   risk: FetchRisk[];
+  generationData: GenerationType[];
 }) {
   const getRowClassName = (record: {
     key: string;
@@ -131,7 +134,11 @@ function DataNow({
       <div>
         <h2>Generación</h2>
         <MarginalCost />
-        <GenerationResource />
+        <GenerationResource
+          key={"GenerationResourceDay"}
+          date={prediccionNow.date_pred.slice(0, 10)}
+          dataArea={generationData}
+        />
         <GenerationTopTen />
       </div>
     </main>
