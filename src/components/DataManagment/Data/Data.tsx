@@ -13,6 +13,7 @@ import {
   FetchGDx,
   FetchPrediction,
   FetchRisk,
+  GenerationType,
 } from "../../../assets/constants/interfaces";
 import { fetchingAsync } from "../../../assets/helpers/auxiliar";
 
@@ -32,6 +33,7 @@ export default function Data() {
       setReprodiario,
       setDataMonth,
       setPrediction,
+      setGenerationData,
       setLoading
     );
   }, [date]);
@@ -43,6 +45,7 @@ export default function Data() {
   const [diario, setDiario] = useState<FetchGDx[]>([]);
   const [reprodiario, setReprodiario] = useState<FetchGDx[]>([]);
   const [dataMonth, setDataMonth] = useState<FetchGDx[]>([]);
+  const [generationData, setGenerationData] = useState<GenerationType[]>([]);
   const [prediction, setPrediction] = useState<FetchPrediction>({
     date_pred: "sin datos",
     hora_min: "sin datos",
@@ -162,6 +165,7 @@ export default function Data() {
           displayMaxgdx={displayMaxgdx}
           maxgdx={MaxGDx()}
           risk={risk}
+          generationData={generationData}
         />
       )}
     </div>

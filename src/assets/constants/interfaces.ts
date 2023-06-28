@@ -75,3 +75,8 @@ export interface FetchRisk {
   date: string;
   risk: string;
 }
+
+export interface GenerationType {
+  tipo: string;
+  valor: number;
+}

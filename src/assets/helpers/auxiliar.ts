@@ -4,6 +4,7 @@ import {
   FetchGDx,
   FetchPrediction,
   FetchRisk,
+  GenerationType,
 } from "../constants/interfaces";
 
 export const monthData = (array: string[]) => {
@@ -38,6 +39,7 @@ export const fetchingAsync = async (
   setReprodiario: React.Dispatch<React.SetStateAction<FetchGDx[]>>,
   setDataMonth: React.Dispatch<React.SetStateAction<FetchGDx[]>>,
   setPrediction: React.Dispatch<React.SetStateAction<FetchPrediction>>,
+  setGenerationData: React.Dispatch<React.SetStateAction<GenerationType[]>>,
   setLoading: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   try {
@@ -66,6 +68,11 @@ export const fetchingAsync = async (
     const predResp = await fetch(FetchData(`prediccion/?date=${date}`));
     const predData = await predResp.json();
     setPrediction(predData);
+    const genrationResp = await fetch(
+      FetchData(`generacion_tipo?date=${date}`)
+    );
+    const genrationData = await genrationResp.json();
+    setGenerationData(genrationData);
     setLoading(false);
   } catch (error) {
     console.log(error);
