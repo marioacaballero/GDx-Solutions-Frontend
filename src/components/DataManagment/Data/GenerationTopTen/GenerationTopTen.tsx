@@ -10,10 +10,14 @@ function GenerationTopTen({
 }) {
   return (
     <div className={style.generationTopTen}>
-      <HorizontalBarGraph
-        key={"HorizontalBarGraphDaily"}
-        myData={dataHorizontalBar(generationTop)}
-      />
+      {generationTop.length ? (
+        <HorizontalBarGraph
+          key={"HorizontalBarGraphDaily"}
+          myData={dataHorizontalBar(generationTop)}
+        />
+      ) : (
+        <>Sin Datos</>
+      )}
     </div>
   );
 }

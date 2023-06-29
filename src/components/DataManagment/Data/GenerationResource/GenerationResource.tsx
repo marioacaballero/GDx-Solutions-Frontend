@@ -12,10 +12,14 @@ function GenerationResource({
 }) {
   return (
     <div className={style.generationResource}>
-      <AreaGraph
-        key={"AreaGraphEnergyResource"}
-        myData={dataAreaDaily(date, dataArea)}
-      />
+      {dataArea.length ? (
+        <AreaGraph
+          key={"AreaGraphEnergyResource"}
+          myData={dataAreaDaily(date, dataArea)}
+        />
+      ) : (
+        <>Sin Datos</>
+      )}
     </div>
   );
 }
