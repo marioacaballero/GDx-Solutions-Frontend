@@ -10,6 +10,8 @@ import {
   Title,
   Filler,
 } from "chart.js";
+import ChartDataLabels from "chartjs-plugin-datalabels";
+import { useEffect } from "react";
 import { MyDateBar } from "../../assets/constants/interfaces";
 
 ChartJS.register(
@@ -24,6 +26,9 @@ ChartJS.register(
 );
 
 export const BarGraph = ({ myData }: { myData: MyDateBar }) => {
+  useEffect(() => {
+    ChartJS.register(ChartDataLabels);
+  }, []);
   return (
     <>
       <Bar
