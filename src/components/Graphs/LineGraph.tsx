@@ -42,6 +42,11 @@ export const LineGraph = ({
             filler: {
               propagate: true,
             },
+            datalabels: {
+              formatter: function () {
+                return "";
+              },
+            },
           },
           responsive: true,
           maintainAspectRatio: false,

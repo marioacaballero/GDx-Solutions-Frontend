@@ -30,6 +30,12 @@ export const BarGraph = ({ myData }: { myData: MyDateBar }) => {
         data={myData}
         options={{
           plugins: {
+            datalabels: {
+              clamp: true,
+              color: "white",
+              rotation: -90,
+              formatter: (value) => Math.ceil(value),
+            },
             legend: {
               display: false,
             },
@@ -40,7 +46,7 @@ export const BarGraph = ({ myData }: { myData: MyDateBar }) => {
             y: {
               min: 6000,
               max: 8000,
-              ticks: { stepSize: 1000, color: "white" },
+              ticks: { stepSize: 500, color: "white" },
               grid: {
                 color: "rgba(255, 255, 255, 0.1)",
               },

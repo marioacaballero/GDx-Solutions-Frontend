@@ -41,9 +41,7 @@ export const databarDaily = (
             return "#46CAB5";
           }
         },
-        borderWidth: 1, // Ancho del borde de las barras
-        categoryPercentage: 0.3,
-        barPercentage: 2,
+        borderWidth: 0,
       },
     ],
   };
