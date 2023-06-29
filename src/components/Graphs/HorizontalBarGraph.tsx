@@ -61,6 +61,7 @@ export const HorizontalBarGraph = ({ myData }: { myData: MyDateBar }) => {
               },
               color: "white",
               formatter: function (value, context) {
+                value;
                 return myData.labels[context.dataIndex];
               },
             },
