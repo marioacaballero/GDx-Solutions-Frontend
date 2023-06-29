@@ -3,6 +3,7 @@ import {
   FetchGDx,
   FetchPrediction,
   FetchRisk,
+  GenerationTop,
   GenerationType,
 } from "../../../assets/constants/interfaces";
 import DataTable from "../../Table/Table";
@@ -40,6 +41,7 @@ function DataNow({
   intervalForGraphNow,
   risk,
   generationData,
+  generationTop,
 }: {
   ejecutadoNow: FetchEject[];
   gdxNow: FetchGDx[];
@@ -66,6 +68,7 @@ function DataNow({
   displayMaxgdx: boolean;
   risk: FetchRisk[];
   generationData: GenerationType[];
+  generationTop: GenerationTop[];
 }) {
   const getRowClassName = (record: {
     key: string;
@@ -139,7 +142,10 @@ function DataNow({
           date={prediccionNow.date_pred.slice(0, 10)}
           dataArea={generationData}
         />
-        <GenerationTopTen />
+        <GenerationTopTen
+          key={"GenerationTopDay"}
+          generationTop={generationTop}
+        />
       </div>
     </main>
   );

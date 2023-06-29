@@ -51,31 +51,21 @@ function AreaGraph({ myData }: { myData: MyDate }) {
             filler: {
               propagate: true,
             },
+            datalabels: {
+              formatter: function () {
+                return "";
+              },
+            },
           },
           responsive: true,
           maintainAspectRatio: false,
           scales: {
             y: {
-              // max: maxValue + 100,
-              // ticks: {
-              //   color: "white",
-              // },
-              // grid: {
-              //   color: "rgba(255, 255, 255, 0.1)",
-              // },
               beginAtZero: true,
               stacked: true,
               display: false,
             },
             x: {
-              // ticks: {
-              //   autoSkip: true,
-              //   maxTicksLimit: 10,
-              //   color: "white",
-              // },
-              // grid: {
-              //   color: "rgba(255, 255, 255, 0.1)",
-              // },
               beginAtZero: true,
               display: false,
             },

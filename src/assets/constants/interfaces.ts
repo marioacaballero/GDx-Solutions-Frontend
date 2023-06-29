@@ -80,3 +80,8 @@ export interface GenerationType {
   tipo: string;
   valor: number;
 }
+
+export interface GenerationTop {
+  empresa: string;
+  valor: number;
+}
