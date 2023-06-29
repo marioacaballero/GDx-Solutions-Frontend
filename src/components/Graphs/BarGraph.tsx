@@ -11,7 +11,7 @@ import {
   Filler,
 } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { MyDateBar } from "../../assets/constants/interfaces";
 
 ChartJS.register(
@@ -22,13 +22,14 @@ ChartJS.register(
   PointElement,
   BarElement,
   Title,
-  Filler
+  Filler,
+  ChartDataLabels
 );
 
 export const BarGraph = ({ myData }: { myData: MyDateBar }) => {
-  useEffect(() => {
-    ChartJS.register(ChartDataLabels);
-  }, []);
+  // useEffect(() => {
+  //   ChartJS.register(ChartDataLabels);
+  // }, []);
   return (
     <>
       <Bar
