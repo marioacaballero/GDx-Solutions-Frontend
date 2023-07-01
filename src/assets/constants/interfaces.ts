@@ -84,4 +84,5 @@ export interface GenerationType {
 export interface GenerationTop {
   empresa: string;
   valor: number;
+  porc: number;
 }

@@ -13,14 +13,27 @@ function DataIntervals({
 }) {
   const { date_pred, hora_max, hora_min, demanda_pred } = prediccionNow;
 
+  const riskColorBg = () => {
+    switch (risk[0].risk) {
+      case "Bajo":
+        return "linear-gradient(#232c79 50%, green 50%)";
+      case "Medio":
+        return "linear-gradient(#232c79 50%, yellow 50%)";
+      case "Alto":
+        return "linear-gradient(#232c79 50%, red 50%)";
+      default:
+        return;
+    }
+  };
+
   const riskColor = () => {
     switch (risk[0].risk) {
       case "Bajo":
-        return "green";
+        return "";
       case "Medio":
-        return "yellow";
+        return "black";
       case "Alto":
-        return "red";
+        return "";
       default:
         return;
     }
@@ -42,7 +55,7 @@ function DataIntervals({
           {hora_min.slice(11, 16)} - {hora_max.slice(11, 16)} hs
         </p>
       </div>
-      <div>
+      <div style={{ background: riskColorBg() }}>
         <p>Gestión de Riesgo</p>
         <p style={{ color: riskColor() }}>{risk[0].risk}</p>
       </div>
