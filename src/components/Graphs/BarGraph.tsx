@@ -11,7 +11,6 @@ import {
   Filler,
 } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
-// import { useEffect } from "react";
 import { MyDateBar } from "../../assets/constants/interfaces";
 
 ChartJS.register(
@@ -27,9 +26,6 @@ ChartJS.register(
 );
 
 export const BarGraph = ({ myData }: { myData: MyDateBar }) => {
-  // useEffect(() => {
-  //   ChartJS.register(ChartDataLabels);
-  // }, []);
   return (
     <>
       <Bar
@@ -41,6 +37,9 @@ export const BarGraph = ({ myData }: { myData: MyDateBar }) => {
               color: "white",
               rotation: -90,
               formatter: (value) => Math.ceil(value),
+              font: {
+                weight: "bold",
+              },
             },
             legend: {
               display: false,
@@ -51,8 +50,8 @@ export const BarGraph = ({ myData }: { myData: MyDateBar }) => {
           scales: {
             y: {
               min: 6000,
-              max: 8000,
-              ticks: { stepSize: 500, color: "white" },
+              max: 7600,
+              ticks: { stepSize: 400, color: "white" },
               grid: {
                 color: "rgba(255, 255, 255, 0.1)",
               },

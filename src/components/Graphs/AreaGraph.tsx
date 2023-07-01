@@ -11,7 +11,6 @@ import {
   Filler,
 } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
-// import { useEffect } from "react";
 import { MyDate } from "../../assets/constants/interfaces";
 
 ChartJS.register(
@@ -27,9 +26,6 @@ ChartJS.register(
 );
 
 function AreaGraph({ myData }: { myData: MyDate }) {
-  // useEffect(() => {
-  //   ChartJS.register(ChartDataLabels);
-  // }, []);
   return (
     <>
       <Line

@@ -11,7 +11,6 @@ import {
   Filler,
 } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
-// import { useEffect } from "react";
 import { MyDate } from "../../assets/constants/interfaces";
 
 ChartJS.register(
@@ -33,9 +32,6 @@ export const LineGraph = ({
   myData: MyDate;
   maxValue: number;
 }) => {
-  // useEffect(() => {
-  //   ChartJS.register(ChartDataLabels);
-  // }, []);
   return (
     <>
       <Line
