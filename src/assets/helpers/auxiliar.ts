@@ -6,8 +6,6 @@ import {
   FetchRisk,
   GenerationTop,
   GenerationType,
-  MarginalCostData,
-  SubStationsData,
 } from "../constants/interfaces";
 
 export const monthData = (array: string[]) => {
