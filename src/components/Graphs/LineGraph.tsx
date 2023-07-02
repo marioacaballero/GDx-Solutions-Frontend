@@ -28,9 +28,13 @@ ChartJS.register(
 export const LineGraph = ({
   myData,
   maxValue,
+  maxStickLimit,
+  graphTitle,
 }: {
   myData: MyDate;
-  maxValue: number;
+  maxValue?: number;
+  maxStickLimit?: number;
+  graphTitle?: string;
 }) => {
   return (
     <>
@@ -38,6 +42,14 @@ export const LineGraph = ({
         data={myData}
         options={{
           plugins: {
+            title: {
+              display: graphTitle ? true : false,
+              text: graphTitle ? graphTitle : undefined,
+              font: {
+                size: 18,
+              },
+              color: "white",
+            },
             legend: {
               display: false,
             },
@@ -54,7 +66,7 @@ export const LineGraph = ({
           maintainAspectRatio: false,
           scales: {
             y: {
-              max: maxValue + 100,
+              max: maxValue ? maxValue + 100 : undefined,
               ticks: {
                 color: "white",
               },
@@ -65,7 +77,7 @@ export const LineGraph = ({
             x: {
               ticks: {
                 autoSkip: true,
-                maxTicksLimit: 10,
+                maxTicksLimit: maxStickLimit ? maxStickLimit : 10,
                 color: "white",
               },
               grid: {

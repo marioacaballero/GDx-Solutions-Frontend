@@ -172,6 +172,7 @@ export default function Data() {
           risk={risk}
           generationData={generationData}
           generationTop={generationTopData}
+          date={date}
         />
       )}
     </div>

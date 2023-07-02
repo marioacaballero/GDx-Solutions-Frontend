@@ -6,6 +6,8 @@ import {
   FetchRisk,
   GenerationTop,
   GenerationType,
+  MarginalCostData,
+  SubStationsData,
 } from "../constants/interfaces";
 
 export const monthData = (array: string[]) => {
@@ -80,6 +82,7 @@ export const fetchingAsync = async (
     );
     const genrationTopData = await genrationTopResp.json();
     setGenerationTopData(genrationTopData);
+
     setLoading(false);
   } catch (error) {
     console.log(error);
