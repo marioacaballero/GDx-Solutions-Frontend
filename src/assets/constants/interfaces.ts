@@ -86,3 +86,16 @@ export interface GenerationTop {
   valor: number;
   porc: number;
 }
+
+export interface MarginalCostData {
+  date: string;
+  nodo: string;
+  nombre_barra: string;
+  energia: number;
+  congestion: number;
+  total: number;
+}
+
+export interface SubStationsData {
+  nodo: string;
+}

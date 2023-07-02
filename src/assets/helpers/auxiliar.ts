@@ -80,6 +80,7 @@ export const fetchingAsync = async (
     );
     const genrationTopData = await genrationTopResp.json();
     setGenerationTopData(genrationTopData);
+
     setLoading(false);
   } catch (error) {
     console.log(error);

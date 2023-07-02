@@ -42,6 +42,7 @@ function DataNow({
   risk,
   generationData,
   generationTop,
+  date,
 }: {
   ejecutadoNow: FetchEject[];
   gdxNow: FetchGDx[];
@@ -69,6 +70,7 @@ function DataNow({
   risk: FetchRisk[];
   generationData: GenerationType[];
   generationTop: GenerationTop[];
+  date: string;
 }) {
   const getRowClassName = (record: {
     key: string;
@@ -136,7 +138,7 @@ function DataNow({
       </div>
       <div>
         <h2>Generación</h2>
-        <MarginalCost />
+        <MarginalCost key={"marginalCost"} date={date} />
         <GenerationResource
           key={"GenerationResourceDay"}
           date={prediccionNow.date_pred.slice(0, 10)}
