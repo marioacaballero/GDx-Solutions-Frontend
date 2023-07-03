@@ -20,11 +20,13 @@ export default function ControlPanel({
   setLoading,
   date,
   loading,
+  setShowHistory,
 }: {
   setYear: React.Dispatch<React.SetStateAction<string>>;
   setMonth: React.Dispatch<React.SetStateAction<string>>;
   setDay: React.Dispatch<React.SetStateAction<string>>;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowHistory: React.Dispatch<React.SetStateAction<boolean>>;
   date: string;
   loading: boolean;
 }) {
@@ -53,10 +55,12 @@ export default function ControlPanel({
                 `${actualDateYear}-${actualDateMonth()}-${actualDateDay()}`
               ) {
                 setLoading(true);
+                setShowHistory(false);
                 setYear(actualDateYear);
                 setMonth(actualDateMonth());
                 setDay(actualDateDay());
               }
+              setShowHistory(false);
               setBackHistory(false);
               setBackDiario(true);
             }}
@@ -75,6 +79,7 @@ export default function ControlPanel({
             onClick={() => {
               setBackHistory(true);
               setBackDiario(false);
+              setShowHistory(true);
             }}
           >
             Record Histórico
