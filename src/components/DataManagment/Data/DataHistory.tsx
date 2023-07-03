@@ -1,5 +1,5 @@
 import { FetchGDx } from "../../../assets/constants/interfaces";
-import style from "./Data.module.css";
+// import style from "./Data.module.css";
 import DataMonths from "./DataMonths/DataMonths";
 import MarginalCost from "./MarginalCost/MarginalCost";
 
