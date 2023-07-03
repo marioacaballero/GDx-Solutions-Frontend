@@ -17,6 +17,7 @@ import {
   GenerationType,
 } from "../../../assets/constants/interfaces";
 import { fetchingAsync } from "../../../assets/helpers/auxiliar";
+import DataHistory from "./DataHistory";
 
 export default function Data() {
   const [day, setDay] = useState<string>(actualDateDay());
@@ -41,6 +42,7 @@ export default function Data() {
   }, [date]);
 
   const [loading, setLoading] = useState<boolean>(true);
+  const [showHistory, setShowHistory] = useState<boolean>(false);
   const [ejecutado, setEjecutado] = useState<FetchEject[]>([]);
   const [risk, setRisk] = useState<FetchRisk[]>([]);
   const [gdx, setGdx] = useState<FetchGDx[]>([]);
@@ -131,18 +133,22 @@ export default function Data() {
       <a href="/">x</a>
       <header>
         <ControlPanel
+          key={"controlPanel"}
           setDay={setDay}
           setMonth={setMonth}
           setYear={setYear}
           setLoading={setLoading}
           date={date}
           loading={loading}
+          setShowHistory={setShowHistory}
         />
       </header>
       {loading ? (
         <div className={style.loader}>
           <DotSpinner size={70} speed={0.9} color="white" />
         </div>
+      ) : showHistory ? (
+        <DataHistory key={"dataHistory"} date={date} dataMonthNow={dataMonth} />
       ) : (
         <DataNow
           key={"dataNow"}

@@ -54,7 +54,8 @@ function DataGraphsDay({
   displayMaxgdx: boolean;
   prediccionNow: FetchPrediction;
 }) {
-  const { hora_max, hora_min } = prediccionNow;
+  const { hora_max, hora_min, demanda_pred } = prediccionNow;
+  const maxMDCGDX = Number(demanda_pred);
 
   const maxValue1 = gdxNow
     .map((e) => e.demanda)
@@ -105,7 +106,8 @@ function DataGraphsDay({
               maxgdx,
               displayMDCgdx,
               displayMaxgdx,
-              intervalForGraphNow
+              intervalForGraphNow,
+              maxMDCGDX
             )}
             maxValue={roundToNearestMultiple(maxValue)}
           />

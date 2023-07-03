@@ -47,12 +47,13 @@ function DataIntervals({
       </div>
       <div>
         <p>Estimación Horaria</p>
-        <p>{date_pred.slice(11, 16)} hs</p>
+        <p>{date_pred ? date_pred.slice(11, 16) : "sin datos"} hs</p>
       </div>
       <div>
         <p>Intervalo de modulación</p>
         <p>
-          {hora_min.slice(11, 16)} - {hora_max.slice(11, 16)} hs
+          {hora_min ? hora_min.slice(11, 16) : "sin datos"} -{" "}
+          {hora_max ? hora_max.slice(11, 16) : "sin datos"} hs
         </p>
       </div>
       <div style={{ background: riskColorBg() }}>

@@ -5,8 +5,8 @@ export interface Datasets {
   data: (number | null)[] | [];
   tension?: number;
   fill?: boolean;
-  backgroundColor?: string;
-  borderColor?: string;
+  backgroundColor?: string | ((arg0: ChartContext) => string);
+  borderColor?: string | ((arg0: ChartContext) => string);
   borderWidth?: number;
   pointRadius?: number;
   categoryPercentage?: number;
