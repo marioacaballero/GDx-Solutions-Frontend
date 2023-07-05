@@ -1,13 +1,22 @@
 /* Intervalos de prediccion */
-.interval {
+.interval,
+.intervalHistory {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   min-height: 10vh;
 }
 
-.interval > div {
+.interval {
+  justify-content: space-between;
+}
+
+.intervalHistory {
+  justify-content: space-evenly;
+}
+
+.interval > div,
+.intervalHistory > div {
   border: 1px solid gray;
   text-align: center;
   padding: 0.5rem;
@@ -19,13 +28,15 @@
   background-color: #232c79;
 }
 
-.interval > div > p:first-child {
+.interval > div > p:first-child,
+.intervalHistory > div > p:first-child {
   font-weight: bold;
   color: #45cab5;
   font-size: 1rem;
 }
 
-.interval > div > p:nth-child(2) {
+.interval > div > p:nth-child(2),
+.intervalHistory > div > p:nth-child(2) {
   font-weight: bold;
   color: white;
   font-size: 0.85rem;

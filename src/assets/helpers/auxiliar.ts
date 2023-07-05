@@ -4,8 +4,6 @@ import {
   FetchGDx,
   FetchPrediction,
   FetchRisk,
-  GenerationTop,
-  GenerationType,
 } from "../constants/interfaces";
 
 export const monthData = (array: string[]) => {
@@ -38,10 +36,7 @@ export const fetchingAsync = async (
   setGdx: React.Dispatch<React.SetStateAction<FetchGDx[]>>,
   setDiario: React.Dispatch<React.SetStateAction<FetchGDx[]>>,
   setReprodiario: React.Dispatch<React.SetStateAction<FetchGDx[]>>,
-  setDataMonth: React.Dispatch<React.SetStateAction<FetchGDx[]>>,
   setPrediction: React.Dispatch<React.SetStateAction<FetchPrediction>>,
-  setGenerationData: React.Dispatch<React.SetStateAction<GenerationType[]>>,
-  setGenerationTopData: React.Dispatch<React.SetStateAction<GenerationTop[]>>,
   setLoading: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   try {
@@ -62,25 +57,9 @@ export const fetchingAsync = async (
     );
     const reprodiarioData = await reprodiarioResp.json();
     setReprodiario(reprodiarioData);
-    const monthResp = await fetch(
-      FetchData(`prediccion_maximos_diarios?date=${date}`)
-    );
-    const monthData = await monthResp.json();
-    setDataMonth(monthData);
     const predResp = await fetch(FetchData(`prediccion/?date=${date}`));
     const predData = await predResp.json();
     setPrediction(predData);
-    const genrationResp = await fetch(
-      FetchData(`generacion_tipo?date=${date}`)
-    );
-    const genrationData = await genrationResp.json();
-    setGenerationData(genrationData);
-    const genrationTopResp = await fetch(
-      FetchData(`top_empresas?date=${date}`)
-    );
-    const genrationTopData = await genrationTopResp.json();
-    setGenerationTopData(genrationTopData);
-
     setLoading(false);
   } catch (error) {
     console.log(error);

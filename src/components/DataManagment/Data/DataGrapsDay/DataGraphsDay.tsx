@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { myDataDaily } from "../../../../assets/constants/dataGraphLine";
 import {
   FetchEject,
@@ -11,49 +12,29 @@ function DataGraphsDay({
   ejecutadoNow,
   gdxNow,
   diarioNow,
-  displayEjNow,
-  setDisplayEjNow,
-  displayGDxNow,
-  setDisplayGDxNow,
-  displayDiNow,
-  setDisplayDiNow,
-  displayIntervalNow,
-  setDisplayIntervalNow,
   reprodiario,
-  displayReproDiNow,
-  setDisplayReproDiNow,
   mdcgdx,
-  displayMDCgdx,
-  setDisplayMDCgdx,
   maxgdx,
-  displayMaxgdx,
-  setDisplayMaxgdx,
   intervalForGraphNow,
   prediccionNow,
 }: {
   ejecutadoNow: FetchEject[];
   gdxNow: FetchGDx[];
   diarioNow: FetchGDx[];
-  displayEjNow: boolean;
-  setDisplayEjNow: React.Dispatch<React.SetStateAction<boolean>>;
-  displayGDxNow: boolean;
-  setDisplayGDxNow: React.Dispatch<React.SetStateAction<boolean>>;
-  displayDiNow: boolean;
-  setDisplayDiNow: React.Dispatch<React.SetStateAction<boolean>>;
-  displayIntervalNow: boolean;
-  setDisplayIntervalNow: React.Dispatch<React.SetStateAction<boolean>>;
   reprodiario: FetchGDx[];
-  displayReproDiNow: boolean;
-  setDisplayReproDiNow: React.Dispatch<React.SetStateAction<boolean>>;
-  setDisplayMDCgdx: React.Dispatch<React.SetStateAction<boolean>>;
-  setDisplayMaxgdx: React.Dispatch<React.SetStateAction<boolean>>;
   mdcgdx: (number | null)[];
   maxgdx: (number | null)[];
   intervalForGraphNow: (number | null)[];
-  displayMDCgdx: boolean;
-  displayMaxgdx: boolean;
   prediccionNow: FetchPrediction;
 }) {
+  const [displayEjNow, setDisplayEjNow] = useState<boolean>(true);
+  const [displayGDxNow, setDisplayGDxNow] = useState<boolean>(true);
+  const [displayDiNow, setDisplayDiNow] = useState<boolean>(true);
+  const [displayReproDiNow, setDisplayReproDiNow] = useState<boolean>(true);
+  const [displayIntervalNow, setDisplayIntervalNow] = useState<boolean>(true);
+  const [displayMDCgdx, setDisplayMDCgdx] = useState<boolean>(true);
+  const [displayMaxgdx, setDisplayMaxgdx] = useState<boolean>(true);
+
   const { hora_max, hora_min, demanda_pred } = prediccionNow;
   const maxMDCGDX = Number(demanda_pred);
 

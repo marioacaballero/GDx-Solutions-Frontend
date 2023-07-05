@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { RaceBy } from "@uiball/loaders";
-import { ThreeBody } from "@uiball/loaders";
+import { RaceBy, ChaoticOrbit, ThreeBody } from "@uiball/loaders";
 import { marginalDataDaily } from "../../../../assets/constants/dataGraphMarginal";
 import {
   MarginalCostData,
@@ -75,7 +74,9 @@ function MarginalCost({ date }: { date: string }) {
           </div>
         </>
       ) : (
-        <>Sin Datos</>
+        <article>
+          <ChaoticOrbit size={25} speed={1.5} color="white" />
+        </article>
       )}
     </div>
   );

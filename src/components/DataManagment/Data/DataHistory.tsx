@@ -1,22 +1,22 @@
-import { FetchGDx } from "../../../assets/constants/interfaces";
-// import style from "./Data.module.css";
+import DataIntervalsHistory from "./DataIntervals/DataIntervalsHistory";
 import DataMonths from "./DataMonths/DataMonths";
 import MarginalCost from "./MarginalCost/MarginalCost";
+import style from "./Data.module.css";
+import DataMDC from "./DataMDC/DataMDC";
 
-function DataHistory({
-  date,
-  dataMonthNow,
-}: {
-  date: string;
-  dataMonthNow: FetchGDx[];
-}) {
+function DataHistory({ date }: { date: string }) {
   return (
     <main>
       <div>
-        <article></article>
-        <div></div>
+        <article>
+          <DataIntervalsHistory />
+        </article>
+        <div>
+          <div className={style.tableData}></div>
+          <DataMDC />
+        </div>
         <section>
-          <DataMonths key={"dataMonthsHistory"} dataMonthNow={dataMonthNow} />
+          <DataMonths key={"dataMonthsHistory"} date={date} />
         </section>
       </div>
       <div>
