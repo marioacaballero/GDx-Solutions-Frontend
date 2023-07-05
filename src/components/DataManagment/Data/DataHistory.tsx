@@ -1,17 +1,10 @@
-import { FetchEject } from "../../../assets/constants/interfaces";
 import DataIntervalsHistory from "./DataIntervals/DataIntervalsHistory";
 import DataMonths from "./DataMonths/DataMonths";
 import MarginalCost from "./MarginalCost/MarginalCost";
 import style from "./Data.module.css";
 import DataMDC from "./DataMDC/DataMDC";
 
-function DataHistory({
-  date,
-  dataMonthNow,
-}: {
-  date: string;
-  dataMonthNow: FetchEject[];
-}) {
+function DataHistory({ date }: { date: string }) {
   return (
     <main>
       <div>
@@ -23,7 +16,7 @@ function DataHistory({
           <DataMDC />
         </div>
         <section>
-          <DataMonths key={"dataMonthsHistory"} dataMonthNow={dataMonthNow} />
+          <DataMonths key={"dataMonthsHistory"} date={date} />
         </section>
       </div>
       <div>
