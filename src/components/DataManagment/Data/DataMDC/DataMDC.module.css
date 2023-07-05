@@ -1,0 +1,9 @@
+.mdcGraph {
+  width: 78%;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: #232c79;
+}

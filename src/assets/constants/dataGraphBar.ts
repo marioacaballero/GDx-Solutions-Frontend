@@ -3,16 +3,16 @@ import { ChartContext, MyDateBar } from "./interfaces";
 export const databarDaily = (
   dataMonthNow: {
     date: string;
-    demanda: number;
+    ejecutado: number;
   }[]
 ): MyDateBar => {
   const days = dataMonthNow.map((e) => e.date.slice(8));
-  const values = dataMonthNow.map((e) => e.demanda);
+  const values = dataMonthNow.map((e) => e.ejecutado);
   const maxValue1 = dataMonthNow
-    .map((e) => e.demanda)
+    .map((e) => e.ejecutado)
     .reduce((max: number, valor: number) => (valor > max ? valor : max), 0);
   const maxValue2 = dataMonthNow
-    .map((e) => e.demanda)
+    .map((e) => e.ejecutado)
     .filter((e) => e != maxValue1)
     .reduce((max: number, valor: number) => (valor > max ? valor : max), 0);
   return {

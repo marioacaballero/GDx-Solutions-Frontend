@@ -50,8 +50,9 @@ export const BarGraph = ({ myData }: { myData: MyDateBar }) => {
           scales: {
             y: {
               min: 6000,
-              max: 7600,
-              ticks: { stepSize: 400, color: "white" },
+              ticks: {
+                color: "white",
+              },
               grid: {
                 color: "rgba(255, 255, 255, 0.1)",
               },

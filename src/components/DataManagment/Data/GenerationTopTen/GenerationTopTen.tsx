@@ -1,22 +1,30 @@
+import { useEffect, useState } from "react";
+import { ChaoticOrbit } from "@uiball/loaders";
 import { dataHorizontalBar } from "../../../../assets/constants/dataGraphHorizontalBar";
 import { GenerationTop } from "../../../../assets/constants/interfaces";
 import { HorizontalBarGraph } from "../../../Graphs/HorizontalBarGraph";
 import style from "./GenerationTopTen.module.css";
+import { FetchData } from "../../../../assets/constants/fetchData";
 
-function GenerationTopTen({
-  generationTop,
-}: {
-  generationTop: GenerationTop[];
-}) {
+function GenerationTopTen({ date }: { date: string }) {
+  useEffect(() => {
+    fetch(FetchData(`top_empresas?date=${date}`))
+      .then((res) => res.json())
+      .then((data) => setGenerationTopData(data));
+  }, [date]);
+
+  const [generationTopData, setGenerationTopData] = useState<GenerationTop[]>(
+    []
+  );
   return (
     <div className={style.generationTopTen}>
-      {generationTop.length ? (
+      {generationTopData.length ? (
         <HorizontalBarGraph
           key={"HorizontalBarGraphDaily"}
-          myData={dataHorizontalBar(generationTop)}
+          myData={dataHorizontalBar(generationTopData)}
         />
       ) : (
-        <>Sin Datos</>
+        <ChaoticOrbit size={25} speed={1.5} color="white" />
       )}
     </div>
   );

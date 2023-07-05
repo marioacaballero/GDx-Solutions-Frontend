@@ -76,9 +76,14 @@ export interface FetchRisk {
   risk: string;
 }
 
-export interface GenerationType {
+export interface GenerationTypeSource {
   tipo: string;
   valor: number;
+  porc: number;
+}
+export interface GenerationType {
+  date: string;
+  fuente: GenerationTypeSource[];
 }
 
 export interface GenerationTop {
@@ -98,4 +103,12 @@ export interface MarginalCostData {
 
 export interface SubStationsData {
   nodo: string;
+}
+
+export interface MDCHistory {
+  date: string;
+  valor: number;
+  year: number;
+  month: number;
+  month_name: string;
 }

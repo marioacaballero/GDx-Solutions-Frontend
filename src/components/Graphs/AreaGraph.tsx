@@ -35,6 +35,7 @@ function AreaGraph({ myData }: { myData: MyDate }) {
             title: {
               display: true,
               text: "Tipos de generación",
+              align: "start",
               font: {
                 size: 18,
               },
@@ -42,11 +43,12 @@ function AreaGraph({ myData }: { myData: MyDate }) {
             },
             legend: {
               display: true,
-              align: "start",
+              align: "end",
+              position: "right",
               labels: {
                 color: "white",
                 font: {
-                  size: 10,
+                  size: 9,
                 },
               },
             },
@@ -58,6 +60,11 @@ function AreaGraph({ myData }: { myData: MyDate }) {
                 return "";
               },
             },
+          },
+          interaction: {
+            mode: "nearest",
+            axis: "x",
+            intersect: false,
           },
           responsive: true,
           maintainAspectRatio: false,
