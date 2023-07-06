@@ -1,0 +1,26 @@
+.selectorMonth {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.selectorMonth > select,
+.selectorMonth > button {
+  color: white;
+  background-color: #0c1137;
+  padding: 5px;
+  transition: 0.2s;
+}
+
+.selectorMonth > select:hover,
+.selectorMonth > button:hover {
+  background-color: #3c4bb9;
+  cursor: pointer;
+}
+
+.selectorMonth > button {
+  margin: auto;
+  width: 75%;
+}

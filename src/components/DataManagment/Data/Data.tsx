@@ -7,6 +7,7 @@ import {
 } from "../../../assets/constants/initialStates";
 import DataNow from "./DataNow";
 import ControlPanel from "../Control Panel/ControlPanel";
+import DataHistory from "./DataHistory";
 
 export default function Data() {
   const [day, setDay] = useState<string>(actualDateDay());
@@ -30,11 +31,16 @@ export default function Data() {
           date={date}
           loading={loading}
           setShowHistory={setShowHistory}
+          showHistory={showHistory}
         />
       </header>
       {showHistory ? (
-        // <DataHistory key={"dataHistory"} date={date} dataMonthNow={dataMonth} />
-        <></>
+        <DataHistory
+          key={"dataHistory"}
+          date={date}
+          setLoading={setLoading}
+          loading={loading}
+        />
       ) : (
         <DataNow
           key={"dataNow"}
