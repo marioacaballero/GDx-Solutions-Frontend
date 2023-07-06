@@ -1,4 +1,4 @@
-import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -6,12 +6,12 @@ import {
   Legend,
   LinearScale,
   PointElement,
-  LineElement,
+  BarElement,
   Title,
   Filler,
 } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
-import { MyDate } from "../../assets/constants/interfaces";
+import { MyDateBar } from "../../assets/constants/interfaces";
 
 ChartJS.register(
   CategoryScale,
@@ -19,32 +19,41 @@ ChartJS.register(
   Legend,
   LinearScale,
   PointElement,
-  LineElement,
+  BarElement,
   Title,
   Filler,
   ChartDataLabels
 );
 
-function AreaGraph({ myData }: { myData: MyDate }) {
+export const BarStackedGraph = ({ myData }: { myData: MyDateBar }) => {
   return (
     <>
-      <Line
+      <Bar
         data={myData}
         options={{
           plugins: {
             title: {
               display: true,
-              text: "Fuentes generadoras en %",
+              text: "Fuentes generadoras mensual",
               align: "start",
               font: {
                 size: 18,
               },
               color: "white",
             },
+            datalabels: {
+              clamp: true,
+              color: "white",
+              rotation: -90,
+              formatter: () => "",
+              font: {
+                weight: "bold",
+              },
+            },
             legend: {
               display: true,
-              align: "end",
-              position: "right",
+              align: "center",
+              position: "top",
               labels: {
                 color: "white",
                 font: {
@@ -52,37 +61,24 @@ function AreaGraph({ myData }: { myData: MyDate }) {
                 },
               },
             },
-            filler: {
-              propagate: true,
-            },
-            datalabels: {
-              formatter: function () {
-                return "";
-              },
-            },
-          },
-          interaction: {
-            mode: "nearest",
-            axis: "x",
-            intersect: false,
           },
           responsive: true,
           maintainAspectRatio: false,
           scales: {
             y: {
-              beginAtZero: true,
-              stacked: true,
               display: false,
+              stacked: true,
+              ticks: {
+                color: "white",
+              },
             },
             x: {
-              beginAtZero: true,
-              display: false,
+              stacked: true,
+              ticks: { color: "white", font: { size: 10 } },
             },
           },
         }}
       />
     </>
   );
-}
-
-export default AreaGraph;
+};

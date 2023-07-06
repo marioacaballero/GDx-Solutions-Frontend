@@ -1,9 +1,28 @@
 .mdcGraph {
   width: 78%;
-  height: 40vh;
+  height: 50vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px;
   background-color: #232c79;
+}
+
+.mdcGraph > div:first-child {
+  width: 100%;
+  padding: 10px;
+  height: 45vh;
+}
+
+.mdcGraph > div:nth-child(2) {
+  display: flex;
+  color: white;
+  font-size: 2.5rem;
+  gap: 2rem;
+  transition: 0.2s;
+}
+
+.iconArrow:hover {
+  color: #dfe2ff;
+  cursor: pointer;
 }

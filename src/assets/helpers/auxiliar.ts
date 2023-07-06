@@ -4,6 +4,7 @@ import {
   FetchGDx,
   FetchPrediction,
   FetchRisk,
+  MDCHistory,
 } from "../constants/interfaces";
 
 export const monthData = (array: string[]) => {
@@ -60,6 +61,22 @@ export const fetchingAsync = async (
     const predResp = await fetch(FetchData(`prediccion/?date=${date}`));
     const predData = await predResp.json();
     setPrediction(predData);
+    setLoading(false);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const fetchingAsyncHistory = async (
+  // date: string,
+  setMdcHistory: React.Dispatch<React.SetStateAction<MDCHistory[]>>,
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>
+) => {
+  try {
+    const mdcHistResp = await fetch(FetchData(`mdc_historico`));
+    const mdcHistData = await mdcHistResp.json();
+    setMdcHistory(mdcHistData);
+
     setLoading(false);
   } catch (error) {
     console.log(error);

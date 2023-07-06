@@ -1,31 +1,63 @@
+import { DotSpinner } from "@uiball/loaders";
 import DataIntervalsHistory from "./DataIntervals/DataIntervalsHistory";
 import DataMonths from "./DataMonths/DataMonths";
 import MarginalCost from "./MarginalCost/MarginalCost";
 import style from "./Data.module.css";
 import DataMDC from "./DataMDC/DataMDC";
+import { useEffect, useState } from "react";
+import { fetchingAsyncHistory } from "../../../assets/helpers/auxiliar";
+import { MDCHistory } from "../../../assets/constants/interfaces";
+import GenerationResourceYear from "./GenerationResource/GenerationResourceYear";
 
-function DataHistory({ date }: { date: string }) {
+function DataHistory({
+  date,
+  loading,
+  setLoading,
+}: {
+  date: string;
+  loading: boolean;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
+  useEffect(() => {
+    fetchingAsyncHistory(setMdcHistory, setLoading);
+  }, [setLoading, date]);
+  const [mdcHistory, setMdcHistory] = useState<MDCHistory[]>([]);
   return (
-    <main>
-      <div>
-        <article>
-          <DataIntervalsHistory />
-        </article>
-        <div>
-          <div className={style.tableData}></div>
-          <DataMDC />
+    <>
+      {loading ? (
+        <div className={style.loader}>
+          <DotSpinner size={70} speed={0.9} color="white" />
         </div>
-        <section>
-          <DataMonths key={"dataMonthsHistory"} date={date} />
-        </section>
-      </div>
-      <div>
-        <h2>Generación</h2>
-        <MarginalCost key={"marginalCostHistory"} date={date} />
-        <div></div>
-        <div></div>
-      </div>
-    </main>
+      ) : (
+        <main>
+          <div>
+            <article>
+              <DataIntervalsHistory
+                key={"intervalHistory"}
+                date={date}
+                mdcHistory={mdcHistory}
+              />
+            </article>
+            <div>
+              <div className={style.tableData}></div>
+              <DataMDC key={"datamdc"} mdcHistory={mdcHistory} />
+            </div>
+            <section>
+              <DataMonths key={"dataMonthsHistory"} date={date} />
+            </section>
+          </div>
+          <div>
+            <h2>Generación</h2>
+            <MarginalCost key={"marginalCostHistory"} date={date} />
+            <GenerationResourceYear
+              key={"generationResourceHistory"}
+              date={date}
+            />
+            <div></div>
+          </div>
+        </main>
+      )}
+    </>
   );
 }
 

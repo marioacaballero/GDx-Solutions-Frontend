@@ -12,6 +12,7 @@ import {
 import CalendarGDx from "./Calendar/Calendar";
 import logo from "../../../assets/images/LOGO-PNG.png";
 import { months } from "../../../assets/constants/schedule";
+import SelectorMonth from "./SelectorMonth/SelectorMonth";
 
 export default function ControlPanel({
   setYear,
@@ -21,6 +22,7 @@ export default function ControlPanel({
   date,
   loading,
   setShowHistory,
+  showHistory,
 }: {
   setYear: React.Dispatch<React.SetStateAction<string>>;
   setMonth: React.Dispatch<React.SetStateAction<string>>;
@@ -29,6 +31,7 @@ export default function ControlPanel({
   setShowHistory: React.Dispatch<React.SetStateAction<boolean>>;
   date: string;
   loading: boolean;
+  showHistory: boolean;
 }) {
   const [backDiario, setBackDiario] = useState<boolean>(true);
   const [backHistory, setBackHistory] = useState<boolean>(false);
@@ -60,9 +63,12 @@ export default function ControlPanel({
                 setMonth(actualDateMonth());
                 setDay(actualDateDay());
               }
-              setShowHistory(false);
-              setBackHistory(false);
-              setBackDiario(true);
+              if (showHistory) {
+                setLoading(true);
+                setShowHistory(false);
+                setBackHistory(false);
+                setBackDiario(true);
+              }
             }}
           >
             Control Diario
@@ -77,9 +83,19 @@ export default function ControlPanel({
               backgroundColor: backHistory ? "#0c1137" : "",
             }}
             onClick={() => {
-              setBackHistory(true);
-              setBackDiario(false);
-              setShowHistory(true);
+              if (
+                date.slice(0, 7) !== `${actualDateYear}-${actualDateMonth()}`
+              ) {
+                setLoading(true);
+                setMonth(actualDateMonth());
+                setYear(actualDateYear);
+              }
+              if (!showHistory) {
+                setLoading(true);
+                setBackHistory(true);
+                setBackDiario(false);
+                setShowHistory(true);
+              }
             }}
           >
             Record Histórico
@@ -103,24 +119,52 @@ export default function ControlPanel({
         </div>
       </section>
       <section>
-        <h2>Calendario</h2>
-        {loading ? (
-          <div>
-            <DotPulse size={40} speed={1.3} color="white" />
-          </div>
+        {showHistory ? (
+          <>
+            <h2>Calendario</h2>
+            {loading ? (
+              <div>
+                <DotPulse size={40} speed={1.3} color="white" />
+              </div>
+            ) : (
+              <>
+                <p>
+                  {months[monthToDate].name} del {dateArray[0]}
+                </p>
+                <SelectorMonth
+                  key={"selectorMonth"}
+                  setLoading={setLoading}
+                  setMonth={setMonth}
+                  setYear={setYear}
+                />
+              </>
+            )}
+          </>
         ) : (
-          <p>
-            {dateArray[2]} de {months[monthToDate].name} del {dateArray[0]}
-          </p>
+          <>
+            <h2>Calendario</h2>
+            {loading ? (
+              <div>
+                <DotPulse size={40} speed={1.3} color="white" />
+              </div>
+            ) : (
+              <>
+                <p>
+                  {dateArray[2]} de {months[monthToDate].name} del{" "}
+                  {dateArray[0]}
+                </p>
+                <CalendarGDx
+                  key={"calendarGDX"}
+                  setDay={setDay}
+                  setLoading={setLoading}
+                  setMonth={setMonth}
+                  setYear={setYear}
+                  currentDate={date}
+                />
+              </>
+            )}
+          </>
         )}
-        <CalendarGDx
-          key={"calendarGDX"}
-          setDay={setDay}
-          setLoading={setLoading}
-          setMonth={setMonth}
-          setYear={setYear}
-          currentDate={date}
-        />
       </section>
     </div>
   );

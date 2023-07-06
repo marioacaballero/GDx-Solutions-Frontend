@@ -2,7 +2,7 @@ import { Chart, ChartDataset } from "chart.js";
 
 export interface Datasets {
   label?: string;
-  data: (number | null)[] | [];
+  data: (number | null)[] | any;
   tension?: number;
   fill?: boolean;
   backgroundColor?: string | ((arg0: ChartContext) => string);
@@ -79,7 +79,7 @@ export interface FetchRisk {
 export interface GenerationTypeSource {
   tipo: string;
   valor: number;
-  porc: number;
+  porc?: number;
 }
 export interface GenerationType {
   date: string;
@@ -111,4 +111,9 @@ export interface MDCHistory {
   year: number;
   month: number;
   month_name: string;
+}
+
+export interface GenerationTypeYear {
+  mes: string;
+  data: GenerationTypeSource[];
 }
