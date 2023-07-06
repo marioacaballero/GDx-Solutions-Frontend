@@ -2,7 +2,7 @@ import { Chart, ChartDataset } from "chart.js";
 
 export interface Datasets {
   label?: string;
-  data: (number | null)[] | [];
+  data: (number | null)[] | any;
   tension?: number;
   fill?: boolean;
   backgroundColor?: string | ((arg0: ChartContext) => string);
