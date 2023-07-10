@@ -77,6 +77,9 @@
 .controlPanel > section:nth-child(2) > div {
   text-align: center;
   color: white;
+  background-color: #0c1137;
+  height: 2rem;
+  padding: 5px;
   margin-bottom: 2rem;
   display: flex;
   align-items: center;
