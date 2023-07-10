@@ -2,6 +2,10 @@ import { useNavigate } from "react-router-dom";
 import { Carousel } from "antd";
 import style from "./Services.module.css";
 import swal from "sweetalert";
+import estimacion from "../../assets/images/estimacion.png";
+import ahorro from "../../assets/images/ahorro.png";
+import demanda from "../../assets/images/demanda.png";
+import costo from "../../assets/images/costomarginal.png";
 
 export default function Services() {
   const navigate = useNavigate();
@@ -25,6 +29,17 @@ export default function Services() {
           Gracias a nuestros servicios las empresas pueden optimizar y ahorrar
           recursos, además de contribuir a la lucha contra el cambio climático
         </p>
+
+        <p>
+          Puedes conocer todos nuestros servicios disponibles haciendo click{" "}
+          <button
+            onClick={() => {
+              goTo("/singin");
+            }}
+          >
+            aquí.
+          </button>
+        </p>
         <p>
           * Solicita una prueba gratis <a href={"/#contact"}>aquí</a> para
           conocer como funciona nuestra tecnología de gestión de la demanda
@@ -35,25 +50,24 @@ export default function Services() {
         <Carousel autoplay className={style.carousel}>
           <div className={style.prediction}>
             <h2>Gestion de la Demanda</h2>
-            <p>
-              Eléctrica, a diferentes horizontes con uso de algoritmos de
-              Inteligencia Artificial
-            </p>
-            <button
+            <p>Optimiza y ahorra recursos modulando la carga en hora punta</p>
+            <img src={demanda} alt="demanda" />
+            {/* <button
               onClick={() => {
                 goTo("/singin");
               }}
             >
               Descubre mas
-            </button>
+            </button> */}
           </div>
           <div className={style.design}>
-            <h2>Diseñar perfiles</h2>
+            <h2>Realizar predicciones</h2>
             <p>
-              De energia segun los objetivos de cada empresa, permitiendo
-              optimizar el ritmo de produccion
+              De la demanda eléctrica con uso de algoritmos de Inteligencia
+              Artificial
             </p>
-            <button
+            <img src={estimacion} alt="estimacion" />
+            {/* <button
               onClick={() => {
                 swal({
                   title: "Lo sentimos",
@@ -63,12 +77,13 @@ export default function Services() {
               }}
             >
               Descubre mas
-            </button>
+            </button> */}
           </div>
           <div className={style.report}>
-            <h2>Elaborar informes</h2>
-            <p>Y formatos de la estructura de costos de energia</p>
-            <button
+            <h2>Estructura de costos</h2>
+            <p>De la energía en tiempo real</p>
+            <img src={costo} alt="costo" />
+            {/* <button
               onClick={() => {
                 swal({
                   title: "Lo sentimos",
@@ -78,15 +93,16 @@ export default function Services() {
               }}
             >
               Descubre mas
-            </button>
+            </button> */}
           </div>
           <div className={style.history}>
-            <h2>Resultados historicos</h2>
+            <h2>Modelo de Ahorro</h2>
             <p>
-              Obtenidos durante el periodo 2022 y 2023, teniendo un porcentaje
-              de acierto del 100%
+              Las soluciones integrales que ofrece GDx logran un ahorro de
+              aproximadamente 16.000 US$ por megavatio al mes
             </p>
-            <button
+            <img src={ahorro} alt="ahorro" />
+            {/* <button
               onClick={() => {
                 swal({
                   title: "Lo sentimos",
@@ -96,7 +112,7 @@ export default function Services() {
               }}
             >
               Descubre mas
-            </button>
+            </button> */}
           </div>
         </Carousel>
       </section>
