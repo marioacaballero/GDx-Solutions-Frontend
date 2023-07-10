@@ -104,6 +104,9 @@ export interface MarginalCostData {
 export interface SubStationsData {
   nodo: string;
 }
+export interface SubStationsData2 {
+  nombre_barra: string;
+}
 
 export interface MDCHistory {
   date: string;

@@ -4,6 +4,7 @@ import { marginalDataDaily } from "../../../../assets/constants/dataGraphMargina
 import {
   MarginalCostData,
   SubStationsData,
+  SubStationsData2,
 } from "../../../../assets/constants/interfaces";
 import { LineGraph } from "../../../Graphs/LineGraph";
 import style from "./MarginalCost.module.css";
@@ -25,9 +26,14 @@ function MarginalCost({ date }: { date: string }) {
     fetch(FetchData("nodos"))
       .then((res) => res.json())
       .then((data) => setNodos(data));
+
+    fetch(FetchData("barras"))
+      .then((res) => res.json())
+      .then((data) => setBarras(data));
   }, [nodo, date]);
 
   const [nodos, setNodos] = useState<SubStationsData[]>([]);
+  const [barras, setBarras] = useState<SubStationsData2[]>([]);
 
   const onChangeSelect = async (e: React.ChangeEvent<HTMLSelectElement>) => {
     e.preventDefault();
@@ -47,11 +53,11 @@ function MarginalCost({ date }: { date: string }) {
         <>
           <section>
             <h4>Costo Marginal de</h4>
-            {nodos.length ? (
+            {barras.length && nodos.length ? (
               <select onChange={(e) => onChangeSelect(e)}>
-                {nodos.map((e) => (
-                  <option key={e.nodo} value={e.nodo}>
-                    {e.nodo}
+                {barras.map((e, i) => (
+                  <option key={e.nombre_barra} value={nodos[i].nodo}>
+                    {e.nombre_barra}
                   </option>
                 ))}
               </select>
