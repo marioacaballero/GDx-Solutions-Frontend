@@ -174,7 +174,7 @@ function DataNow({
             <GenerationTopTen key={"GenerationTopDay"} date={date} />
           </div>
         </main>
-      )}{" "}
+      )}
     </>
   );
 }

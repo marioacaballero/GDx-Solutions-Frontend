@@ -38,7 +38,7 @@ export const HorizontalBarGraph = ({ myData }: { myData: MyDateBar }) => {
               display: true,
               text: "Principales Empresas Generadoras",
               font: {
-                size: 18,
+                size: 16,
               },
               color: "white",
             },

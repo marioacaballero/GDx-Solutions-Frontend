@@ -35,11 +35,14 @@ function AreaGraph({ myData }: { myData: MyDate }) {
             title: {
               display: true,
               text: "Fuentes generadoras en %",
-              align: "start",
               font: {
-                size: 18,
+                size: 16,
               },
               color: "white",
+              padding: {
+                bottom: -25,
+                top: 10,
+              },
             },
             legend: {
               display: true,

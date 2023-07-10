@@ -82,21 +82,28 @@ export default function ControlPanel({
             style={{
               backgroundColor: backHistory ? "#0c1137" : "",
             }}
-            onClick={() => {
-              if (
-                date.slice(0, 7) !== `${actualDateYear}-${actualDateMonth()}`
-              ) {
-                setLoading(true);
-                setMonth(actualDateMonth());
-                setYear(actualDateYear);
-              }
-              if (!showHistory) {
-                setLoading(true);
-                setBackHistory(true);
-                setBackDiario(false);
-                setShowHistory(true);
-              }
-            }}
+            // onClick={() => {
+            //   if (
+            //     date.slice(0, 7) !== `${actualDateYear}-${actualDateMonth()}`
+            //   ) {
+            //     setLoading(true);
+            //     setMonth(actualDateMonth());
+            //     setYear(actualDateYear);
+            //   }
+            //   if (!showHistory) {
+            //     setLoading(true);
+            //     setBackHistory(true);
+            //     setBackDiario(false);
+            //     setShowHistory(true);
+            //   }
+            // }}
+            onClick={() =>
+              swal({
+                title: "Lo sentimos!",
+                text: "Todavía estamos desarrollando esta sección",
+                icon: "warning",
+              })
+            }
           >
             Record Histórico
           </button>

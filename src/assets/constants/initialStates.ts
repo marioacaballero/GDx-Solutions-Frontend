@@ -1,4 +1,4 @@
-const actualDate = new Date("2023-06-11");
+const actualDate = new Date();
 
 export const actualDateString = actualDate.toLocaleDateString("es-ES", {
   weekday: "short",
