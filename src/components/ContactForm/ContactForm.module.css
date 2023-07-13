@@ -8,7 +8,8 @@
   background-color: black;
   color: white;
   padding-left: 15%;
-  padding-top: 7rem;
+  padding-top: 8rem;
+  padding-bottom: 2rem;
 }
 
 .contact > h2 {
@@ -35,7 +36,7 @@
 .contact > form > label {
   display: flex;
   width: 32rem;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .contact > form > label > span {
@@ -63,6 +64,11 @@
   font-size: 1rem;
   padding-left: 4px;
   border-radius: 5px;
+}
+
+.contact > form > label > input:focus,
+.contact > form > textarea:focus {
+  outline: 0;
 }
 
 .contact > form > textarea {
