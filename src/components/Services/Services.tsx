@@ -1,26 +1,11 @@
-import { useNavigate } from "react-router-dom";
 import { Carousel } from "antd";
 import style from "./Services.module.css";
-import swal from "sweetalert";
 import estimacion from "../../assets/images/estimacion.png";
 import ahorro from "../../assets/images/ahorro.png";
 import demanda from "../../assets/images/demanda.png";
 import costo from "../../assets/images/costomarginal.png";
 
 export default function Services() {
-  const navigate = useNavigate();
-  const goTo = (path: string) => {
-    swal({
-      title: "Cuidado",
-      text: "Debes iniciar sesion para acceder a la gestión de la demanda",
-      icon: "warning",
-      buttons: ["Cancelar", "Iniciar Sesion"],
-    }).then((isConfirm) => {
-      if (isConfirm) {
-        navigate(path);
-      }
-    });
-  };
   return (
     <section className={style.services} id="services">
       <div>
