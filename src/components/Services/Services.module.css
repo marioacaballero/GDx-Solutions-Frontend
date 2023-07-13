@@ -9,13 +9,22 @@
   scroll-snap-align: start;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
+}
+
+.services > div {
+  width: 32%;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-left: 3rem;
 }
 
 .services > div > h2 {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  text-align: center;
+  text-align: left;
+  width: 100%;
   font-size: 2rem;
   text-transform: uppercase;
   color: #ffff;
@@ -25,34 +34,16 @@
 }
 
 .services > div > p {
-  width: 35rem;
-  font-size: 1.4rem;
+  width: 100%;
+  font-size: 1.3rem;
   text-align: left;
   color: #ffff;
   -webkit-text-stroke: 0.1px black;
   text-shadow: 2px 2px black;
   animation: 1.25s anim ease-in;
-  margin-bottom: 2rem;
 }
 
-.services > div > p > button {
-  background: none;
-  border: none;
-  color: aqua;
-}
-
-.services > div > p > button:hover {
-  cursor: pointer;
-  color: red;
-}
-
-.services > div > p:last-child {
-  padding-top: 5rem;
-  font-size: 0.9rem;
-  letter-spacing: 0.5px;
-}
-
-.services > div > p:last-child > a {
+.services > div > p > a {
   color: aqua;
   text-decoration: none;
   font-weight: bold;

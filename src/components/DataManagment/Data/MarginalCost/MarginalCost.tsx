@@ -52,7 +52,7 @@ function MarginalCost({ date }: { date: string }) {
       {marginal.length ? (
         <>
           <section>
-            <h4>Costo Marginal de</h4>
+            <h4>Costo Marginal [S/./MWh]</h4>
             {barras.length && nodos.length ? (
               <select onChange={(e) => onChangeSelect(e)}>
                 {barras.map((e, i) => (

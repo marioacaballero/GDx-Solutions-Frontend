@@ -26,40 +26,17 @@ export default function Services() {
       <div>
         <h2>Nuestros Servicios</h2>
         <p>
-          Gracias a nuestros servicios las empresas pueden optimizar y ahorrar
-          recursos, además de contribuir a la lucha contra el cambio climático
-        </p>
-
-        <p>
-          Puedes conocer todos nuestros servicios disponibles haciendo click{" "}
-          <button
-            onClick={() => {
-              goTo("/singin");
-            }}
-          >
-            aquí.
-          </button>
+          Gracias a nuestros servicios las empresas pueden optimizar recursos y
+          maximizar ahorros, además de contribuir a la lucha contra el cambio
+          climático
         </p>
         <p>
-          * Solicita una prueba gratis <a href={"/#contact"}>aquí</a> para
-          conocer como funciona nuestra tecnología de gestión de la demanda
-          eléctrica.
+          Puedes conocer todos nuestros servicios disponibles a través de una
+          prueba gratuita haciendo click <a href="/#contact">aquí.</a>
         </p>
       </div>
       <section>
         <Carousel autoplay className={style.carousel}>
-          <div className={style.prediction}>
-            <h2>Gestion de la Demanda</h2>
-            <p>Optimiza y ahorra recursos modulando la carga en hora punta</p>
-            <img src={demanda} alt="demanda" />
-            {/* <button
-              onClick={() => {
-                goTo("/singin");
-              }}
-            >
-              Descubre mas
-            </button> */}
-          </div>
           <div className={style.design}>
             <h2>Realizar predicciones</h2>
             <p>
@@ -67,33 +44,16 @@ export default function Services() {
               Artificial
             </p>
             <img src={estimacion} alt="estimacion" />
-            {/* <button
-              onClick={() => {
-                swal({
-                  title: "Lo sentimos",
-                  text: "En este momento este sector se encuentra en desarrollo",
-                  icon: "warning",
-                });
-              }}
-            >
-              Descubre mas
-            </button> */}
+          </div>
+          <div className={style.prediction}>
+            <h2>Gestion de la Demanda</h2>
+            <p>Optimiza y ahorra recursos modulando la carga en hora punta</p>
+            <img src={demanda} alt="demanda" />
           </div>
           <div className={style.report}>
             <h2>Estructura de costos</h2>
-            <p>De la energía en tiempo real</p>
+            <p>De la energía de cada zona en tiempo real</p>
             <img src={costo} alt="costo" />
-            {/* <button
-              onClick={() => {
-                swal({
-                  title: "Lo sentimos",
-                  text: "En este momento este sector se encuentra en desarrollo",
-                  icon: "warning",
-                });
-              }}
-            >
-              Descubre mas
-            </button> */}
           </div>
           <div className={style.history}>
             <h2>Modelo de Ahorro</h2>
@@ -102,17 +62,6 @@ export default function Services() {
               aproximadamente 16.000 US$ por megavatio al mes
             </p>
             <img src={ahorro} alt="ahorro" />
-            {/* <button
-              onClick={() => {
-                swal({
-                  title: "Lo sentimos",
-                  text: "En este momento este sector se encuentra en desarrollo",
-                  icon: "warning",
-                });
-              }}
-            >
-              Descubre mas
-            </button> */}
           </div>
         </Carousel>
       </section>
