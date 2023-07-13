@@ -15,13 +15,20 @@ export default function ContactForm() {
   const initialState = {
     name: "",
     email: "",
-    subject: "",
+    business: "",
+    area: "",
+    charge: "",
+    phone: "",
     message: "",
   };
 
   const errorInitialState = {
+    name: "",
     email: "",
-    subject: "",
+    business: "",
+    area: "",
+    charge: "",
+    phone: "",
     message: "",
   };
 
@@ -31,7 +38,10 @@ export default function ContactForm() {
   const formValues = {
     name: input.name,
     email: input.email,
-    subject: input.subject,
+    business: input.business,
+    area: input.area,
+    charge: input.charge,
+    phone: input.phone,
     message: input.message,
   };
 
@@ -52,7 +62,16 @@ export default function ContactForm() {
   const sendEmail = (e: any) => {
     e.preventDefault();
 
-    if (!errors.email && !errors.subject && !errors.message && input.message) {
+    if (
+      !errors.email &&
+      !errors.name &&
+      !errors.business &&
+      !errors.charge &&
+      !errors.area &&
+      !errors.phone &&
+      !errors.message &&
+      input.message
+    ) {
       emailjs
         .send(EMAIL_SERVICE_ID, TEMPLATE_ID, formValues, API_PUBLIC_KEY)
         .then(
@@ -73,7 +92,7 @@ export default function ContactForm() {
       handleInputChange(e);
       swal({
         title: "Algo falta!",
-        text: "Por favor revisa los campos requeridos",
+        text: "Por favor revisa los campos",
         icon: "warning",
       });
     }
@@ -89,30 +108,6 @@ export default function ContactForm() {
         </p>
         <form onSubmit={sendEmail}>
           <label>
-            <span>Nombre:</span>
-            <input
-              type="text"
-              name="name"
-              placeholder="GDx Solutions"
-              value={input.name}
-              onChange={(e) => handleInputChange(e)}
-            />
-            <p className={style.hide}></p>
-          </label>
-          <label>
-            <span>Asunto:</span>
-            <input
-              type="text"
-              name="subject"
-              value={input.subject}
-              placeholder="Tipo de consulta"
-              onChange={(e) => handleInputChange(e)}
-            />
-            <p className={errors.subject ? style.error : style.hide}>
-              {errors.subject}
-            </p>
-          </label>
-          <label>
             <span>Email:</span>
             <input
               type="email"
@@ -126,6 +121,71 @@ export default function ContactForm() {
             </p>
           </label>
           <label>
+            <span>Nombre:</span>
+            <input
+              type="text"
+              name="name"
+              placeholder="GDx Solutions"
+              value={input.name}
+              onChange={(e) => handleInputChange(e)}
+            />
+            <p className={errors.name ? style.error : style.hide}>
+              {errors.name}
+            </p>
+          </label>
+          <label>
+            <span>Empresa:</span>
+            <input
+              type="text"
+              name="business"
+              value={input.business}
+              placeholder="GDx"
+              onChange={(e) => handleInputChange(e)}
+            />
+            <p className={errors.business ? style.error : style.hide}>
+              {errors.business}
+            </p>
+          </label>
+          <label>
+            <span>Área:</span>
+            <input
+              type="text"
+              name="area"
+              value={input.area}
+              placeholder="Metalmecánica"
+              onChange={(e) => handleInputChange(e)}
+            />
+            <p className={errors.area ? style.error : style.hide}>
+              {errors.area}
+            </p>
+          </label>
+          <label>
+            <span>Cargo:</span>
+            <input
+              type="text"
+              name="charge"
+              value={input.charge}
+              placeholder="Encargado General"
+              onChange={(e) => handleInputChange(e)}
+            />
+            <p className={errors.charge ? style.error : style.hide}>
+              {errors.charge}
+            </p>
+          </label>
+          <label>
+            <span>Teléfono:</span>
+            <input
+              type="text"
+              name="phone"
+              value={input.phone}
+              placeholder="51 123 123 123"
+              onChange={(e) => handleInputChange(e)}
+            />
+            <p className={errors.phone ? style.error : style.hide}>
+              {errors.phone}
+            </p>
+          </label>
+          <label>
             <span>Mensaje:</span>
             <p className={errors.message ? style.error : style.hide}>
               {errors.message}
@@ -134,7 +194,7 @@ export default function ContactForm() {
           <textarea
             name="message"
             value={input.message}
-            placeholder="Hola GDx Solutions, les escribo para..."
+            placeholder="Hola GDx Solutions, quisiera solicitar una prueba gratuita..."
             onChange={(e) => handleInputChange(e)}
           />
           <button type="submit">Enviar</button>
