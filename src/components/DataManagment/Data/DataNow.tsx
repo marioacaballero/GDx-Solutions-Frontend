@@ -20,14 +20,23 @@ function DataNow({
   setLoading,
   loading,
   date,
+  setYear,
+  setMonth,
+  setDay,
 }: {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setYear: React.Dispatch<React.SetStateAction<string>>;
+  setMonth: React.Dispatch<React.SetStateAction<string>>;
+  setDay: React.Dispatch<React.SetStateAction<string>>;
   loading: boolean;
   date: string;
 }) {
   useEffect(() => {
     fetchingAsync(
       date,
+      setYear,
+      setMonth,
+      setDay,
       setEjecutado,
       setRisk,
       setGdx,
@@ -36,7 +45,7 @@ function DataNow({
       setPrediction,
       setLoading
     );
-  }, [date, setLoading]);
+  }, [date, setLoading, setYear, setMonth, setDay]);
 
   const [ejecutado, setEjecutado] = useState<FetchEject[]>([]);
   const [risk, setRisk] = useState<FetchRisk[]>([]);

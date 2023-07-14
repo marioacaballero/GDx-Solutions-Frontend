@@ -47,6 +47,9 @@ export default function Data() {
           loading={loading}
           date={date}
           setLoading={setLoading}
+          setDay={setDay}
+          setMonth={setMonth}
+          setYear={setYear}
         />
       )}
     </div>
