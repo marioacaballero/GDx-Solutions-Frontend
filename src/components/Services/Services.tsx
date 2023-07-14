@@ -42,10 +42,7 @@ export default function Services() {
           </div>
           <div className={style.history}>
             <h2>Modelo de Ahorro</h2>
-            <p>
-              Las soluciones integrales que ofrece GDx logran un ahorro de
-              aproximadamente 16.000 US$ por megavatio al mes
-            </p>
+            <p>Gracias a as soluciones integrales que ofrece GDx</p>
             <img src={ahorro} alt="ahorro" />
           </div>
         </Carousel>
