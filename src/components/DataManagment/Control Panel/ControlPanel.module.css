@@ -73,12 +73,10 @@
   margin-bottom: 2rem;
 }
 
-.controlPanel > section:nth-child(2) > p,
-.controlPanel > section:nth-child(2) > div {
+.controlPanel > section:nth-child(2) > p {
   text-align: center;
   color: white;
-  background-color: #0c1137;
-  height: 2rem;
+  height: 3rem;
   padding: 5px;
   margin-bottom: 2rem;
   display: flex;

@@ -1,58 +1,37 @@
 .calendar {
+  margin: auto;
   background-color: #0c1137;
-  font-size: 9px;
-  padding: 5px;
+  width: 95%;
+}
+
+.calendar > form {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 3.5rem;
+}
+
+.calendar > form > input {
+  font-size: 1rem;
+  background: none;
   color: white;
-  z-index: 10;
+  border: none;
 }
 
-.calendar > div > div:first-child {
-  width: 154px;
-}
-
-.calendar > div > div:first-child > div:first-child > h2 {
-  font-size: 1.05em;
-}
-
-.calendar > div > div:first-child > div:nth-child(3) > button {
-  display: none;
-}
-
-.calendar
-  > div
-  > div:nth-child(2)
-  > div
-  > table
-  > tbody
-  > tr:nth-child(2)
-  > td
-  > div
-  > div
-  > div
-  > table
-  > tbody
-  > tr
-  > td
-  > div
-  > div:nth-child(2) {
-  min-height: 0;
-}
-
-.calendar
-  > div
-  > div:nth-child(2)
-  > div
-  > table
-  > tbody
-  > tr:nth-child(2)
-  > td
-  > div
-  > div
-  > div
-  > table
-  > tbody
-  > tr
-  > td:hover {
+.calendar > form > input:hover {
   cursor: pointer;
-  background-color: rgb(93, 109, 255);
+}
+
+.calendar > form > button {
+  color: rgb(221, 218, 218);
+  font-size: 1rem;
+  background: none;
+  border: none;
+}
+
+.calendar > form > button:hover {
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.1rem;
 }
