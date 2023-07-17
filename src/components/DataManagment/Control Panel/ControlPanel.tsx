@@ -157,8 +157,9 @@ export default function ControlPanel({
             ) : (
               <>
                 <p>
-                  {dateArray[2]} de {months[monthToDate].name} del{" "}
-                  {dateArray[0]}
+                  {/* {dateArray[2]} de {months[monthToDate].name} del{" "}
+                  {dateArray[0]} */}
+                  Seleccione una fecha para mostrar
                 </p>
                 <CalendarGDx
                   key={"calendarGDX"}
