@@ -3,5 +3,5 @@ export const DataCoes = (routes: string) => {
 };
 
 export const FetchData = (routes: string) => {
-  return `http://34.69.54.218:8000/${routes}`;
+  return `https://gdxapi-k3d3noyllq-uc.a.run.app/${routes}`;
 };
