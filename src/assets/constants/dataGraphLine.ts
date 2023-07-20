@@ -23,7 +23,7 @@ export const myDataDaily = (
       displayEjNow
         ? {
             label: "Demanda Ejectuada",
-            data: ejecutadoNow.map((e) => e.ejecutado),
+            data: ejecutadoNow.map((e) => e.demanda),
             tension: 0.1,
             borderColor: "rgb(8, 197, 18)",
             // backgroundColor: "rgba(8, 197, 18, 0.5)",
