@@ -40,7 +40,7 @@ function AreaGraph({ myData }: { myData: MyDate }) {
               },
               color: "white",
               padding: {
-                bottom: -25,
+                bottom: 6,
                 top: 10,
               },
             },
@@ -75,11 +75,18 @@ function AreaGraph({ myData }: { myData: MyDate }) {
             y: {
               beginAtZero: true,
               stacked: true,
-              display: false,
+              max: 100,
+              ticks: {
+                color: "white",
+                maxTicksLimit: 6,
+              },
             },
             x: {
               beginAtZero: true,
-              display: false,
+              ticks: {
+                color: "white",
+                maxTicksLimit: 5,
+              },
             },
           },
         }}

@@ -13,7 +13,7 @@ export const dataAreaDaily = (dataArea: GenerationType[]): MyDate => {
     "#C3C3C3",
   ];
   return {
-    labels: dataArea.map((e) => e.date.slice(11)),
+    labels: dataArea.map((e) => e.date.slice(11, 16)),
     datasets: dataArea[0].fuente.map((energy, i) => {
       return {
         label: energy.tipo,
