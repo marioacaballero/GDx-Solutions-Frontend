@@ -1,10 +1,10 @@
-import { ChartContext, FetchEject, FetchGDx } from "./interfaces";
+import { ChartContext, /* FetchEject,*/ FetchGDx } from "./interfaces";
 
 export const myDataDaily = (
   reprodiario: FetchGDx[],
   displayReproDiNow: boolean,
-  displayEjNow: boolean,
-  ejecutadoNow: FetchEject[],
+  // displayEjNow: boolean,
+  // ejecutadoNow: FetchEject[],
   displayIntervalNow: boolean,
   displayGDxNow: boolean,
   gdxNow: FetchGDx[],
@@ -18,20 +18,20 @@ export const myDataDaily = (
   maxMDCGDX: number
 ) => {
   return {
-    labels: ejecutadoNow.map((f) => f.date.slice(11, 16)),
+    labels: gdxNow.map((f) => f.date.slice(11, 16)),
     datasets: [
-      displayEjNow
-        ? {
-            label: "Demanda Ejectuada",
-            data: ejecutadoNow.map((e) => e.demanda),
-            tension: 0.1,
-            borderColor: "rgb(8, 197, 18)",
-            // backgroundColor: "rgba(8, 197, 18, 0.5)",
-            fill: false,
-            borderWidth: 2,
-            pointRadius: 0,
-          }
-        : { label: "", data: [] },
+      // displayEjNow
+      //   ? {
+      //       label: "Demanda Ejectuada",
+      //       data: ejecutadoNow.map((e) => e.demanda),
+      //       tension: 0.1,
+      //       borderColor: "rgb(8, 197, 18)",
+      //       // backgroundColor: "rgba(8, 197, 18, 0.5)",
+      //       fill: false,
+      //       borderWidth: 2,
+      //       pointRadius: 0,
+      //     }
+      //   : { label: "", data: [] },
       displayIntervalNow
         ? {
             label: "Intervalo",
