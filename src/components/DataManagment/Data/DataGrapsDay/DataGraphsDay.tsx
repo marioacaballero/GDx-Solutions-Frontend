@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { myDataDaily } from "../../../../assets/constants/dataGraphLine";
 import {
-  // FetchEject,
+  FetchEject,
   FetchGDx,
   FetchPrediction,
 } from "../../../../assets/constants/interfaces";
@@ -9,7 +9,7 @@ import { LineGraph } from "../../../Graphs/LineGraph";
 import style from "./DataGraphsDay.module.css";
 
 function DataGraphsDay({
-  // ejecutadoNow,
+  ejecutadoNow,
   gdxNow,
   diarioNow,
   reprodiario,
@@ -18,7 +18,7 @@ function DataGraphsDay({
   intervalForGraphNow,
   prediccionNow,
 }: {
-  // ejecutadoNow: FetchEject[];
+  ejecutadoNow: FetchEject[];
   gdxNow: FetchGDx[];
   diarioNow: FetchGDx[];
   reprodiario: FetchGDx[];
@@ -76,8 +76,8 @@ function DataGraphsDay({
             myData={myDataDaily(
               reprodiario,
               displayReproDiNow,
-              // displayEjNow,
-              // ejecutadoNow,
+              displayEjNow,
+              ejecutadoNow,
               displayIntervalNow,
               displayGDxNow,
               gdxNow,
