@@ -54,7 +54,9 @@ export const fetchingAsync = async (
     const predData = await predResp.json();
     if (predData.hora_min != 0) {
       setPrediction(predData);
-      const ejectResp = await fetch(FetchData(`ejecutado/?date=${date}`));
+      const ejectResp = await fetch(
+        `https://gdxapi-k3d3noyllq-uc.a.run.app/ejecutado/?date=${date}`
+      );
       const ejectData = await ejectResp.json();
       setEjecutado(ejectData);
       const riskResp = await fetch(FetchData(`riesgo_fecha?date=${date}`));
