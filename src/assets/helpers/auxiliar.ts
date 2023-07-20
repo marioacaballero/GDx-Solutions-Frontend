@@ -6,7 +6,7 @@ import {
   actualDateYear,
 } from "../constants/initialStates";
 import {
-  // FetchEject,
+  FetchEject,
   FetchGDx,
   FetchPrediction,
   FetchRisk,
@@ -41,7 +41,7 @@ export const fetchingAsync = async (
   setYear: React.Dispatch<React.SetStateAction<string>>,
   setMonth: React.Dispatch<React.SetStateAction<string>>,
   setDay: React.Dispatch<React.SetStateAction<string>>,
-  // setEjecutado: React.Dispatch<React.SetStateAction<FetchEject[]>>,
+  setEjecutado: React.Dispatch<React.SetStateAction<FetchEject[]>>,
   setRisk: React.Dispatch<React.SetStateAction<FetchRisk[]>>,
   setGdx: React.Dispatch<React.SetStateAction<FetchGDx[]>>,
   setDiario: React.Dispatch<React.SetStateAction<FetchGDx[]>>,
@@ -54,9 +54,9 @@ export const fetchingAsync = async (
     const predData = await predResp.json();
     if (predData.hora_min != 0) {
       setPrediction(predData);
-      // const ejectResp = await fetch(FetchData(`ejecutado/?date=${date}`));
-      // const ejectData = await ejectResp.json();
-      // setEjecutado(ejectData);
+      const ejectResp = await fetch(FetchData(`ejecutado/?date=${date}`));
+      const ejectData = await ejectResp.json();
+      setEjecutado(ejectData);
       const riskResp = await fetch(FetchData(`riesgo_fecha?date=${date}`));
       const riskData = await riskResp.json();
       setRisk(riskData);

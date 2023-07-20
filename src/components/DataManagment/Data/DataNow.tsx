@@ -1,5 +1,5 @@
 import {
-  // FetchEject,
+  FetchEject,
   FetchGDx,
   FetchPrediction,
   FetchRisk,
@@ -37,7 +37,7 @@ function DataNow({
       setYear,
       setMonth,
       setDay,
-      // setEjecutado,
+      setEjecutado,
       setRisk,
       setGdx,
       setDiario,
@@ -47,7 +47,7 @@ function DataNow({
     );
   }, [date, setLoading, setYear, setMonth, setDay]);
 
-  // const [ejecutado, setEjecutado] = useState<FetchEject[]>([]);
+  const [ejecutado, setEjecutado] = useState<FetchEject[]>([]);
   const [risk, setRisk] = useState<FetchRisk[]>([]);
   const [gdx, setGdx] = useState<FetchGDx[]>([]);
   const [diario, setDiario] = useState<FetchGDx[]>([]);
@@ -162,7 +162,7 @@ function DataNow({
               </div>
               <DataGraphsDay
                 key={"dataGraphsDay"}
-                // ejecutadoNow={ejecutado}
+                ejecutadoNow={ejecutado}
                 diarioNow={diario}
                 reprodiario={reprodiario}
                 gdxNow={gdx}

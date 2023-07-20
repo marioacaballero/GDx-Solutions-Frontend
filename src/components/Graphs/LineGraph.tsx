@@ -64,6 +64,11 @@ export const LineGraph = ({
           },
           responsive: true,
           maintainAspectRatio: false,
+          interaction: {
+            mode: "nearest",
+            axis: "x",
+            intersect: false,
+          },
           scales: {
             y: {
               max: maxValue ? maxValue + 100 : undefined,

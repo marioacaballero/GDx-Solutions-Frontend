@@ -46,13 +46,14 @@ function AreaGraph({ myData }: { myData: MyDate }) {
             },
             legend: {
               display: true,
-              align: "end",
+              align: "center",
               position: "right",
               labels: {
                 color: "white",
                 font: {
                   size: 9,
                 },
+                boxWidth: 10,
               },
             },
             filler: {
