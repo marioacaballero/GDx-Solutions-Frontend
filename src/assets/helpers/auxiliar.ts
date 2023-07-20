@@ -6,7 +6,7 @@ import {
   actualDateYear,
 } from "../constants/initialStates";
 import {
-  FetchEject,
+  // FetchEject,
   FetchGDx,
   FetchPrediction,
   FetchRisk,
