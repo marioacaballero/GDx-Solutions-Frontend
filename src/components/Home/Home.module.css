@@ -5,6 +5,7 @@
   max-height: 100vh;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
+  position: relative;
 }
 
 .snap {

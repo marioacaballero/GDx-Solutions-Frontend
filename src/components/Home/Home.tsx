@@ -1,5 +1,6 @@
 import Chat from "../Chat/Chat";
 import ContactForm from "../ContactForm/ContactForm";
+import Navbar from "../Navbar/Navbar";
 import Services from "../Services/Services";
 import style from "./Home.module.css";
 
@@ -8,6 +9,7 @@ export default function Home() {
     <div>
       <Chat />
       <main className={style.mainDiv}>
+        <Navbar />
         <div className={style.home}>
           <h1>Optimizando resultados a través de soluciones innovadoras</h1>
           <p>
