@@ -12,9 +12,10 @@ export default function Navbar() {
       <a href={home}>
         <img src={logo} alt="GDx-logo" />
       </a>
-      <a href={about}>Nosotros</a>
+      <a href={home}>Inicio</a>
       <a href={services}>Servicios</a>
       <a href={contact}>Contacto</a>
+      <a href={about}>Nosotros</a>
       <div>
         <img src={peruFlag} alt="flag" />
         <p>ES</p>
