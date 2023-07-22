@@ -156,11 +156,7 @@ export default function ControlPanel({
               </div>
             ) : (
               <>
-                <p>
-                  {/* {dateArray[2]} de {months[monthToDate].name} del{" "}
-                  {dateArray[0]} */}
-                  Seleccione una fecha para mostrar
-                </p>
+                <p>Seleccione una fecha para mostrar</p>
                 <CalendarGDx
                   key={"calendarGDX"}
                   setDay={setDay}

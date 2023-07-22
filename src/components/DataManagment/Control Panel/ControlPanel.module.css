@@ -15,15 +15,17 @@
 .controlPanel > section:first-child {
   border-bottom: 3px solid #0c1137;
   padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .controlPanel > section:first-child > div {
   width: 80%;
-  margin: auto;
-  margin-bottom: 25%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   gap: 1rem;
 }
 
@@ -52,8 +54,7 @@
 
 .controlPanel > section:first-child > div:first-child {
   height: 10%;
-  margin-top: 10%;
-  margin-bottom: 45%;
+  margin-bottom: 15%;
 }
 
 .controlPanel > section:first-child > div:first-child > img {
