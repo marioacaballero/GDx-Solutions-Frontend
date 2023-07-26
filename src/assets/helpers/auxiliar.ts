@@ -54,19 +54,19 @@ export const fetchingAsync = async (
     const predData = await predResp.json();
     if (predData.hora_min != 0) {
       setPrediction(predData);
-      const ejectResp = await fetch(FetchData(`ejecutado/?date=${date}`));
+      const ejectResp = await fetch(FetchData(`ejecutado?date=${date}`));
       const ejectData = await ejectResp.json();
       setEjecutado(ejectData);
       const riskResp = await fetch(FetchData(`riesgo_fecha?date=${date}`));
       const riskData = await riskResp.json();
       setRisk(riskData);
       const gdxResp = await fetch(
-        FetchData(`prediccion_detalle/?date=${date}`)
+        FetchData(`prediccion_detalle?date=${date}`)
       );
       const gdxData = await gdxResp.json();
       setGdx(gdxData);
       const diarioResp = await fetch(
-        FetchData(`programa_diario/?date=${date}`)
+        FetchData(`programa_diario?date=${date}`)
       );
       const diarioData = await diarioResp.json();
       setDiario(diarioData);
