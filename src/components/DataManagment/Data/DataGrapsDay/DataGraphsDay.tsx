@@ -38,25 +38,31 @@ function DataGraphsDay({
   const { hora_max, hora_min, demanda_pred } = prediccionNow;
   const maxMDCGDX = Number(demanda_pred);
 
-  const maxValue1 = gdxNow
-    .map((e) => e.demanda)
-    .reduce((max: number, valor: number) => (valor > max ? valor : max), 0);
+  const maxValue = () => {
+    const maxEjecutado = ejecutadoNow
+      .map((e) => e.ejecutado)
+      .reduce((max: number, valor: number) => (valor > max ? valor : max), 0);
+    const maxGdx = gdxNow
+      .map((e) => e.demanda)
+      .reduce((max: number, valor: number) => (valor > max ? valor : max), 0);
+    const maxDiario = diarioNow
+      .map((e) => e.demanda)
+      .reduce((max: number, valor: number) => (valor > max ? valor : max), 0);
+    const maxReproDiario = reprodiario
+      .map((e) => e.demanda)
+      .reduce((max: number, valor: number) => (valor > max ? valor : max), 0);
 
-  const maxValue2 = diarioNow
-    .map((e) => e.demanda)
-    .reduce((max: number, valor: number) => (valor > max ? valor : max), 0);
-
-  const maxValue = Math.max(maxValue1, maxValue2);
+    return [maxEjecutado, maxGdx, maxDiario, maxReproDiario].reduce(
+      (max: number, valor: number) => (valor > max ? valor : max),
+      0
+    );
+  };
 
   const roundToNearestMultiple = (numb: number) => {
     const roundedNumber = Math.round(numb);
     const remainder = roundedNumber % 100;
 
-    if (remainder >= 50) {
-      return roundedNumber + (100 - remainder);
-    } else {
-      return roundedNumber + (50 - remainder) + 100;
-    }
+    return roundedNumber + (100 - remainder);
   };
   return (
     <div className={style.graphLineData}>
@@ -90,7 +96,7 @@ function DataGraphsDay({
               intervalForGraphNow,
               maxMDCGDX
             )}
-            maxValue={roundToNearestMultiple(maxValue)}
+            maxValue={roundToNearestMultiple(maxValue())}
           />
         </section>
       </section>
