@@ -71,7 +71,7 @@ export const LineGraph = ({
           },
           scales: {
             y: {
-              max: maxValue ? maxValue + 100 : undefined,
+              max: maxValue ? maxValue : undefined,
               ticks: {
                 color: "white",
               },
