@@ -5,12 +5,10 @@ export const actualDateString = actualDate.toLocaleDateString("es-ES", {
   day: "2-digit",
   month: "2-digit",
   year: "numeric",
-  timeZone: "America/Lima",
 });
 
 export const actualDateYear = actualDate
-  .toLocaleString("es-PE", {
-    timeZone: "America/Lima",
+  .toLocaleString("es-ES", {
     day: "2-digit",
     month: "2-digit",
     year: "numeric",
@@ -19,8 +17,7 @@ export const actualDateYear = actualDate
 
 export const actualDateDay = () => {
   return actualDate
-    .toLocaleString("es-PE", {
-      timeZone: "America/Lima",
+    .toLocaleString("es-ES", {
       day: "2-digit",
       month: "2-digit",
       year: "numeric",
@@ -30,8 +27,7 @@ export const actualDateDay = () => {
 
 export const actualDateMonth = () => {
   return actualDate
-    .toLocaleString("es-PE", {
-      timeZone: "America/Lima",
+    .toLocaleString("es-ES", {
       day: "2-digit",
       month: "2-digit",
       year: "numeric",
