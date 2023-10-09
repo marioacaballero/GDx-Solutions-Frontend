@@ -1,8 +1,8 @@
-import style from "./DataIntervals.module.css";
 import {
   FetchPrediction,
   FetchRisk,
 } from "../../../../assets/constants/interfaces";
+import style from "./DataIntervals.module.css";
 
 function DataIntervals({
   prediccionNow,
@@ -43,17 +43,18 @@ function DataIntervals({
     <section className={style.interval}>
       <div>
         <p>Predicción</p>
-        <p>{demanda_pred ? `${demanda_pred} MW` : "sin datos"}</p>
+        <p>{demanda_pred ? `${demanda_pred} MW` : "en análisis"}</p>
       </div>
       <div>
         <p>Estimación Horaria</p>
-        <p>{date_pred ? date_pred.slice(11, 16) : "sin datos"} hs</p>
+        <p>{date_pred ? `${date_pred.slice(11, 16)} hs` : "en análisis"}</p>
       </div>
       <div>
         <p>Intervalo de modulación</p>
         <p>
-          {hora_min ? hora_min.slice(11, 16) : "sin datos"} -{" "}
-          {hora_max ? hora_max.slice(11, 16) : "sin datos"} hs
+          {hora_min.length > 1
+            ? `${hora_min.slice(11, 16)} - ${hora_max.slice(11, 16)} hs`
+            : "en análisis"}
         </p>
       </div>
       <div style={{ background: riskColorBg() }}>

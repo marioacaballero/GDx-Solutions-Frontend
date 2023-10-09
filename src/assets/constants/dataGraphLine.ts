@@ -31,7 +31,7 @@ export const myDataDaily = (
             pointRadius: 0,
           }
         : { label: "", data: [] },
-      displayIntervalNow
+      displayIntervalNow && maxMDCGDX
         ? {
             label: "Intervalo",
             data: intervalForGraphNow,
@@ -76,7 +76,7 @@ export const myDataDaily = (
             pointRadius: 0,
           }
         : { label: "", data: [] },
-      displayMDCgdx
+      displayMDCgdx && maxMDCGDX
         ? {
             label: "MDC GDx",
             data: mdcgdx,

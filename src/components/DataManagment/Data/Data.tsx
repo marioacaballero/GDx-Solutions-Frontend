@@ -1,5 +1,4 @@
 import { useState } from "react";
-import style from "./Data.module.css";
 import {
   actualDateDay,
   actualDateMonth,
@@ -8,6 +7,7 @@ import {
 import DataNow from "./DataNow";
 import ControlPanel from "../Control Panel/ControlPanel";
 import DataHistory from "./DataHistory";
+import style from "./Data.module.css";
 
 export default function Data() {
   const [day, setDay] = useState<string>(actualDateDay());

@@ -1,5 +1,5 @@
-import style from "./DataManagment.module.css";
 import Data from "./Data/Data";
+import style from "./DataManagment.module.css";
 
 export default function DataManagment() {
   return (

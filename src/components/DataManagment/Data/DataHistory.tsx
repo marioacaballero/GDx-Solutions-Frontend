@@ -1,13 +1,13 @@
+import { useEffect, useState } from "react";
 import { DotSpinner } from "@uiball/loaders";
 import DataIntervalsHistory from "./DataIntervals/DataIntervalsHistory";
 import DataMonths from "./DataMonths/DataMonths";
 import MarginalCost from "./MarginalCost/MarginalCost";
-import style from "./Data.module.css";
 import DataMDC from "./DataMDC/DataMDC";
-import { useEffect, useState } from "react";
 import { fetchingAsyncHistory } from "../../../assets/helpers/auxiliar";
 import { MDCHistory } from "../../../assets/constants/interfaces";
 import GenerationResourceYear from "./GenerationResource/GenerationResourceYear";
+import style from "./Data.module.css";
 
 function DataHistory({
   date,

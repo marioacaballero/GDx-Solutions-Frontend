@@ -50,24 +50,20 @@ export const fetchingAsync = async (
   setLoading: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   try {
-    const predResp = await fetch(FetchData(`prediccion/?date=${date}`));
-    const predData = await predResp.json();
-    if (predData.hora_min != 0) {
-      setPrediction(predData);
-      const ejectResp = await fetch(FetchData(`ejecutado?date=${date}`));
-      const ejectData = await ejectResp.json();
+    const ejectResp = await fetch(FetchData(`ejecutado?date=${date}`));
+    const ejectData = await ejectResp.json();
+    if (ejectData) {
       setEjecutado(ejectData);
+      const predResp = await fetch(FetchData(`prediccion/?date=${date}`));
+      const predData = await predResp.json();
+      setPrediction(predData);
       const riskResp = await fetch(FetchData(`riesgo_fecha?date=${date}`));
       const riskData = await riskResp.json();
       setRisk(riskData);
-      const gdxResp = await fetch(
-        FetchData(`prediccion_detalle?date=${date}`)
-      );
+      const gdxResp = await fetch(FetchData(`prediccion_detalle?date=${date}`));
       const gdxData = await gdxResp.json();
       setGdx(gdxData);
-      const diarioResp = await fetch(
-        FetchData(`programa_diario?date=${date}`)
-      );
+      const diarioResp = await fetch(FetchData(`programa_diario?date=${date}`));
       const diarioData = await diarioResp.json();
       setDiario(diarioData);
       const reprodiarioResp = await fetch(

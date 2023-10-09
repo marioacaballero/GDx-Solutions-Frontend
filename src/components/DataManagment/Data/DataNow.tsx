@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { DotSpinner } from "@uiball/loaders";
 import {
   FetchEject,
   FetchGDx,
@@ -6,15 +8,13 @@ import {
 } from "../../../assets/constants/interfaces";
 import DataTable from "../../Table/Table";
 import MarginalCost from "./MarginalCost/MarginalCost";
-import style from "./Data.module.css";
 import DataGraphsDay from "./DataGrapsDay/DataGraphsDay";
 import DataIntervals from "./DataIntervals/DataIntervals";
 import DataMonths from "./DataMonths/DataMonths";
 import GenerationResource from "./GenerationResource/GenerationResource";
 import GenerationTopTen from "./GenerationTopTen/GenerationTopTen";
-import { useEffect, useState } from "react";
 import { fetchingAsync } from "../../../assets/helpers/auxiliar";
-import { DotSpinner } from "@uiball/loaders";
+import style from "./Data.module.css";
 
 function DataNow({
   setLoading,
