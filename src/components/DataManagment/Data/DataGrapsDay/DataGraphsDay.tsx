@@ -68,13 +68,17 @@ function DataGraphsDay({
     <div className={style.graphLineData}>
       <section>
         <label>
-          Intervalo de Modulación {hora_min.slice(11, 16)} hs -{" "}
-          {hora_max.slice(11, 16)} hs
-          <input
-            type="checkbox"
-            defaultChecked={displayIntervalNow}
-            onClick={() => setDisplayIntervalNow(!displayIntervalNow)}
-          />
+          {hora_min.length > 1
+            ? `Intervalo de Modulación ${hora_min.slice(11, 16)} hs - 
+          ${hora_max.slice(11, 16)} hs`
+            : "Intervalo de Modulación analizándose"}
+          {hora_min.length > 1 && (
+            <input
+              type="checkbox"
+              defaultChecked={displayIntervalNow}
+              onClick={() => setDisplayIntervalNow(!displayIntervalNow)}
+            />
+          )}
         </label>
         <section className={style.lineGraph}>
           <LineGraph
@@ -134,22 +138,28 @@ function DataGraphsDay({
               onClick={() => setDisplayGDxNow(!displayGDxNow)}
             />
           </label>
-          <label>
-            MDC GDx
-            <input
-              type="checkbox"
-              defaultChecked={displayMDCgdx}
-              onClick={() => setDisplayMDCgdx(!displayMDCgdx)}
-            />
-          </label>
-          <label>
-            Máximo GDx
-            <input
-              type="checkbox"
-              defaultChecked={displayMaxgdx}
-              onClick={() => setDisplayMaxgdx(!displayMaxgdx)}
-            />
-          </label>
+          {hora_min.length > 1 ? (
+            <>
+              <label>
+                MDC GDx
+                <input
+                  type="checkbox"
+                  defaultChecked={displayMDCgdx}
+                  onClick={() => setDisplayMDCgdx(!displayMDCgdx)}
+                />
+              </label>
+              <label>
+                Máximo GDx
+                <input
+                  type="checkbox"
+                  defaultChecked={displayMaxgdx}
+                  onClick={() => setDisplayMaxgdx(!displayMaxgdx)}
+                />
+              </label>{" "}
+            </>
+          ) : (
+            <></>
+          )}
         </section>
       </section>
     </div>
