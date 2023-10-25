@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 import { RaceBy, ChaoticOrbit, ThreeBody } from "@uiball/loaders";
+import axios from "axios";
 import { marginalDataDaily } from "../../../../assets/constants/dataGraphMarginal";
 import {
   MarginalCostData,
@@ -15,22 +17,30 @@ function MarginalCost({ date }: { date: string }) {
   const [marginal, setMarginal] = useState<MarginalCostData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
+  const { token } = useParams();
+
   useEffect(() => {
-    fetch(FetchData(`costo_marginal?nodo=${nodo}&date=${date}`))
-      .then((res) => res.json())
-      .then((data) => {
-        setMarginal(data);
+    axios
+      .get(FetchData(`costo_marginal?nodo=${nodo}&date=${date}`), {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((res) => {
+        setMarginal(res.data);
         setLoading(false);
       });
 
-    fetch(FetchData("nodos"))
-      .then((res) => res.json())
-      .then((data) => setNodos(data));
+    axios
+      .get(FetchData("nodos"), {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((res) => setNodos(res.data));
 
-    fetch(FetchData("barras"))
-      .then((res) => res.json())
-      .then((data) => setBarras(data));
-  }, [nodo, date]);
+    axios
+      .get(FetchData("barras"), {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((res) => setBarras(res.data));
+  }, [nodo, date, token]);
 
   const [nodos, setNodos] = useState<SubStationsData[]>([]);
   const [barras, setBarras] = useState<SubStationsData2[]>([]);

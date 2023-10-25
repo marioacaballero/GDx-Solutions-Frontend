@@ -11,7 +11,7 @@ export const routes = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/singin",
+    path: "/signin",
     element: (
       <>
         <Navbar />
@@ -20,7 +20,7 @@ export const routes = createBrowserRouter([
     ),
   },
   {
-    path: "/datamanagment",
+    path: "/:token/datamanagment",
     element: <DataManagment />,
   },
   {

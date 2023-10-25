@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 import { DotSpinner } from "@uiball/loaders";
 import DataIntervalsHistory from "./DataIntervals/DataIntervalsHistory";
 import DataMonths from "./DataMonths/DataMonths";
@@ -18,9 +19,11 @@ function DataHistory({
   loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
+  const { token } = useParams();
+
   useEffect(() => {
-    fetchingAsyncHistory(setMdcHistory, setLoading);
-  }, [setLoading, date]);
+    fetchingAsyncHistory(setMdcHistory, setLoading, token);
+  }, [setLoading, date, token]);
   const [mdcHistory, setMdcHistory] = useState<MDCHistory[]>([]);
   return (
     <>

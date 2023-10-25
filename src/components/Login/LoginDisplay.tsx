@@ -1,34 +1,27 @@
 import React, { useState } from "react";
-import { Button, /* Checkbox,*/ Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import { useNavigate } from "react-router";
-import axios from "axios";
-import { DataCoes } from "../../assets/constants/fetchData";
 import { DotSpinner } from "@uiball/loaders";
+import { LoginValues } from "../../assets/constants/interfaces";
+import { login } from "../../assets/helpers/auxiliar";
 
 const LoginDisplay: React.FC = () => {
   const [load, setLoad] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
   const navigate = useNavigate();
 
-  const onFinish = async (values: string) => {
-    // console.log("Success:", values);
-    // navigate("/datamanagment");
-    try {
-      setLoad(true);
-      const response = await axios.post(DataCoes("auth/signIn"), values);
-      if (response.status === 201) {
-        setLoad(false);
-        return navigate("/datamanagment");
-      }
-      // console.log(response.status);
-    } catch (error: any) {
-      alert(JSON.parse(error.request.response).message);
+  const onFinish = async (values: LoginValues) => {
+    setLoad(true);
+    setError("");
+    const response = await login(values);
+    if (response.status === 200) {
+      setLoad(false);
+      window.localStorage.setItem("token", response.data.access_token);
+      return navigate(`/${response.data.access_token}/datamanagment`);
+    } else {
+      setLoad(false);
+      setError("Usuario o contraseña incorrectos");
     }
-
-    // navigate("/home");
-  };
-
-  const onFinishFailed = (errorInfo: any) => {
-    console.log("Failed:", errorInfo);
   };
 
   return (
@@ -39,7 +32,6 @@ const LoginDisplay: React.FC = () => {
       style={{ maxWidth: 600 }}
       initialValues={{ remember: true }}
       onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
       <Form.Item
@@ -59,15 +51,6 @@ const LoginDisplay: React.FC = () => {
       >
         <Input.Password />
       </Form.Item>
-
-      {/* <Form.Item
-        name="remember"
-        valuePropName="checked"
-        wrapperCol={{ offset: 8, span: 16 }}
-      >
-        <Checkbox>Remember me</Checkbox>
-      </Form.Item> */}
-
       <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
         <Button
           type="primary"
@@ -78,6 +61,7 @@ const LoginDisplay: React.FC = () => {
         </Button>
         <div style={{ paddingLeft: "10%", paddingTop: "1rem" }}>
           {load && <DotSpinner size={25} speed={0.9} color="black" />}
+          {error && <p style={{ color: "red" }}>{error}</p>}
         </div>
       </Form.Item>
     </Form>

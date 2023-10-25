@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import axios from "axios";
 import { ChaoticOrbit } from "@uiball/loaders";
 import { databarDaily } from "../../../../assets/constants/dataGraphBar";
 import { FetchEject } from "../../../../assets/constants/interfaces";
@@ -8,11 +10,15 @@ import style from "./DataMonths.module.css";
 import { FetchData } from "../../../../assets/constants/fetchData";
 
 function DataMonths({ date }: { date: string }) {
+  const { token } = useParams();
+
   useEffect(() => {
-    fetch(FetchData(`ejecutado_picos_diarios?date=${date}`))
-      .then((res) => res.json())
-      .then((data) => setDataMonth(data));
-  }, [date]);
+    axios
+      .get(FetchData(`ejecutado_picos_diarios?date=${date}`), {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((res) => setDataMonth(res.data));
+  }, [date, token]);
 
   const [dataMonth, setDataMonth] = useState<FetchEject[]>([]);
 
