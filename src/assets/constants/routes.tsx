@@ -11,7 +11,7 @@ export const routes = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/singin",
+    path: "/signin",
     element: (
       <>
         <Navbar />

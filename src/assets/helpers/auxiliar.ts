@@ -1,3 +1,4 @@
+import axios from "axios";
 import swal from "sweetalert";
 import { FetchData } from "../constants/fetchData";
 import {
@@ -10,6 +11,7 @@ import {
   FetchGDx,
   FetchPrediction,
   FetchRisk,
+  LoginValues,
   MDCHistory,
 } from "../constants/interfaces";
 
@@ -100,5 +102,16 @@ export const fetchingAsyncHistory = async (
     setLoading(false);
   } catch (error) {
     console.log(error);
+  }
+};
+
+export const login = async (values: LoginValues) => {
+  try {
+    const data = await axios.post(FetchData("token"), values, {
+      headers: { "content-type": "application/x-www-form-urlencoded" },
+    });
+    return data;
+  } catch (error: any) {
+    return error.response;
   }
 };

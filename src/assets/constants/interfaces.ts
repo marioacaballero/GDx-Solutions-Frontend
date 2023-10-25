@@ -120,3 +120,8 @@ export interface GenerationTypeYear {
   mes: string;
   data: GenerationTypeSource[];
 }
+
+export interface LoginValues {
+  username: string;
+  password: string;
+}
