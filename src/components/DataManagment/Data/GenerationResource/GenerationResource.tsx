@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import axios from "axios";
 import { ChaoticOrbit } from "@uiball/loaders";
 import { dataAreaDaily } from "../../../../assets/constants/dataGraphArea";
 import { GenerationType } from "../../../../assets/constants/interfaces";
@@ -7,11 +9,15 @@ import style from "./GenerationResource.module.css";
 import { FetchData } from "../../../../assets/constants/fetchData";
 
 function GenerationResource({ date }: { date: string }) {
+  const { token } = useParams();
+
   useEffect(() => {
-    fetch(FetchData(`generacion_tipo?date=${date}`))
-      .then((res) => res.json())
-      .then((data) => setGenerationData(data));
-  }, [date]);
+    axios
+      .get(FetchData(`generacion_tipo?date=${date}`), {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((res) => setGenerationData(res.data));
+  }, [date, token]);
 
   const [generationData, setGenerationData] = useState<GenerationType[]>([]);
   return (

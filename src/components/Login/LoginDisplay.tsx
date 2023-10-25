@@ -16,8 +16,8 @@ const LoginDisplay: React.FC = () => {
     const response = await login(values);
     if (response.status === 200) {
       setLoad(false);
-      window.localStorage.setItem("token", JSON.stringify(response.data));
-      return navigate("/datamanagment");
+      window.localStorage.setItem("token", response.data.access_token);
+      return navigate(`/${response.data.access_token}/datamanagment`);
     } else {
       setLoad(false);
       setError("Usuario o contraseña incorrectos");

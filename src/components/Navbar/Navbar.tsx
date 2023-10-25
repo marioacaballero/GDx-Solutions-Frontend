@@ -7,6 +7,7 @@ export default function Navbar() {
   const about = "/about";
   const services = "/#services";
   const contact = "/#contact";
+  const login = "/signin";
   return (
     <nav className={style.navbar}>
       <a href={home}>
@@ -16,6 +17,7 @@ export default function Navbar() {
       <a href={services}>Servicios</a>
       <a href={contact}>Contacto</a>
       <a href={about}>Nosotros</a>
+      <a href={login}>Ingresar</a>
       <div>
         <img src={peruFlag} alt="flag" />
         <p>ES</p>

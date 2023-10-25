@@ -49,30 +49,45 @@ export const fetchingAsync = async (
   setDiario: React.Dispatch<React.SetStateAction<FetchGDx[]>>,
   setReprodiario: React.Dispatch<React.SetStateAction<FetchGDx[]>>,
   setPrediction: React.Dispatch<React.SetStateAction<FetchPrediction>>,
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>,
+  setUnauthorized: React.Dispatch<React.SetStateAction<boolean>>,
+  token: string | undefined
 ) => {
   try {
-    const ejectResp = await fetch(FetchData(`ejecutado?date=${date}`));
-    const ejectData = await ejectResp.json();
-    if (ejectData) {
-      setEjecutado(ejectData);
-      const predResp = await fetch(FetchData(`prediccion/?date=${date}`));
-      const predData = await predResp.json();
-      setPrediction(predData);
-      const riskResp = await fetch(FetchData(`riesgo_fecha?date=${date}`));
-      const riskData = await riskResp.json();
-      setRisk(riskData);
-      const gdxResp = await fetch(FetchData(`prediccion_detalle?date=${date}`));
-      const gdxData = await gdxResp.json();
-      setGdx(gdxData);
-      const diarioResp = await fetch(FetchData(`programa_diario?date=${date}`));
-      const diarioData = await diarioResp.json();
-      setDiario(diarioData);
-      const reprodiarioResp = await fetch(
-        FetchData(`reprograma_diario?date=${date}`)
+    const ejectResp = await axios.get(FetchData(`ejecutado?date=${date}`), {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    if (ejectResp.data) {
+      setEjecutado(ejectResp.data);
+      const predResp = await axios.get(FetchData(`prediccion/?date=${date}`), {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setPrediction(predResp.data);
+      const riskResp = await axios.get(FetchData(`riesgo_fecha?date=${date}`), {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setRisk(riskResp.data);
+      const gdxResp = await axios.get(
+        FetchData(`prediccion_detalle?date=${date}`),
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
       );
-      const reprodiarioData = await reprodiarioResp.json();
-      setReprodiario(reprodiarioData);
+      setGdx(gdxResp.data);
+      const diarioResp = await axios.get(
+        FetchData(`programa_diario?date=${date}`),
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      setDiario(diarioResp.data);
+      const reprodiarioResp = await axios.get(
+        FetchData(`reprograma_diario?date=${date}`),
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      setReprodiario(reprodiarioResp.data);
       setLoading(false);
     } else {
       swal({
@@ -84,20 +99,25 @@ export const fetchingAsync = async (
       setMonth(actualDateMonth());
       setDay(actualDateDay());
     }
-  } catch (error) {
+  } catch (error: any) {
     console.log(error);
+    if (error.response && error.response.status === 401) {
+      setUnauthorized(true);
+    }
   }
 };
 
 export const fetchingAsyncHistory = async (
   // date: string,
   setMdcHistory: React.Dispatch<React.SetStateAction<MDCHistory[]>>,
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>,
+  token: string | undefined
 ) => {
   try {
-    const mdcHistResp = await fetch(FetchData(`mdc_historico`));
-    const mdcHistData = await mdcHistResp.json();
-    setMdcHistory(mdcHistData);
+    const mdcHistResp = await axios.get(FetchData(`mdc_historico`), {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    setMdcHistory(mdcHistResp.data);
 
     setLoading(false);
   } catch (error) {

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { DotSpinner } from "@uiball/loaders";
+import { useNavigate, useParams } from "react-router";
 import {
   FetchEject,
   FetchGDx,
@@ -31,22 +32,10 @@ function DataNow({
   loading: boolean;
   date: string;
 }) {
-  useEffect(() => {
-    fetchingAsync(
-      date,
-      setYear,
-      setMonth,
-      setDay,
-      setEjecutado,
-      setRisk,
-      setGdx,
-      setDiario,
-      setReprodiario,
-      setPrediction,
-      setLoading
-    );
-  }, [date, setLoading, setYear, setMonth, setDay]);
+  const { token } = useParams();
+  const navigate = useNavigate();
 
+  const [unauthorized, setUnauthorized] = useState<boolean>(false);
   const [ejecutado, setEjecutado] = useState<FetchEject[]>([]);
   const [risk, setRisk] = useState<FetchRisk[]>([]);
   const [gdx, setGdx] = useState<FetchGDx[]>([]);
@@ -59,6 +48,30 @@ function DataNow({
     hora_max: "sin datos",
     demanda_pred: "sin datos",
   });
+
+  useEffect(() => {
+    fetchingAsync(
+      date,
+      setYear,
+      setMonth,
+      setDay,
+      setEjecutado,
+      setRisk,
+      setGdx,
+      setDiario,
+      setReprodiario,
+      setPrediction,
+      setLoading,
+      setUnauthorized,
+      token
+    );
+  }, [date, setLoading, setYear, setMonth, setDay, token]);
+
+  useEffect(() => {
+    if (unauthorized) {
+      return navigate("/signin");
+    }
+  }, [unauthorized, navigate]);
 
   const getRowClassName = (record: {
     key: string;

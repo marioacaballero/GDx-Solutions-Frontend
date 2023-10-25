@@ -20,7 +20,7 @@ export const routes = createBrowserRouter([
     ),
   },
   {
-    path: "/datamanagment",
+    path: "/:token/datamanagment",
     element: <DataManagment />,
   },
   {
