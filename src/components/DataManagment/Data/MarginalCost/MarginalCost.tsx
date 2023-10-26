@@ -49,10 +49,13 @@ function MarginalCost({ date }: { date: string }) {
     e.preventDefault();
     setLoading(true);
     setNodo(e.target.value);
-    const resp = await fetch(
-      FetchData(`costo_marginal?nodo=${nodo}&date=${date}`)
+    const { data } = await axios.get(
+      FetchData(`costo_marginal?nodo=${nodo}&date=${date}`),
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
     );
-    const data = await resp.json();
+    // const { data } = await resp.json();
     setMarginal(data);
     setTimeout(() => setLoading(false), 4000);
   };
