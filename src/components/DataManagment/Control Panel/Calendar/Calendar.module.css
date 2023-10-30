@@ -14,12 +14,13 @@
 .calendar > form > input {
   font-size: 1rem;
   background: none;
-  color: white;
+  color: rgb(255, 250, 250);
   border: none;
 }
 
 .calendar > form > input:hover {
   cursor: pointer;
+  color: rgb(255, 250, 250);
 }
 
 .calendar > form > button {
